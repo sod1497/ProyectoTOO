@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModeloDeDominio
 {
-    class VentaSinTarjeta : Venta
+    public class VentaSinTarjeta : Venta
     {
         public VentaSinTarjeta(string id, DateTime fecha, Dependiente dependiente) : base(id, fecha, dependiente)
         {

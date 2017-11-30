@@ -18,6 +18,14 @@ namespace ModeloDeDominio
             this.dependiente = dependiente;
         }
 
+        public string ID
+        {
+            get
+            {
+                return this.id;
+            }
+        }
+
         public List<LineaDeVenta> LineasDeVenta
         {
             get
@@ -31,6 +39,21 @@ namespace ModeloDeDominio
                 }
                 return aux;*/
             }
+        }
+
+        public bool anadirLineaVenta(LineaDeVenta l)
+        {
+            //Compruebo si ya contiene la línea. Si la contiene no añade nada
+            foreach(LineaDeVenta lv in this.lineasDeVenta)
+            {
+                if(lv.Articulo.Id.Equals(l.Articulo.Id))
+                {
+                    return true;
+                }
+            }
+            
+            this.lineasDeVenta.Add(l);
+            return true;
         }
 
         public string Id

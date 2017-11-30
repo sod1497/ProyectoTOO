@@ -4,14 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1
+namespace CapaDePersistencia
 {
-    
-    class BaseDeDatos //no es publico, es internal
+    class BaseDeDatos //no es publico, es internal. Solo queremos que sea accesible desde el propio proyecto
     {
         private static ColeccionDependientes dependientes;
         private static ColeccionDependientes ventas;
         private static ColeccionDependientes articulos;
+
+        /*
+         * Con esto podemos utilizar Dependientes, Ventas y Articulos como si 
+         * fuesen tablas o listas pero con más métodos que simplifican su uso
+         */
 
         public static ColeccionDependientes Dependientes
         {

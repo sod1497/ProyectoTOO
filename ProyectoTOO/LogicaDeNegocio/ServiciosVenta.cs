@@ -11,9 +11,13 @@ namespace LogicaDeNegocio
     public class ServiciosVenta
     {
 
-        bool anadirVenta(Venta v)
+        bool anadirVentaConTarjeta(VentaConTarjeta v)
         {
-            return Persistencia.anadirVenta(v);
+            return Persistencia.anadirVentaConTarjeta(v);
+        }
+        bool anadirVentaSinTarjeta(VentSionTarjeta v)
+        {
+            return Persistencia.anadirVentaSinTarjeta(v);
         }
         bool anadirLineaVenta(LineaDeVenta l, Venta v)
         {

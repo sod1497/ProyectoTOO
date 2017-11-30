@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModeloDeDominio
 {
-    class VentaConTarjeta : Venta
+    public class VentaConTarjeta : Venta
     {
         private string tarjeta;
 

@@ -11,15 +11,23 @@ namespace CapaDePersistencia
     {
         //Servicios para ventas
 
-        public static bool anadirVenta(Venta v)
+        public static bool anadirVentaConTarjeta(VentaConTarjeta v)
         {
-            throw new NotImplementedException();
+            /*
+             * Hago una copia antes de guardarlo, para que la clase que lo envió no pueda modificarlo
+             */
+
+            Venta aux = v.copiar();
+            BaseDeDatos.Ventas.Add(aux);
         }
 
+        /* UNA VEZ QUE UNA VENTA ESTÁ EN LA BD NO DEBERÍA PODER MODIFICARSE - yo esto no lo pondría
         public static bool anadirLineaVenta(LineaDeVenta l, Venta v)
         {
+            //para añadir una línea a una venta que ya está en la base de datos
             throw new NotImplementedException();
         }
+        */
 
         public static Venta getVenta(Venta v)
         {
