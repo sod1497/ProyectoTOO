@@ -1,4 +1,4 @@
-﻿namespace ModeloDominio
+﻿namespace ModeloDeDominio
 {
     public class Dependiente
     {

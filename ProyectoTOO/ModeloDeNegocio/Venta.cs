@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ModeloDominio
+namespace ModeloDeDominio
 {
     public abstract class Venta
     {

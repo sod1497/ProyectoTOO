@@ -43,5 +43,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiciosVenta.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDePersistencia\CapaDePersistencia.csproj">
+      <Project>{38ae36fe-eb42-43e3-b7cc-516a3e38c18b}</Project>
+      <Name>CapaDePersistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloDeNegocio\ModeloDeNegocio.csproj">
+      <Project>{9e4e4fd9-ac73-430a-b9e1-dff2227db020}</Project>
+      <Name>ModeloDeNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
