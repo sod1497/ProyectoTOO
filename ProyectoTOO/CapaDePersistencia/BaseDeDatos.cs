@@ -9,8 +9,8 @@ namespace CapaDePersistencia
     class BaseDeDatos //no es publico, es internal. Solo queremos que sea accesible desde el propio proyecto
     {
         private static ColeccionDependientes dependientes;
-        private static ColeccionDependientes ventas;
-        private static ColeccionDependientes articulos;
+        private static ColeccionVentas ventas;
+        private static ColeccionArticulos articulos;
 
         /*
          * Con esto podemos utilizar Dependientes, Ventas y Articulos como si 
@@ -29,25 +29,25 @@ namespace CapaDePersistencia
             }
         }
 
-        public static ColeccionDependientes Ventas
+        public static ColeccionVentas Ventas
         {
             get
             {
                 if (ventas == null)
                 {
-                    ventas = new ColeccionDependientes();
+                    ventas = new ColeccionVentas();
                 }
                 return ventas;
             }
         }
 
-        public static ColeccionDependientes Articulos
+        public static ColeccionArticulos Articulos
         {
             get
             {
                 if (articulos == null)
                 {
-                    articulos = new ColeccionDependientes();
+                    articulos = new ColeccionArticulos();
                 }
                 return articulos;
             }

@@ -9,9 +9,55 @@ namespace CapaDePersistencia
 {
     public class Persistencia
     {
+
+        //Servicios para dependientes
+
+        public static bool anadirDependiente(Dependiente d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool borrarDependiente(Dependiente d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool contieneDependiente(Dependiente d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool darDeBajaDependiente(Dependiente d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool darDeAltaDependiente(Dependiente d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Dependiente getDependiente(Dependiente d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static List<Dependiente> getDependientesTienda()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static List<Venta> getVentasDeDependiente(Dependiente d, DateTime fecha)
+        {
+            //podemos pasarle el día 1 de un mes y año y que solo se fije en estos dos últimos
+            //Por ejemplo le paso 1/enero/2017 y devuelve las ventas de enero/2017
+
+            throw new NotImplementedException();
+        }
+
         //Servicios para ventas
 
-        public static bool anadirVentaConTarjeta(VentaConTarjeta v)
+        public static bool anadirVenta(Venta v)
         {
             /*
              * Hago una copia antes de guardarlo, para que la clase que lo envió no pueda modificarlo
@@ -19,22 +65,52 @@ namespace CapaDePersistencia
 
             Venta aux = v.copiar();
             BaseDeDatos.Ventas.Add(aux);
+            return true;
         }
 
-        /* UNA VEZ QUE UNA VENTA ESTÁ EN LA BD NO DEBERÍA PODER MODIFICARSE - yo esto no lo pondría
-        public static bool anadirLineaVenta(LineaDeVenta l, Venta v)
+        public static bool borrarVenta(Venta v)
         {
-            //para añadir una línea a una venta que ya está en la base de datos
             throw new NotImplementedException();
         }
-        */
 
         public static Venta getVenta(Venta v)
         {
             throw new NotImplementedException();
         }
 
-        public static List<LineaDeVenta> getLineasVenta(Venta v)
+        public static List<Venta> getTodasVenta()
+        {
+            throw new NotImplementedException();
+        }
+
+        //Servicios para artículos
+
+        public static bool anadirArticulo(Articulo a)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool borrarArticulo(Articulo a)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool darDeBajaArticulo(Articulo a)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool darDeAltaArticulo(Articulo a)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Articulo getArticulo(Articulo a)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static List<Articulo> getTodosArticulo()
         {
             throw new NotImplementedException();
         }
@@ -43,15 +119,6 @@ namespace CapaDePersistencia
         {
             throw new NotImplementedException();
         }
-
-        //Servicios para dependientes
-
-
-
-        //Servicios para artículos
-
-
-
-
+        
     }
 }

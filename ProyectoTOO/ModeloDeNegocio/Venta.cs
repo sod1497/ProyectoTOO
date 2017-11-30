@@ -101,7 +101,7 @@ namespace ModeloDeDominio
             }
         }
 
-        
+        public abstract Venta copiar();
 
     }
 }
