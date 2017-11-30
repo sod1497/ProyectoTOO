@@ -11,34 +11,24 @@ namespace LogicaDeNegocio
     public class ServiciosVenta
     {
 
-        bool anadirVentaConTarjeta(VentaConTarjeta v)
+        bool anadirVenta(Venta v)
         {
-            return Persistencia.anadirVentaConTarjeta(v);
-        }
-        bool anadirVentaSinTarjeta(VentSionTarjeta v)
-        {
-            return Persistencia.anadirVentaSinTarjeta(v);
-        }
-        bool anadirLineaVenta(LineaDeVenta l, Venta v)
-        {
-            return Persistencia.anadirLineaVenta(l, v);
+            return Persistencia.anadirVenta(v);
         }
         Venta getVenta(Venta v)
         {
             return Persistencia.getVenta(v);
-        }
-        List<LineaDeVenta> getLineasVenta(Venta v)
-        {
-            return Persistencia.getLineasVenta(v);
         }
 
         List<Venta> getVentasDeArticulo(Articulo a)
         {
             return Persistencia.getVentasDeArticulo(a);
         }
+
         Dependiente getDependienteDeVenta(Venta v)
         {
             return v.Dependiente;
         }
+
     }
 }

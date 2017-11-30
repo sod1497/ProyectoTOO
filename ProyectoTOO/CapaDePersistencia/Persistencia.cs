@@ -10,6 +10,8 @@ namespace CapaDePersistencia
     public class Persistencia
     {
 
+        //Todo debe devolver copias. Las clases básicas tienen un método copiar()
+
         //Servicios para dependientes
 
         public static bool anadirDependiente(Dependiente d)
@@ -70,17 +72,45 @@ namespace CapaDePersistencia
 
         public static bool borrarVenta(Venta v)
         {
-            throw new NotImplementedException();
+            if(!BaseDeDatos.Ventas.Remove(v))   //Si es distinta referencia compruebo el ID
+            {
+                foreach(Venta venta in BaseDeDatos.Ventas)
+                {
+                    if (venta.ID.Equals(v.ID))
+                    {
+                        BaseDeDatos.Ventas.Remove(venta);
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public static Venta getVenta(Venta v)
         {
-            throw new NotImplementedException();
+            foreach (Venta venta in BaseDeDatos.Ventas)
+            {
+                if (venta.ID.Equals(v.ID))
+                {
+                    BaseDeDatos.Ventas.Remove(venta);
+                    return venta.copiar();
+                }
+            }
+            return null;
         }
 
         public static List<Venta> getTodasVenta()
         {
-            throw new NotImplementedException();
+            List<Venta> lista = new List<Venta>();
+            foreach (Venta venta in BaseDeDatos.Ventas)
+            {
+                lista.Add(venta.copiar()); 
+            }
+            return lista;
         }
 
         //Servicios para artículos
