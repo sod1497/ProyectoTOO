@@ -1,0 +1,2 @@
+C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTienda\CapaDePersistencia\obj\Debug\CapaDePersistencia.csproj.CoreCompileInputs.cache
+C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTiendaPruevas\CapaDePersistencia\obj\Debug\CapaDePersistencia.csproj.CoreCompileInputs.cache

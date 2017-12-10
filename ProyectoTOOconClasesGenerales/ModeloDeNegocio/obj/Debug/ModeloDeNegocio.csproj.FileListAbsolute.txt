@@ -1,0 +1,4 @@
+C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTienda\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csprojResolveAssemblyReference.cache
+C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTienda\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTiendaPruevas\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csprojResolveAssemblyReference.cache
+C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTiendaPruevas\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csproj.CoreCompileInputs.cache
