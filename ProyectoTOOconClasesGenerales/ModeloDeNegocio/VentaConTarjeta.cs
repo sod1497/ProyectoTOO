@@ -26,7 +26,7 @@ namespace ModeloDeDominio
             }
         }
 
-        public VentaConTarjeta copiar()
+        public override Venta copiar()
         {
             VentaConTarjeta v = new VentaConTarjeta(this.Id, this.Fecha, this.Dependiente.copiar(), this.Tarjeta);
             List<LineaDeVenta> lineas = this.LineasDeVenta;

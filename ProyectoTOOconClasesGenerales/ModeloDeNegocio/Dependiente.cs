@@ -80,7 +80,7 @@
             return new Dependiente(this.NSS, this.Nombre, this.Apellidos, this.ComisionPorVenta);
         }
 
-        public string clave
+        public string Clave
         {
             get
             {

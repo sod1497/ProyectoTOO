@@ -43,6 +43,12 @@ namespace ModeloDeDominio
             }
         }
 
+        /*
+         * La venta, una vez añadida a la base de datos, no tiene sentido que se modifiquen sus líneas pues suponemos que la venta
+         * ha finalizado para cuando se añada en la base de datos. Por eso en la capa de persistencia solo podemos añadir ventas
+         * ya completas y no podemos añadir lineas de venta a ventas que ya están en la base de datos.
+         */
+
         public bool anadirLineaVenta(LineaDeVenta l)
         {
             //Compruebo si ya contiene la línea. Si la contiene no añade nada
@@ -105,7 +111,7 @@ namespace ModeloDeDominio
 
         public abstract Venta copiar();
 
-        public string clave
+        public string Clave
         {
             get
             {

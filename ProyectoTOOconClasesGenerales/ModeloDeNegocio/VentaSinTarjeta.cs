@@ -14,7 +14,7 @@ namespace ModeloDeDominio
         }
         public VentaSinTarjeta() { }
 
-        public VentaSinTarjeta copiar()
+        public override Venta copiar()
         {
             VentaSinTarjeta v = new VentaSinTarjeta(this.Id,this.fecha,this.Dependiente.copiar());
             List<LineaDeVenta> lineas = this.LineasDeVenta;
@@ -24,5 +24,6 @@ namespace ModeloDeDominio
             }
             return v;
         }
+        
     }
 }

@@ -95,7 +95,7 @@ namespace ModeloDeDominio
 
 
 
-        public string clave
+        public string Clave
         {
             get
             {

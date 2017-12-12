@@ -1,6 +1,7 @@
 ﻿using ModeloDeDominio;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,17 @@ namespace CapaDePersistencia
 
         //Servicios para dependientes
 
-
+        /*
+         * Devuelve la colección de elementos extraida de la base de datos
+         * Depende del tipo devolverá una u otra colección
+         * Precondición: ninguna
+         * Postcondición: se devuelve la colección si el tipo coincide con alguno de los definidos, sino
+         *      devuelve null
+         */
         
         public static Coleccion<T> obtenerColeccion<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
-            Coleccion<T> aux;
+            Coleccion<T> aux = null;
 
             if (t is Dependiente)
             {
@@ -34,10 +41,15 @@ namespace CapaDePersistencia
                 aux = CapaDePersistencia.BaseDatos.get<Articulo>(new Articulo()) as Coleccion<T>;
             }
 
-            return null;
+            return aux;
         }
 
-
+        /*
+         * Añade un elemento a la colección correcta
+         * Obtiene la colección y comprueba si ya está en ella
+         * Precondición: ninguna
+         * Postcondición: devuelve true si se ha añadido con éxito y false en caso contrario
+         */
 
         public static bool anadir<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
@@ -49,18 +61,21 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
-            foreach (T tipo in aux)
+            if(!aux.Contains(t.Clave))
             {
-                if (tipo.clave.Equals(t.clave))
-                {
-                    aux.Add(t);
-                    return true;
-                }
+                aux.Add(t);
+                return true;
             }
 
             return false;
         }
 
+        /*
+         * Elimina un elemento de una colección
+         * Precondición: ninguna
+         * Postcondición: devuelve true si existía y se ha eliminado y false en cualquier otro caso
+         * 
+         */
 
         public static bool borrar<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
@@ -68,18 +83,20 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
-            foreach (T tipo in aux)
+            if(aux.Contains(t.Clave))
             {
-                if (tipo.clave.Equals(t.clave))
-                {
-                    aux.Remove(t);
-                    return true;
-                }
+                aux.Remove(t.Clave);
+                return true;
             }
 
             return false;
         }
 
+        /*
+         * Indica si un elemento está en la colección
+         * Precondición: ninguna
+         * Postcondición: devuelve true si coincide, y false en caso contrario
+         */
 
         public static bool existe<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
@@ -87,40 +104,41 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
-
-            foreach (T tipo in aux)
-            {
-                if (tipo.clave.Equals(t.clave))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return aux.Contains(t.Clave);
         }
+
+        /*
+         * Devuelve un elemento concreto identificado por su clave
+         * Precondición: el elemento está en la base de datos
+         * Postcondición: devuelve el elemento o exepción
+         * Lanza:
+         * -ArgumentNullException si t.Clave es null
+         * -NullPointerException si aux es null
+         * -KeyNotFoundException si no existe el objeto
+         */
 
         public static T get<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
             Coleccion<T> aux = obtenerColeccion<T>(t);
-            if (aux == null)
-                throw new Exception();
-
-
-            foreach (T tipo in aux)
-            {
-                if (tipo.clave.Equals(t.clave))
-                {
-                    return tipo;
-                }
-            }
-
-            throw new Exception("No existe");
+            return aux.item(t.Clave);
         }
+
+        /*
+         * Devuelve todos los elementos de una coleccion según el tipo pasado
+         * Precondición: nada
+         * Postcondición: devuelve la colección si los tipos coinciden, sino devuelve null;
+         */
 
         public static Coleccion<T> getTodos<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
             return obtenerColeccion<T>(t);
         }
+
+        /*
+         * Da de alta un objeto, es decir, lo pone como activo
+         * Precondición: ninguna
+         * Postcondición: devuelve true si se ha podido actualizar el valor
+         */
 
 
         public static bool darDeAlta<T>(T t) where T : ModeloDeDominio.TipoBasicoActivo
@@ -129,18 +147,35 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
+            try
+            {
+                aux.item(t.Clave).EstaActivo = true;
+                return true;
+            } catch(Exception)
+            {
+                return false;
+            }
 
+            /*  Para usar la KeyedCollection he añadido el otro método por si nos dice algo
             foreach (T tipo in aux)
             {
-                if (tipo.clave.Equals(t.clave))
+                if (tipo.Clave.Equals(t.Clave))
                 {
                     tipo.EstaActivo = true;
                     return true;
                 }
             }
+
             return false;
+
+            */
         }
 
+        /*
+         * Da de alta un objeto, es decir, lo pone como activo
+         * Precondición: ninguna
+         * Postcondición: devuelve true si se ha podido actualizar el valor
+         */
 
         public static bool darDeBaja<T>(T t) where T : ModeloDeDominio.TipoBasicoActivo
         {
@@ -148,16 +183,25 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
-
+            try
+            {
+                aux.item(t.Clave).EstaActivo = false;
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            /*
             foreach (T tipo in aux)
             {
-                if (tipo.clave.Equals(t.clave))
+                if (tipo.Clave.Equals(t.Clave))
                 {
                     tipo.EstaActivo = false;
                     return true;
                 }
             }
-            return false;
+            return false;*/
         }
 
 
@@ -173,7 +217,7 @@ namespace CapaDePersistencia
 
 
 
-
+        /*
 
         public static bool darDeBajaDependiente(Dependiente d)
         {
@@ -208,14 +252,18 @@ namespace CapaDePersistencia
             return false;
         }
 
-
+    */
 
 
         
 
 
 
-
+        /*
+         * Devuelve una Lista con las ventas de un mes/año concretos de un dependiente
+         * Precondicion: ninguna
+         * Postcondición: devuelve una lista con los valores que cumplan las condiciones. sino saldrá vacía
+         */
 
 
         public static List<Venta> getVentasDeDependiente(Dependiente d, DateTime fecha)
@@ -241,6 +289,7 @@ namespace CapaDePersistencia
             return aux;
         }
 
+        /*
 
         public static bool darDeBajaArticulo(Articulo a)
         {
@@ -268,6 +317,13 @@ namespace CapaDePersistencia
             return false;
         }
 
+    */
+
+    /*
+        * Devuelve una lista con las ventas de un artículo
+        * Precondición ninguna
+        * Postcondición: lista con los elementos que cumplen la condición
+        */
 
         public static List<Venta> getVentasDeArticulo(Articulo a)
         {
@@ -276,10 +332,9 @@ namespace CapaDePersistencia
             foreach (Venta venta in CapaDePersistencia.BaseDatos.get<Venta>(new VentaSinTarjeta()))
             {
 
-                //MIRAR!!!!!!!!!!!
+                //MIRAR!!!!!!!!!!! - En teoría funciona bien
                 //Se supone que el break sale del segundo for
-                //si no hace eso, entonces podemos estar añadiendo dos veces la misma venta
-                //ademas de estar recorriendo toda las lineas de venta innecesariamente. INEFICIENTE!!!
+                //si no hace eso, estará recorriendo toda las lineas de venta innecesariamente. INEFICIENTE!!!
 
                 foreach (LineaDeVenta linea in venta.LineasDeVenta)
                 {
