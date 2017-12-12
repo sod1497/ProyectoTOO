@@ -129,6 +129,8 @@ namespace CapaDePersistencia
          * Postcondición: devuelve la colección si los tipos coinciden, sino devuelve null;
          */
 
+            //  REVISAR - DEBE DEVOLVER UNA COPIA, NO EL ORIGINAL
+
         public static Coleccion<T> getTodos<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
             return obtenerColeccion<T>(t);

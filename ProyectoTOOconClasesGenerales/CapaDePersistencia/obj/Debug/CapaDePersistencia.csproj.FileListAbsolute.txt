@@ -1,2 +1,10 @@
 C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTienda\CapaDePersistencia\obj\Debug\CapaDePersistencia.csproj.CoreCompileInputs.cache
 C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTiendaPruevas\CapaDePersistencia\obj\Debug\CapaDePersistencia.csproj.CoreCompileInputs.cache
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\bin\Debug\CapaDePersistencia.dll
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\bin\Debug\CapaDePersistencia.pdb
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\bin\Debug\ProyectoToo.dll
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\bin\Debug\ProyectoToo.pdb
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.csprojResolveAssemblyReference.cache
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.csproj.CoreCompileInputs.cache
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.dll
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.pdb

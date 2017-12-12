@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiciosArticulos.cs" />
+    <Compile Include="ServiciosDependiente.cs" />
     <Compile Include="ServiciosVenta.cs" />
   </ItemGroup>
   <ItemGroup>
