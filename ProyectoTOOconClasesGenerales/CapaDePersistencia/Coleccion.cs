@@ -15,15 +15,25 @@ namespace CapaDePersistencia
             return item.Clave;
         }
 
-
         /*
-         * No sé por qué no puedo usarla sin redefinirla si hereda de KeyedCollection
-         * Lanza ArgumentNullException y KeyNotFoundException
+         * para facilitar el extraer elementos
          */
 
         public T item(String clave)
         {
-            return this.item(clave);
+            T t;
+            base.Dictionary.TryGetValue(clave,out t);
+            return t;
+        }
+
+        public Coleccion<TipoBasico> copiar()
+        {
+            Coleccion<TipoBasico> aux = new Coleccion<TipoBasico>();
+            foreach(TipoBasico i in this)
+            {
+                aux.Add(i.copiar());
+            }
+            return aux;
         }
     }
 }

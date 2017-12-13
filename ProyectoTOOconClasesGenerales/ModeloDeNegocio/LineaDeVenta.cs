@@ -43,9 +43,11 @@ namespace ModeloDeDominio
             }
         }
 
+        
+
         public LineaDeVenta copiar()
         {
-            return new LineaDeVenta(this.Articulo.copiar(), this.Cantidad);
+            return new LineaDeVenta((Articulo) this.Articulo.copiar(), this.Cantidad);
         }
 
     }

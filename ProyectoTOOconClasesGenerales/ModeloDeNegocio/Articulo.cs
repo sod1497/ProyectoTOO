@@ -54,12 +54,11 @@ namespace ModeloDeDominio
             }
         }
 
-        public Articulo copiar()
+
+        public TipoBasico copiar()
         {
             return new Articulo(this.Id, this.Descripcion, this.CosteFabrica, this.IVA);
         }
-
-       
 
         public double CosteFabrica
         {

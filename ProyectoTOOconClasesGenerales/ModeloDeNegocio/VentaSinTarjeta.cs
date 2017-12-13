@@ -14,9 +14,9 @@ namespace ModeloDeDominio
         }
         public VentaSinTarjeta() { }
 
-        public override Venta copiar()
+        public override TipoBasico copiar()
         {
-            VentaSinTarjeta v = new VentaSinTarjeta(this.Id,this.fecha,this.Dependiente.copiar());
+            VentaSinTarjeta v = new VentaSinTarjeta(this.Id,this.fecha,(Dependiente) this.Dependiente.copiar());
             List<LineaDeVenta> lineas = this.LineasDeVenta;
             foreach (LineaDeVenta l in lineas)
             {

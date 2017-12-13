@@ -16,8 +16,13 @@ namespace ModeloDeDominio
             this.id = id;
             this.fecha = fecha;
             this.dependiente = dependiente;
+            this.lineasDeVenta = new List<LineaDeVenta>();
         }
-        public Venta(){ }
+
+        public Venta()
+        {
+            this.lineasDeVenta = new List<LineaDeVenta>();
+        }
 
 
         public string ID
@@ -64,6 +69,8 @@ namespace ModeloDeDominio
             return true;
         }
 
+        public abstract TipoBasico copiar();
+
         public string Id
         {
             get
@@ -108,8 +115,7 @@ namespace ModeloDeDominio
                 return imp;
             }
         }
-
-        public abstract Venta copiar();
+        
 
         public string Clave
         {

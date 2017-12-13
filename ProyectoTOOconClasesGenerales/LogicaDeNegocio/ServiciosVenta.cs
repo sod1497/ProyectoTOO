@@ -13,11 +13,11 @@ namespace LogicaDeNegocio
 
         bool anadirVenta(Venta v)
         {
-            return Persistencia.anadirVenta(v);
+            return Persistencia.anadir(v);
         }
         Venta getVenta(Venta v)
         {
-            return Persistencia.getVenta(v);
+            return Persistencia.get(v);
         }
 
         List<Venta> getVentasDeArticulo(Articulo a)

@@ -11,6 +11,7 @@ namespace CapaDePersistencia
     public class Persistencia
     {
         public static object BaseDeDatos { get; private set; }
+        
 
         //Todo debe devolver copias. Las clases básicas tienen un método copiar()
 
@@ -111,16 +112,12 @@ namespace CapaDePersistencia
          * Devuelve un elemento concreto identificado por su clave
          * Precondición: el elemento está en la base de datos
          * Postcondición: devuelve el elemento o exepción
-         * Lanza:
-         * -ArgumentNullException si t.Clave es null
-         * -NullPointerException si aux es null
-         * -KeyNotFoundException si no existe el objeto
          */
 
         public static T get<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
             Coleccion<T> aux = obtenerColeccion<T>(t);
-            return aux.item(t.Clave);
+            return (T) aux.item(t.Clave).copiar();
         }
 
         /*
@@ -133,6 +130,13 @@ namespace CapaDePersistencia
 
         public static Coleccion<T> getTodos<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
+            Coleccion<T> aux = new Coleccion<T>();
+            Coleccion<T> original = obtenerColeccion<T>(t);
+            foreach (T i in original)
+            {
+                aux.Add((T) i.copiar());
+            }
+
             return obtenerColeccion<T>(t);
         }
 
@@ -149,14 +153,8 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
-            try
-            {
-                aux.item(t.Clave).EstaActivo = true;
-                return true;
-            } catch(Exception)
-            {
-                return false;
-            }
+            aux.item(t.Clave).EstaActivo = true;
+            return true;
 
             /*  Para usar la KeyedCollection he añadido el otro método por si nos dice algo
             foreach (T tipo in aux)
@@ -185,15 +183,9 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
-            try
-            {
-                aux.item(t.Clave).EstaActivo = false;
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            aux.item(t.Clave).EstaActivo = false;
+            return true;
+
             /*
             foreach (T tipo in aux)
             {

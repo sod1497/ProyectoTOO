@@ -75,7 +75,7 @@
             }
         }
 
-        public Dependiente copiar()
+        public TipoBasico copiar()
         {
             return new Dependiente(this.NSS, this.Nombre, this.Apellidos, this.ComisionPorVenta);
         }
