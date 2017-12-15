@@ -15,10 +15,11 @@
             this.nombre = nombre;
             this.apellidos = apellidos;
             this.comisionPorVenta = comision;
-            this.estaActivo = true;
+           // this.estaActivo = true;
         }
         public Dependiente(){ }
 
+/*
         public bool EstaActivo
         {
             get
@@ -30,6 +31,7 @@
                 this.estaActivo = value;
             }
         }
+*/
 
         public string NSS
         {
