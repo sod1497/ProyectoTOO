@@ -9,7 +9,7 @@ namespace ModeloDeDominio
         private string descripcion;
         private double costeFabrica;
         private int iva;
-        private bool estaActivo;
+        //private bool estaActivo;
 
         public Articulo(string id, string descripcion, double costeFabrica, int iva)
         {
@@ -17,11 +17,11 @@ namespace ModeloDeDominio
             this.descripcion = descripcion;
             this.costeFabrica = costeFabrica;
             this.iva = iva;
-            this.estaActivo = true;
+            //this.estaActivo = true;
         }
         public Articulo() { }
         
-
+/*
         public bool EstaActivo
         {
             get
@@ -33,7 +33,7 @@ namespace ModeloDeDominio
                 this.estaActivo = value;
             }
         }
-
+*/
         public string Id
         {
             get
