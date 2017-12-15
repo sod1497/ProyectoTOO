@@ -45,7 +45,6 @@
     <Compile Include="LineaDeVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoBasico.cs" />
-    <Compile Include="TipoBasicoActivo.cs" />
     <Compile Include="Venta.cs" />
     <Compile Include="VentaConTarjeta.cs" />
     <Compile Include="VentaSinTarjeta.cs" />

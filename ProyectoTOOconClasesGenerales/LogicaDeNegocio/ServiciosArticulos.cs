@@ -12,14 +12,30 @@ namespace Servicios
     {
         public bool anadirArticulo(Articulo a)
         {
-            return Persistencia.anadir(a);
+            if (!Persistencia.existe(a))
+            {
+                return Persistencia.anadir(a);
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool borrarArticulo(Articulo a)
         {
-            return Persistencia.borrar(a);
+            if (Persistencia.existe(a))
+            {
+                return Persistencia.borrar(a);
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
+/*
         public bool darDeAltaArticulo(Articulo a)
         {
            // if (Persistencia.contieneArticulo(d))
@@ -36,7 +52,7 @@ namespace Servicios
             else
             {
                 return false;
-            } HACER CONTIENEARTICULO EN PERSISTENCIA? */
+            } HACER CONTIENEARTICULO EN PERSISTENCIA? /
         }
 
         public bool darDeBajaArticulo(Articulo a)
@@ -55,14 +71,24 @@ namespace Servicios
             else
             {
                 return false;
-            } HACER CONTIENEARTICULO EN PERSISTENCIA? */
-        }
-        public Articulo getArticulo(Articulo a)
-        {
-            return Persistencia.get(a);
+            } HACER CONTIENEARTICULO EN PERSISTENCIA? /
         }
 
-        public Coleccion<Articulo> getTodosArticulos()
+ */
+        public Articulo getArticulo(Articulo a)
+        {
+            if (Persistencia.existe(a))
+            {
+                return Persistencia.get(a);
+            }
+            else
+            {
+                return null;
+            }
+           
+        }
+
+        public List<Articulo> getTodosArticulos()
         {
             return Persistencia.getTodos(new Articulo());
         }

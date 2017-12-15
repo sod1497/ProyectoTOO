@@ -128,126 +128,17 @@ namespace CapaDePersistencia
 
             //  REVISAR - DEBE DEVOLVER UNA COPIA, NO EL ORIGINAL
 
-        public static Coleccion<T> getTodos<T>(T t) where T : ModeloDeDominio.TipoBasico
+        public static List<T> getTodos<T>(T t) where T : ModeloDeDominio.TipoBasico
         {
-            Coleccion<T> aux = new Coleccion<T>();
+            List<T> aux = new List<T>();
             Coleccion<T> original = obtenerColeccion<T>(t);
             foreach (T i in original)
             {
                 aux.Add((T) i.copiar());
             }
 
-            return obtenerColeccion<T>(t);
+            return aux;
         }
-
-        /*
-         * Da de alta un objeto, es decir, lo pone como activo
-         * Precondición: ninguna
-         * Postcondición: devuelve true si se ha podido actualizar el valor
-         */
-
-        /*
-        public static bool darDeAlta<T>(T t) where T : ModeloDeDominio.TipoBasicoActivo
-        {
-            Coleccion<T> aux = obtenerColeccion<T>(t);
-            if (aux == null)
-                return false;
-
-            aux.item(t.Clave).EstaActivo = true;
-            return true;
-
-            /*  Para usar la KeyedCollection he añadido el otro método por si nos dice algo
-            foreach (T tipo in aux)
-            {
-                if (tipo.Clave.Equals(t.Clave))
-                {
-                    tipo.EstaActivo = true;
-                    return true;
-                }
-            }
-
-            return false;
-
-            */
-        }
-        */
-        /*
-         * Da de alta un objeto, es decir, lo pone como activo
-         * Precondición: ninguna
-         * Postcondición: devuelve true si se ha podido actualizar el valor
-         */
-        /*
-        public static bool darDeBaja<T>(T t) where T : ModeloDeDominio.TipoBasicoActivo
-        {
-            Coleccion<T> aux = obtenerColeccion<T>(t);
-            if (aux == null)
-                return false;
-
-            aux.item(t.Clave).EstaActivo = false;
-            return true;
-
-            /*
-            foreach (T tipo in aux)
-            {
-                if (tipo.Clave.Equals(t.Clave))
-                {
-                    tipo.EstaActivo = false;
-                    return true;
-                }
-            }
-            return false;*/
-        }
-        */
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-
-        public static bool darDeBajaDependiente(Dependiente d)
-        {
-            //no se preocupa de si el dependiente esta de alta o de baja, simplemente devuelve true si lo encuentra y lo da de baja
-            //false en caso contrario
-
-            foreach (Dependiente dependiente in CapaDePersistencia.BaseDatos.get<Dependiente>(new Dependiente()))
-            {
-                if (dependiente.NSS.Equals(d.NSS))
-                {
-                    dependiente.EstaActivo = false;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static bool darDeAltaDependiente(Dependiente d)
-        {
-
-            //no se preocupa de si el dependiente esta de alta o de baja, simplemente devuelve true si lo encuentra y lo da de alta
-            //false en caso contrario
-
-            foreach (Dependiente dependiente in CapaDePersistencia.BaseDatos.get<Dependiente>(new Dependiente()))
-            {
-                if (dependiente.NSS.Equals(d.NSS))
-                {
-                    dependiente.EstaActivo = true;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-    */
-
 
         
 
@@ -283,35 +174,6 @@ namespace CapaDePersistencia
             return aux;
         }
 
-        /*
-
-        public static bool darDeBajaArticulo(Articulo a)
-        {
-            foreach (Articulo articulo in CapaDePersistencia.BaseDatos.get<Articulo>(new Articulo()))
-            {
-                if (articulo.Id.Equals(a.Id))
-                {
-                    articulo.EstaActivo = false;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static bool darDeAltaArticulo(Articulo a)
-        {
-            foreach (Articulo articulo in CapaDePersistencia.BaseDatos.get<Articulo>(new Articulo()))
-            {
-                if (articulo.Id.Equals(a.Id))
-                {
-                    articulo.EstaActivo = true;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-    */
 
     /*
         * Devuelve una lista con las ventas de un artículo

@@ -1,13 +1,13 @@
 ﻿namespace ModeloDeDominio
 {
-    public class Dependiente : TipoBasicoActivo
+    public class Dependiente : TipoBasico
     {
 
         private string nss;
         private string nombre;
         private string apellidos;
         private float comisionPorVenta;
-        private bool estaActivo;
+        //private bool estaActivo;
 
         public Dependiente(string nss, string nombre, string apellidos, float comision)
         {

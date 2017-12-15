@@ -2,7 +2,7 @@
 
 namespace ModeloDeDominio
 {
-    public class Articulo : TipoBasicoActivo
+    public class Articulo : TipoBasico
     {
 
         private string id;

@@ -8,3 +8,8 @@ D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerale
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csproj.CoreCompileInputs.cache
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.dll
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.pdb
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\ModeloDeNegocio\bin\Debug\ProyectoToo.dll
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\ModeloDeNegocio\bin\Debug\ProyectoToo.pdb
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csprojResolveAssemblyReference.cache
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.dll
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.pdb

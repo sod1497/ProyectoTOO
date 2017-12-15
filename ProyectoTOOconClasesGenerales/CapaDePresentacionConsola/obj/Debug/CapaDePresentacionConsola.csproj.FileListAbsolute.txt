@@ -9,3 +9,13 @@ D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerale
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\obj\Debug\CapaDePresentacionConsola.csproj.CoreCompileInputs.cache
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\obj\Debug\CapaDePresentacionConsola.exe
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\obj\Debug\CapaDePresentacionConsola.pdb
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\CapaDePresentacionConsola.exe.config
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\CapaDePresentacionConsola.exe
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\CapaDePresentacionConsola.pdb
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\CapaDePersistencia.dll
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\ProyectoToo.dll
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\CapaDePersistencia.pdb
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\ProyectoToo.pdb
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\obj\Debug\CapaDePresentacionConsola.csprojResolveAssemblyReference.cache
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\obj\Debug\CapaDePresentacionConsola.exe
+C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\obj\Debug\CapaDePresentacionConsola.pdb
