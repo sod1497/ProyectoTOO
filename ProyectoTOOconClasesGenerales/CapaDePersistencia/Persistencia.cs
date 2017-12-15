@@ -62,13 +62,13 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
-            if(!aux.Contains(t.Clave))
+            else
             {
                 aux.Add(t);
                 return true;
             }
-
-            return false;
+            
+            //borro las comprobaciones porque segun Vico es problema de la logica de negocio comprobar que existe
         }
 
         /*
@@ -84,13 +84,13 @@ namespace CapaDePersistencia
             if (aux == null)
                 return false;
 
-            if(aux.Contains(t.Clave))
+            else
             {
                 aux.Remove(t.Clave);
                 return true;
             }
-
-            return false;
+            
+            //borro las comprobaciones porque segun Vico es problema de la logica de negocio comprobar que existe
         }
 
         /*
@@ -146,7 +146,7 @@ namespace CapaDePersistencia
          * Postcondición: devuelve true si se ha podido actualizar el valor
          */
 
-
+        /*
         public static bool darDeAlta<T>(T t) where T : ModeloDeDominio.TipoBasicoActivo
         {
             Coleccion<T> aux = obtenerColeccion<T>(t);
@@ -170,13 +170,13 @@ namespace CapaDePersistencia
 
             */
         }
-
+        */
         /*
          * Da de alta un objeto, es decir, lo pone como activo
          * Precondición: ninguna
          * Postcondición: devuelve true si se ha podido actualizar el valor
          */
-
+        /*
         public static bool darDeBaja<T>(T t) where T : ModeloDeDominio.TipoBasicoActivo
         {
             Coleccion<T> aux = obtenerColeccion<T>(t);
@@ -197,7 +197,7 @@ namespace CapaDePersistencia
             }
             return false;*/
         }
-
+        */
 
 
 
