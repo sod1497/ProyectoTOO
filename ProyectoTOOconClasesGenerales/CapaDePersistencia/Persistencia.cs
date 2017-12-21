@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CapaDePersistencia
 {
-    public class Persistencia
+    public class Persistencia<T> where T : TipoBasico
     {
-        public static object BaseDeDatos { get; private set; }
+        
         
 
         //Todo debe devolver copias. Las clases básicas tienen un método copiar()
@@ -25,22 +25,11 @@ namespace CapaDePersistencia
          *      devuelve null
          */
         
-        public static Coleccion<T> obtenerColeccion<T>(T t) where T : ModeloDeDominio.TipoBasico
+        public static Coleccion<T> obtenerColeccion()
         {
             Coleccion<T> aux = null;
 
-            if (t is Dependiente)
-            {
-                aux = CapaDePersistencia.BaseDatos.get<Dependiente>(new Dependiente()) as Coleccion<T>;
-            }
-            else if (t is Venta)
-            {
-                aux = CapaDePersistencia.BaseDatos.get<Venta>(new VentaSinTarjeta()) as Coleccion<T>;
-            }
-            else if (t is Articulo)
-            {
-                aux = CapaDePersistencia.BaseDatos.get<Articulo>(new Articulo()) as Coleccion<T>;
-            }
+            aux = Singleton<T>.getColeccion() as Coleccion<T>;
 
             return aux;
         }
@@ -52,20 +41,26 @@ namespace CapaDePersistencia
          * Postcondición: devuelve true si se ha añadido con éxito y false en caso contrario
          */
 
-        public static bool anadir<T>(T t) where T : ModeloDeDominio.TipoBasico
+        public static bool anadir(T t)
         {
             //recorre la lista
             //si el t no esta en la lista lo añade y devuelve true
             //si está en la lista, devuelve false.
 
-            Coleccion<T> aux = obtenerColeccion<T>(t);
+            Coleccion<T> aux = Persistencia<T>.obtenerColeccion();
             if (aux == null)
                 return false;
 
             else
             {
-                aux.Add(t);
-                return true;
+                try
+                {
+                    aux.Add(t);
+                    return true;
+                }catch(ArgumentException)
+                {
+                    return false;
+                }
             }
             
             //borro las comprobaciones porque segun Vico es problema de la logica de negocio comprobar que existe
@@ -78,9 +73,9 @@ namespace CapaDePersistencia
          * 
          */
 
-        public static bool borrar<T>(T t) where T : ModeloDeDominio.TipoBasico
+        public static bool borrar(T t)
         {
-            Coleccion<T> aux = obtenerColeccion<T>(t);
+            Coleccion<T> aux = Persistencia<T>.obtenerColeccion();
             if (aux == null)
                 return false;
 
@@ -99,9 +94,9 @@ namespace CapaDePersistencia
          * Postcondición: devuelve true si coincide, y false en caso contrario
          */
 
-        public static bool existe<T>(T t) where T : ModeloDeDominio.TipoBasico
+        public static bool existe(T t)
         {
-            Coleccion<T> aux = obtenerColeccion<T>(t);
+            Coleccion<T> aux = Persistencia<T>.obtenerColeccion();
             if (aux == null)
                 return false;
 
@@ -114,9 +109,9 @@ namespace CapaDePersistencia
          * Postcondición: devuelve el elemento o exepción
          */
 
-        public static T get<T>(T t) where T : ModeloDeDominio.TipoBasico
+        public static T get(T t)
         {
-            Coleccion<T> aux = obtenerColeccion<T>(t);
+            Coleccion<T> aux = Persistencia<T>.obtenerColeccion();
             return (T) aux.item(t.Clave).copiar();
         }
 
@@ -128,10 +123,10 @@ namespace CapaDePersistencia
 
             //  REVISAR - DEBE DEVOLVER UNA COPIA, NO EL ORIGINAL
 
-        public static List<T> getTodos<T>(T t) where T : ModeloDeDominio.TipoBasico
+        public static List<T> getTodos(T t)
         {
             List<T> aux = new List<T>();
-            Coleccion<T> original = obtenerColeccion<T>(t);
+            Coleccion<T> original = Persistencia<T>.obtenerColeccion();
             foreach (T i in original)
             {
                 aux.Add((T) i.copiar());
@@ -156,9 +151,15 @@ namespace CapaDePersistencia
             //podemos pasarle el día 1 de un mes y año y que solo se fije en estos dos últimos
             //Por ejemplo le paso 1/enero/2017 y devuelve las ventas de enero/2017
 
+            //Podría separar en varias clases de persistencia, pero así no cambia la interfaz y el código ya hecho 
+            //no se ve afectado
+
+            Persistencia<Venta> persistenciaVenta = new Persistencia<Venta>();
+            Persistencia<Dependiente> persistenciaDependiente = new Persistencia<Dependiente>();
+
             List<Venta> aux = new List<Venta>();
 
-            foreach (Venta venta in CapaDePersistencia.BaseDatos.get<Venta>(new VentaSinTarjeta()))
+            foreach (Venta venta in Singleton<Venta>.getColeccion())
             {
                 if (venta.Dependiente.NSS.Equals(d.NSS))
                 {
@@ -185,7 +186,7 @@ namespace CapaDePersistencia
         {
             List<Venta> aux = new List<Venta>();
 
-            foreach (Venta venta in CapaDePersistencia.BaseDatos.get<Venta>(new VentaSinTarjeta()))
+            foreach (Venta venta in Singleton<Venta>.getColeccion())
             {
 
                 //MIRAR!!!!!!!!!!! - En teoría funciona bien

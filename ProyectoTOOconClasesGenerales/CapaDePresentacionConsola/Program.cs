@@ -56,7 +56,7 @@ namespace CapaDePresentacionConsola
             Console.WriteLine("-Apellidos");
             String c = Console.ReadLine();
 
-            Console.WriteLine(Persistencia.anadir<Dependiente>(new Dependiente(a, b, c, 0)) ? "Hecho" : "Error");
+            Console.WriteLine(Persistencia<Dependiente>.anadir(new Dependiente(a, b, c, 0)) ? "Hecho" : "Error");
         }
 
         public static void mostrarDepend()
@@ -70,7 +70,7 @@ namespace CapaDePresentacionConsola
 
         public static Dependiente getDepend(String a)
         {
-            return Persistencia.get<Dependiente>(new Dependiente(a, "", "", 0));
+            return Persistencia<Dependiente>.get(new Dependiente(a, "", "", 0));
         }
 
         public static void addArt()
@@ -79,12 +79,12 @@ namespace CapaDePresentacionConsola
             Console.WriteLine("-Descripcion");
             String b = Console.ReadLine();
 
-            Console.WriteLine(Persistencia.anadir<Articulo>(new Articulo(++idArticulo+"",b,10,21)) ? "Añadido con id "+idArticulo : "Error");
+            Console.WriteLine(Persistencia<Articulo>.anadir(new Articulo(++idArticulo+"",b,10,21)) ? "Añadido con id "+idArticulo : "Error");
         }
 
         public static Articulo getArt(String e)
         {
-            return Persistencia.get<Articulo>(new Articulo(e,"",0,0));
+            return Persistencia<Articulo>.get(new Articulo(e,"",0,0));
         }
 
         public static void mostrarArt()
@@ -104,7 +104,7 @@ namespace CapaDePresentacionConsola
             Dependiente d = getDepend(e);
 
 
-            Console.WriteLine(Persistencia.anadir<Venta>(new VentaSinTarjeta(++idVenta+"",DateTime.Now,d)) ? "Hecho con id "+idVenta : "Error");
+            Console.WriteLine(Persistencia<Venta>.anadir(new VentaSinTarjeta(++idVenta+"",DateTime.Now,d)) ? "Hecho con id "+idVenta : "Error");
         }
 
         public static List<LineaDeVenta> addLineas()

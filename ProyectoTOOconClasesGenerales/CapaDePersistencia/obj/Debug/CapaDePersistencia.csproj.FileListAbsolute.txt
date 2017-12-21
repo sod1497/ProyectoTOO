@@ -15,3 +15,10 @@ C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\Capa
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.csprojResolveAssemblyReference.cache
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.dll
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.pdb
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\bin\Debug\CapaDePersistencia.dll
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\bin\Debug\CapaDePersistencia.pdb
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\bin\Debug\ProyectoToo.dll
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\bin\Debug\ProyectoToo.pdb
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.csprojResolveAssemblyReference.cache
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.dll
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePersistencia\obj\Debug\CapaDePersistencia.pdb
