@@ -6,3 +6,11 @@ C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\Capa
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.csproj.GenerateResource.Cache
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.exe
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.pdb
+C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\bin\Debug\CapaDePresentacion.exe.config
+C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\bin\Debug\CapaDePresentacion.exe
+C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\bin\Debug\CapaDePresentacion.pdb
+C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.csprojResolveAssemblyReference.cache
+C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.Properties.Resources.resources
+C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.csproj.GenerateResource.Cache
+C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.exe
+C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.pdb
