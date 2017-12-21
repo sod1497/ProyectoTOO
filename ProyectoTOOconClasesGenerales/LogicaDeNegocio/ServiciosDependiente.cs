@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Servicios
+namespace LogicaDeNegocio
 {
     public class ServiciosDependiente
     {
@@ -93,6 +93,12 @@ namespace Servicios
                 return null;
             }
             
+        }
+
+        //devuelve un bool indicando si existe el dependiente
+        public bool existeDependiente(Dependiente d)
+        {
+            return Persistencia<Dependiente>.existe(d);
         }
 
         //si no existe el nombre introducido, devuelve null

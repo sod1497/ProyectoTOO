@@ -53,6 +53,10 @@
       <Project>{38AE36FE-EB42-43E3-B7CC-516A3E38C18B}</Project>
       <Name>CapaDePersistencia</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LogicaDeNegocio\LogicaDeNegocio.csproj">
+      <Project>{CF8495FD-0D43-4922-AA4D-60120A6E5B82}</Project>
+      <Name>LogicaDeNegocio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ModeloDeNegocio\ModeloDeNegocio.csproj">
       <Project>{9E4E4FD9-AC73-430A-B9E1-DFF2227DB020}</Project>
       <Name>ModeloDeNegocio</Name>

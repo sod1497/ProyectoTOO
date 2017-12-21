@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using ModeloDeDominio;
 using CapaDePersistencia;
 
-namespace Servicios
+namespace LogicaDeNegocio
 {
-    class ServiciosArticulos
+    public class ServiciosArticulos
     {
         public bool anadirArticulo(Articulo a)
         {
@@ -91,6 +91,11 @@ namespace Servicios
         public List<Articulo> getTodosArticulos()
         {
             return Persistencia<Articulo>.getTodos(new Articulo());
+        }
+
+        public bool existeArticulo(Articulo v)
+        {
+            return Persistencia<Articulo>.existe(v);
         }
     }
 }

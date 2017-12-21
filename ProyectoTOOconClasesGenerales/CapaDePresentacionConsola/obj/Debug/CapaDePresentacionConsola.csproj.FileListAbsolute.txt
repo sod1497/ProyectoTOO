@@ -29,3 +29,5 @@ C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\Capa
 C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\ProyectoToo.dll
 C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\CapaDePersistencia.pdb
 C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\ProyectoToo.pdb
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\LogicaDeNegocio.dll
+C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\LogicaDeNegocio.pdb

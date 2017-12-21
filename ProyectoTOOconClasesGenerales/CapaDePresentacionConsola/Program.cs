@@ -1,11 +1,9 @@
 ﻿using CapaDePersistencia;
+using LogicaDeNegocio;
 using ModeloDeDominio;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CapaDePresentacionConsola
 {
@@ -78,13 +76,14 @@ namespace CapaDePresentacionConsola
             Console.WriteLine("Añadir articulo");
             Console.WriteLine("-Descripcion");
             String b = Console.ReadLine();
+            
 
-            Console.WriteLine(Persistencia<Articulo>.anadir(new Articulo(++idArticulo+"",b,10,21)) ? "Añadido con id "+idArticulo : "Error");
+            Console.WriteLine(new ServiciosArticulos().anadirArticulo(new Articulo(++idArticulo+"",b,10,21)) ? "Añadido con id "+idArticulo : "Error");
         }
 
         public static Articulo getArt(String e)
         {
-            return Persistencia<Articulo>.get(new Articulo(e,"",0,0));
+            return new ServiciosArticulos().getArticulo(new Articulo(e,"",0,0));
         }
 
         public static void mostrarArt()
@@ -104,7 +103,7 @@ namespace CapaDePresentacionConsola
             Dependiente d = getDepend(e);
 
 
-            Console.WriteLine(Persistencia<Venta>.anadir(new VentaSinTarjeta(++idVenta+"",DateTime.Now,d)) ? "Hecho con id "+idVenta : "Error");
+            Console.WriteLine(new ServiciosVenta().anadirVenta(new VentaSinTarjeta(++idVenta+"",DateTime.Now,d)) ? "Hecho con id "+idVenta : "Error");
         }
 
         public static List<LineaDeVenta> addLineas()

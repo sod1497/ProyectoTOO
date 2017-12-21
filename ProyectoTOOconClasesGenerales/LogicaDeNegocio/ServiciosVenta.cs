@@ -11,7 +11,7 @@ namespace LogicaDeNegocio
     public class ServiciosVenta
     {
 
-        bool anadirVenta(Venta v)
+        public bool anadirVenta(Venta v)
         {
             if (Persistencia<Venta>.existe(v))
             {
@@ -20,7 +20,7 @@ namespace LogicaDeNegocio
             return false;
             
         }
-        Venta getVenta(Venta v)
+        public Venta getVenta(Venta v)
         {
             if (Persistencia<Venta>.existe(v))
             {
@@ -29,7 +29,7 @@ namespace LogicaDeNegocio
             return null;
         }
 
-        List<Venta> getVentasDeArticulo(Articulo a)
+        public List<Venta> getVentasDeArticulo(Articulo a)
         {
             if(Persistencia<Articulo>.existe(a))
             {
@@ -38,7 +38,7 @@ namespace LogicaDeNegocio
             return null;
         }
 
-        Dependiente getDependienteDeVenta(Venta v)
+        public Dependiente getDependienteDeVenta(Venta v)
         {
             if (Persistencia<Venta>.existe(v))
             {
@@ -46,6 +46,25 @@ namespace LogicaDeNegocio
             }
             return null;
             
+        }
+
+        //devuelve true si borra la venta correctamente
+        //y false si no encuentra la venta o no la borra correctamente
+        public bool borrarVenta(Venta v)
+        {
+            if (Persistencia<Venta>.existe(v))
+            {
+                return Persistencia<Venta>.borrar(v);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool existeVenta(Venta v)
+        {
+            return Persistencia<Venta>.existe(v);
         }
 
     }
