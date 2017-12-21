@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FIntroducir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FIntroducir.Designer.cs">
+      <DependentUpon>FIntroducir.cs</DependentUpon>
     </Compile>
     <Compile Include="formArticulo.cs">
       <SubType>Form</SubType>
@@ -62,6 +62,12 @@
     </Compile>
     <Compile Include="formDependiente.Designer.cs">
       <DependentUpon>formDependiente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPrincipal.Designer.cs">
+      <DependentUpon>FPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +92,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogicaDeNegocio\LogicaDeNegocio.csproj">
+      <Project>{cf8495fd-0d43-4922-aa4d-60120a6e5b82}</Project>
+      <Name>LogicaDeNegocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloDeNegocio\ModeloDeNegocio.csproj">
+      <Project>{9e4e4fd9-ac73-430a-b9e1-dff2227db020}</Project>
+      <Name>ModeloDeNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
