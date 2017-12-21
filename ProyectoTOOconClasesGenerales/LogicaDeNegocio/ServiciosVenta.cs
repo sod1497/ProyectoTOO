@@ -13,34 +13,34 @@ namespace LogicaDeNegocio
 
         bool anadirVenta(Venta v)
         {
-            if (Persistencia.existe(v))
+            if (Persistencia<Venta>.existe(v))
             {
-                return Persistencia.anadir(v);
+                return Persistencia<Venta>.anadir(v);
             }
             return false;
             
         }
         Venta getVenta(Venta v)
         {
-            if (Persistencia.existe(v))
+            if (Persistencia<Venta>.existe(v))
             {
-                return Persistencia.get(v);
+                return Persistencia<Venta>.get(v);
             }
             return null;
         }
 
         List<Venta> getVentasDeArticulo(Articulo a)
         {
-            if(Persistencia.existe(a))
+            if(Persistencia<Articulo>.existe(a))
             {
-                return Persistencia.getVentasDeArticulo(a);
+                return Persistencia<Venta>.getVentasDeArticulo(a);
             }
             return null;
         }
 
         Dependiente getDependienteDeVenta(Venta v)
         {
-            if (Persistencia.existe(v))
+            if (Persistencia<Venta>.existe(v))
             {
                 return v.Dependiente;
             }

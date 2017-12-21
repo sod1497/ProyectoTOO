@@ -12,9 +12,9 @@ namespace Servicios
     {
         public bool anadirArticulo(Articulo a)
         {
-            if (!Persistencia.existe(a))
+            if (!Persistencia<Articulo>.existe(a))
             {
-                return Persistencia.anadir(a);
+                return Persistencia<Articulo>.anadir(a);
             }
             else
             {
@@ -24,9 +24,9 @@ namespace Servicios
 
         public bool borrarArticulo(Articulo a)
         {
-            if (Persistencia.existe(a))
+            if (Persistencia<Articulo>.existe(a))
             {
-                return Persistencia.borrar(a);
+                return Persistencia<Articulo>.borrar(a);
             }
             else
             {
@@ -77,9 +77,9 @@ namespace Servicios
  */
         public Articulo getArticulo(Articulo a)
         {
-            if (Persistencia.existe(a))
+            if (Persistencia<Articulo>.existe(a))
             {
-                return Persistencia.get(a);
+                return Persistencia<Articulo>.get(a);
             }
             else
             {
@@ -90,7 +90,7 @@ namespace Servicios
 
         public List<Articulo> getTodosArticulos()
         {
-            return Persistencia.getTodos(new Articulo());
+            return Persistencia<Articulo>.getTodos(new Articulo());
         }
     }
 }

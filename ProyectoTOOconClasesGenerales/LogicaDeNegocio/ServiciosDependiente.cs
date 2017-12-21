@@ -14,9 +14,9 @@ namespace Servicios
         //y false si el dependiente ya existe o ha habido un error al añadirlo
         public bool anadirDependiente(Dependiente d)
         {
-            if (!Persistencia.existe(d))
+            if (!Persistencia<Dependiente>.existe(d))
             {
-                return Persistencia.anadir(d);
+                return Persistencia<Dependiente>.anadir(d);
             }
             else
             {
@@ -28,9 +28,9 @@ namespace Servicios
         //y false si no encuentra el dependiente o no lo borra correctamente
         public bool borrarDependiente(Dependiente d)
         {
-            if (Persistencia.existe(d))
+            if (Persistencia<Dependiente>.existe(d))
             {
-                return Persistencia.borrar(d);
+                return Persistencia<Dependiente>.borrar(d);
             }
             else
             {
@@ -84,9 +84,9 @@ namespace Servicios
         //devuelve un dependiente dado el NSS
         public Dependiente getDependiente(Dependiente d)
         {
-            if (Persistencia.existe(d))
+            if (Persistencia<Dependiente>.existe(d))
             {
-                return Persistencia.get(d);
+                return Persistencia<Dependiente>.get(d);
             }
             else
             {
@@ -99,10 +99,10 @@ namespace Servicios
         //si hay más de un cliente con el mismo nombre, los devuelve todos
         public List<string> getNSS(Dependiente d)
         {
-            if (Persistencia.existe(d))
+            if (Persistencia<Dependiente>.existe(d))
             {
                 List<string> NSSs = new List<string>();
-                List<Dependiente> dependientes = Persistencia.getTodos(d);
+                List<Dependiente> dependientes = Persistencia<Dependiente>.getTodos(d);
                 foreach (Dependiente x in dependientes)
                 {
                     if (x.Nombre.Equals(d.Nombre))
@@ -124,7 +124,7 @@ namespace Servicios
         public float calcularComision(Dependiente d , DateTime date)
         {
             float comisionTotal = 0; 
-            List<Venta> ventas = Persistencia.getVentasDeDependiente(d, date);
+            List<Venta> ventas = Persistencia<Dependiente>.getVentasDeDependiente(d, date);
             foreach(Venta x in ventas)
             {
                 comisionTotal += d.ComisionPorVenta;
@@ -135,12 +135,12 @@ namespace Servicios
 
         public List<Venta> obtenerVentasMes(Dependiente d , DateTime fecha)
         {
-            return Persistencia.getVentasDeDependiente(d, fecha);
+            return Persistencia<Dependiente>.getVentasDeDependiente(d, fecha);
         }
 
         public List<Dependiente> getDependientesTienda()
         {
-            return Persistencia.getTodos(new Dependiente());
+            return Persistencia<Dependiente>.getTodos(new Dependiente());
         }
     }
 }
