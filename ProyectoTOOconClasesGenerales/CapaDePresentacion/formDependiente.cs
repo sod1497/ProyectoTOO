@@ -12,6 +12,8 @@ namespace CapaDePresentacion
 {
     public partial class formDependiente : Form
     {
+        ErrorProvider errorProvider;
+
         private formDependiente() { }
 
         //Este constructor crea una entrada de datos para el alta de dependiente
@@ -19,6 +21,7 @@ namespace CapaDePresentacion
         {
             InitializeComponent();
 
+            errorProvider = new ErrorProvider();
             this.Text = "Alta dependiente";
             tbNSS.Text = clave;
             this.btAceptar.Click += new System.EventHandler(this.btAceptar_ClickDarAlta);
@@ -50,13 +53,25 @@ namespace CapaDePresentacion
             tbApellidos.ReadOnly = true;
         }
 
-        public String getNombre()
-        {
-            return tbNombre.Text;
+        
+        public String Nombre { get
+            {
+                return tbNombre.Text;
+            }
         }
-        public String getApellidos()
+        public String Apellidos { get
+            {
+                return tbApellidos.Text;
+            }
+        }
+        public float Comision
         {
-            return tbApellidos.Text;
+            get{
+                float result;
+                bool b= float.TryParse(tbComision.Text,out result);
+                return result;
+            }
+
         }
 
         private void btAceptar_ClickDarAlta(object sender, EventArgs e)
@@ -73,6 +88,10 @@ namespace CapaDePresentacion
             {
                 this.Hide();
             }
+
+
+            this.ValidateChildren();
+            this.Hide();
         }
         private void btAceptar_ClickDarBaja(object sender, EventArgs e)
         {
@@ -95,6 +114,55 @@ namespace CapaDePresentacion
         {
             this.DialogResult = DialogResult.OK;
             this.Hide();
+        }
+
+        private void tbNombre_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbNombre.Text.Length==0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError((Control)sender, "No puede estar vacío");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbApellidos_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbApellidos.Text.Length==0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError((Control)sender, "No puede estar vacío");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbComision_Validating(object sender, CancelEventArgs e)
+        {
+            if (isComisionValid(tbComision.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError((Control)sender, "La comisión es un porcentaje entero");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private bool isComisionValid(String comision)
+        {
+            bool result;
+            int a;
+
+            result = int.TryParse(comision,out a);
+
+            return result;
         }
     }
 }

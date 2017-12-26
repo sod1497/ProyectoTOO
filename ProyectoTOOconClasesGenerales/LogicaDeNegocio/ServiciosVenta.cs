@@ -67,5 +67,10 @@ namespace LogicaDeNegocio
             return Persistencia<Venta>.existe(v);
         }
 
+        public bool existeVenta(String id)
+        {
+            return Persistencia<Venta>.existe(new VentaSinTarjeta(id,DateTime.Now,null));
+        }
+
     }
 }

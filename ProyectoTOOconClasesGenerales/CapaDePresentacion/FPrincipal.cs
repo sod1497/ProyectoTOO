@@ -31,21 +31,23 @@ namespace CapaDePresentacion
             this.lnv = lnv;
         }
 
+        //  DEPENDIENTES
+
         private void altaDependiente_Click(object sender, EventArgs e)
         {
-            FIntroducir f = new FIntroducir("Dependiente");
+            FIntroducir f = new FIntroducir(TipoDeClase.Dependiente);
             f.ShowDialog();
             if (f.DialogResult == DialogResult.OK)
             {
-                String clave = f.getClave();
+                String clave = f.Clave;
                 f.Dispose();
-                if (!lnd.existeDependiente(new Dependiente(clave, "", "", 0)))
+                if (!lnd.existeDependiente(clave))
                 {
                     formDependiente ad = new formDependiente(clave);
                     ad.ShowDialog();
                     if (DialogResult.OK.Equals(ad.DialogResult))
                     {
-                        lnd.anadirDependiente(new Dependiente(clave, ad.getNombre(), ad.getApellidos(), 0));
+                        lnd.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, 0));
                     }
                 }
                 else
@@ -68,5 +70,41 @@ namespace CapaDePresentacion
         {
 
         }
+
+        //  ARTICULOS
+
+        private void altaArticulo_Click(object sender, EventArgs e)
+        {
+            FIntroducir f = new FIntroducir(TipoDeClase.Articulo);
+            f.ShowDialog();
+            if (f.DialogResult == DialogResult.OK)
+            {
+                String clave = f.Clave;
+                f.Dispose();
+                if (!lna.existeArticulo(clave))
+                {
+                    formArticulo ad = new formArticulo(clave);
+                    ad.ShowDialog();
+                    if (DialogResult.OK.Equals(ad.DialogResult))
+                    {
+                        lna.anadirArticulo(new Articulo(clave, ad.Descripcion, ad.Precio, ad.TipoIVA));
+                    }
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show(this, "¿Quieres introducir otro?", "Ya existe un dependiente con ese nºSS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (DialogResult.Yes.Equals(dr))
+                    {
+                        altaDependiente.PerformClick();
+                    }
+                }
+            }
+        }
+
+        //  VENTAS
+
+
+
+        //  OTROS
     }
 }

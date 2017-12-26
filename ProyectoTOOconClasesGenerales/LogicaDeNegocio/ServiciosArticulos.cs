@@ -35,46 +35,7 @@ namespace LogicaDeNegocio
             
         }
 
-/*
-        public bool darDeAltaArticulo(Articulo a)
-        {
-           // if (Persistencia.contieneArticulo(d))
-           // {
-                if (a.EstaActivo)
-                {
-                    return true;
-                }
-                else
-                {
-                    return Persistencia.darDeAlta(a);
-                }
-           /* }
-            else
-            {
-                return false;
-            } HACER CONTIENEARTICULO EN PERSISTENCIA? /
-        }
 
-        public bool darDeBajaArticulo(Articulo a)
-        {
-            // if (Persistencia.contieneArticulo(d))
-            // {
-                if (a.EstaActivo)
-                {
-                    return true;
-                }
-                else
-                {
-                    return Persistencia.darDeBaja(a);
-                }
-            /* }
-            else
-            {
-                return false;
-            } HACER CONTIENEARTICULO EN PERSISTENCIA? /
-        }
-
- */
         public Articulo getArticulo(Articulo a)
         {
             if (Persistencia<Articulo>.existe(a))
@@ -96,6 +57,11 @@ namespace LogicaDeNegocio
         public bool existeArticulo(Articulo v)
         {
             return Persistencia<Articulo>.existe(v);
+        }
+
+        public bool existeArticulo(String v)
+        {
+            return Persistencia<Articulo>.existe(new Articulo(v,"",0,0));
         }
     }
 }

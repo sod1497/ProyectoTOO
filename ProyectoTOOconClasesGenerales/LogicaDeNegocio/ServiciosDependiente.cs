@@ -38,48 +38,13 @@ namespace LogicaDeNegocio
             }
         }
 
-        //devuelve true si ya esta activo o lo ha puesto activo
-        //y false se ha habido un error al activarlo
-       /*public bool darDeAltaDependiente(Dependiente d)
+        //Devuelve true si existe el dependiente con clave "clave"
+        public bool existeDependiente(string clave)
         {
-            if (Persistencia.existe(d))
-            {
-                if (d.EstaActivo)
-                {
-                    return true;
-                }
-                else
-                {
-                    return Persistencia.darDeAlta(d);
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }*/
+            return existeDependiente(new Dependiente(clave, "", "", 0));
+        }
 
-        //devuelve true si no esta activo o lo ha puesto inactivo
-        //y false se ha habido un error al inactivarlo
-        /*public bool darDeBajaDependiente(Dependiente d)
-        {
-            if (Persistencia.existe(d))
-            {
-                if (!d.EstaActivo)
-                {
-                    return true;
-                }
-                else
-                {
-                    return Persistencia.darDeBaja(d);
-                }
-            }
-            else
-            {
-                return false;
-            }
-            
-        }*/
+        
 
         //devuelve un dependiente dado el NSS
         public Dependiente getDependiente(Dependiente d)

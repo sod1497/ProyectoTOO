@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TipoDeClase.cs" />
     <Compile Include="FIntroducir.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +72,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FIntroducir.resx">
+      <DependentUpon>FIntroducir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formArticulo.resx">
+      <DependentUpon>formArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDependiente.resx">
+      <DependentUpon>formDependiente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPrincipal.resx">
+      <DependentUpon>FPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

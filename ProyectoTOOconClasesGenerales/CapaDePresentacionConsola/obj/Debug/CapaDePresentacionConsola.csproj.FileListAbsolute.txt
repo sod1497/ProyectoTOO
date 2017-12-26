@@ -34,3 +34,5 @@ C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\Capa
 C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\CapaDePresentacionConsola.exe.config
 C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\obj\Debug\CapaDePresentacionConsola.exe
 C:\Users\dagomeo\Desktop\ProyectoTOO-master\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\obj\Debug\CapaDePresentacionConsola.pdb
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\LogicaDeNegocio.dll
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacionConsola\bin\Debug\LogicaDeNegocio.pdb

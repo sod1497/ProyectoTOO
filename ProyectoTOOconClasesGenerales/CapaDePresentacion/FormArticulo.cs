@@ -12,9 +12,9 @@ namespace CapaDePresentacion
 {
     public partial class formArticulo : Form
     {
-
-        //utilizar los inas
-
+        //Guardará el valor validado
+        float coste;
+        ErrorProvider errorProvider;
 
         private formArticulo() { }
 
@@ -23,6 +23,7 @@ namespace CapaDePresentacion
         {
             InitializeComponent();
 
+            errorProvider = new ErrorProvider();
             this.Text = "Alta artículo";
             tbCodigo.Text = clave;
             this.btAceptar.Click += new System.EventHandler(this.btAceptar_ClickDarAlta);
@@ -44,7 +45,8 @@ namespace CapaDePresentacion
             else
             {
                 this.Text = "Datos de un artículo";
-                this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
+                this.btAceptar.Visible = false;
+                this.btCancelar.Text = "Cerrar";
             }
 
             tbCodigo.Text = clave;
@@ -54,44 +56,40 @@ namespace CapaDePresentacion
             tbPrecioCoste.ReadOnly = true;
         }
 
-        public String getDescripcion()
+        public String Descripcion
         {
-            return tbDescripcion.Text;
+            get { return tbDescripcion.Text; }
         }
-        public String getPrecio()
+        public float Precio
         {
-            return tbPrecioCoste.Text;
+            get{
+                return coste;
+            }
         }
 
 
         /*
         * Devuelve 21, 10 o 4 dependiendo del dato seleccionado. 
         */
-        public int getTipoIVA()
+
+        public int TipoIVA
         {
-            if (btNormal.Checked)
-                return 21;
-            else if (btReducido.Checked)
-                return 10;
-            else
-                return 4;
+            get
+            {
+                if (btNormal.Checked)
+                    return 21;
+                else if (btReducido.Checked)
+                    return 10;
+                else
+                    return 4;
+            }
         }
 
 
         private void btAceptar_ClickDarAlta(object sender, EventArgs e)
         {
-            if (tbDescripcion.Text.Equals(""))
-            {
-                MessageBox.Show(this, "Introduzca descripción", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (tbPrecioCoste.Text.Equals(""))
-            {
-                MessageBox.Show(this, "Introduzca el precio coste", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                this.Hide();
-            }
+            this.DialogResult = DialogResult.OK;
+            this.Hide();
         }
 
         private void btAceptar_ClickDarBaja(object sender, EventArgs e)
@@ -105,16 +103,51 @@ namespace CapaDePresentacion
                 this.DialogResult = DialogResult.Cancel;
         }
 
-
         private void btCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Hide();
         }
-        private void btAceptar_Click(object sender, EventArgs e)
+
+        // VALIDADORES
+
+        private void tbDescripcion_Validating(object sender, CancelEventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Hide();
+            if (tbDescripcion.Text.Length==0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError((Control)sender, "No puede estar vacío");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbPrecio_Validating(object sender, CancelEventArgs e)
+        {
+            if (!isPrecioValid(tbPrecioCoste.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError((Control)sender, "Se requiere un real positivo");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        //  MÉTODOS AUXILIARES 
+
+        private bool isPrecioValid(string text)
+        {
+            bool result;
+            float a;
+
+            result = float.TryParse(text, out a) && a>=0;
+            if (result) this.coste = a;
+
+            return result;
         }
     }
 }
