@@ -45,9 +45,9 @@ namespace CapaDePresentacion
                 {
                     formDependiente ad = new formDependiente(clave);
                     ad.ShowDialog();
-                    if (DialogResult.OK.Equals(ad.DialogResult))
+                    if (ad.DialogResult==DialogResult.OK)
                     {
-                        lnd.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, 0));
+                        lnd.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, ad.Comision));
                     }
                 }
                 else
@@ -63,12 +63,68 @@ namespace CapaDePresentacion
 
         private void bajaDependiente_Click(object sender, EventArgs e)
         {
-
+            FIntroducir f = new FIntroducir(TipoDeClase.Dependiente);
+            f.ShowDialog();
+            if (f.DialogResult == DialogResult.OK)
+            {
+                String clave = f.Clave;
+                f.Dispose();
+                if (lnd.existeDependiente(clave))
+                {
+                    Dependiente d = lnd.getDependiente(clave);
+                    formDependiente ad = new formDependiente(clave,d.Nombre,d.Apellidos,d.ComisionPorVenta,true);
+                    ad.ShowDialog();
+                    if (DialogResult.OK.Equals(ad.DialogResult))
+                    {
+                        lnd.borrarDependiente(d);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(this, "No existe un dependiente con ese NSS", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                   
+                }
+            }
         }
 
         private void búsquedaDependiente_Click(object sender, EventArgs e)
         {
+            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente();
+            fBuscarDependiente.ShowDialog();
+            
+            /*
+            FIntroducir f = new FIntroducir(TipoDeClase.Dependiente);
+            f.ShowDialog();
+            if (f.DialogResult == DialogResult.OK)
+            {
+                String clave = f.Clave;
+                f.Dispose();
+                if (lnd.existeDependiente(clave))
+                {
+                    Dependiente d = lnd.getDependiente(clave);
+                    formDependiente ad = new formDependiente(clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, false);
+                    ad.ShowDialog();
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show(this, "¿Quieres introducirlo?", "No existe un dependiente con ese nºSS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (DialogResult.Yes.Equals(dr))
+                    {
+                        formDependiente ad = new formDependiente(clave);
+                        ad.ShowDialog();
+                        if (DialogResult.OK.Equals(ad.DialogResult))
+                        {
+                            lnd.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, 0));
+                        }
+                    }
+                }
+            }*/
+        }
 
+        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FListadoDependientes fListadoDependientes = new FListadoDependientes();
+            fListadoDependientes.ShowDialog();
         }
 
         //  ARTICULOS

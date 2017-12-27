@@ -33,3 +33,5 @@ D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerale
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FIntroducir.resources
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.formArticulo.resources
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FPrincipal.resources
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FBuscarDependiente.resources
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FListadoDependientes.resources

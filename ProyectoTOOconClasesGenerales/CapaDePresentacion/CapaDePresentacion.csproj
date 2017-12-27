@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FBuscarDependiente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBuscarDependiente.Designer.cs">
+      <DependentUpon>FBuscarDependiente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FListadoDependientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FListadoDependientes.Designer.cs">
+      <DependentUpon>FListadoDependientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="TipoDeClase.cs" />
     <Compile Include="FIntroducir.cs">
       <SubType>Form</SubType>
@@ -72,8 +84,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FBuscarDependiente.resx">
+      <DependentUpon>FBuscarDependiente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FIntroducir.resx">
       <DependentUpon>FIntroducir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FListadoDependientes.resx">
+      <DependentUpon>FListadoDependientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formArticulo.resx">
       <DependentUpon>formArticulo.cs</DependentUpon>

@@ -67,6 +67,24 @@ namespace CapaDePersistencia
         }
 
         /*
+         * Reemplaza la instancia vieja por la nueva
+         * No debería devolver nunca false pero porsiaca se contempla este caso
+         */
+        public static bool modificar(T t)
+        {
+            bool a = borrar(t);
+            if (a)
+            {
+                anadir(t);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /*
          * Elimina un elemento de una colección
          * Precondición: ninguna
          * Postcondición: devuelve true si existía y se ha eliminado y false en cualquier otro caso

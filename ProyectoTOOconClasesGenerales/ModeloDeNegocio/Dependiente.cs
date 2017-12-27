@@ -1,6 +1,8 @@
-﻿namespace ModeloDeDominio
+﻿using System;
+
+namespace ModeloDeDominio
 {
-    public class Dependiente : TipoBasico
+    public class Dependiente : TipoBasico, IEquatable<Dependiente>
     {
 
         private string nss;
@@ -65,6 +67,14 @@
             }
         }
 
+        public string NombreCompleto
+        {
+            get
+            {
+                return this.apellidos + ", " + this.nombre;
+            }
+        }
+
         public float ComisionPorVenta
         {
             get
@@ -80,6 +90,11 @@
         public TipoBasico copiar()
         {
             return new Dependiente(this.NSS, this.Nombre, this.Apellidos, this.ComisionPorVenta);
+        }
+
+        public bool Equals(Dependiente other)
+        {
+            return this.Clave == other.Clave;
         }
 
         public string Clave

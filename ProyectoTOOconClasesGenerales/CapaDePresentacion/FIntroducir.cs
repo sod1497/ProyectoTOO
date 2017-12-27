@@ -19,6 +19,8 @@ namespace CapaDePresentacion
         public FIntroducir(TipoDeClase clase)
         {
             InitializeComponent();
+
+            this.AcceptButton = bAceptar;
             errorProvider = new ErrorProvider();
             this.clase = clase;
             if (this.clase.Equals(TipoDeClase.Dependiente))

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ModeloDeDominio
 {
-    public abstract class Venta :TipoBasico
+    public abstract class Venta :TipoBasico,IEquatable<Venta>
     {
 
         internal string id;
@@ -70,6 +70,11 @@ namespace ModeloDeDominio
         }
 
         public abstract TipoBasico copiar();
+
+        public bool Equals(Venta other)
+        {
+            return this.Clave == other.Clave;
+        }
 
         public string Id
         {

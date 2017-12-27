@@ -2,7 +2,7 @@
 
 namespace ModeloDeDominio
 {
-    public class Articulo : TipoBasico
+    public class Articulo : TipoBasico, IEquatable<Articulo>
     {
 
         private string id;
@@ -58,6 +58,11 @@ namespace ModeloDeDominio
         public TipoBasico copiar()
         {
             return new Articulo(this.Id, this.Descripcion, this.CosteFabrica, this.IVA);
+        }
+
+        public bool Equals(Articulo other)
+        {
+            return this.Id == other.Id;
         }
 
         public double CosteFabrica

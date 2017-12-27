@@ -24,6 +24,25 @@ namespace LogicaDeNegocio
             }
         }
 
+        public bool modificarDependiente(Dependiente original, Dependiente nuevo)
+        {
+            Dependiente d = getDependiente(original);
+
+            if (d != null && original.Clave == nuevo.Clave)
+            {
+                return Persistencia<Dependiente>.modificar(nuevo);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool modificarDependiente(String clave, String nombre, String apellidos, float comision)
+        {
+            return modificarDependiente(new Dependiente(clave, "", "", 0), new Dependiente(clave, nombre, apellidos, comision));
+        }
+
         //devuelve true si borra el dependiente correctamente
         //y false si no encuentra el dependiente o no lo borra correctamente
         public bool borrarDependiente(Dependiente d)
@@ -38,13 +57,22 @@ namespace LogicaDeNegocio
             }
         }
 
+        public bool borrarDependiente(String d)
+        {
+            return borrarDependiente(new Dependiente(d, "", "", 0));
+        }
+
         //Devuelve true si existe el dependiente con clave "clave"
         public bool existeDependiente(string clave)
         {
             return existeDependiente(new Dependiente(clave, "", "", 0));
         }
 
-        
+        //devuelve un bool indicando si existe el dependiente
+        public bool existeDependiente(Dependiente d)
+        {
+            return Persistencia<Dependiente>.existe(d);
+        }
 
         //devuelve un dependiente dado el NSS
         public Dependiente getDependiente(Dependiente d)
@@ -57,13 +85,13 @@ namespace LogicaDeNegocio
             {
                 return null;
             }
-            
+
         }
 
-        //devuelve un bool indicando si existe el dependiente
-        public bool existeDependiente(Dependiente d)
+        //Usando solo la clave
+        public Dependiente getDependiente(String clave)
         {
-            return Persistencia<Dependiente>.existe(d);
+            return getDependiente(new Dependiente(clave, "", "", 0));
         }
 
         //si no existe el nombre introducido, devuelve null
@@ -87,16 +115,16 @@ namespace LogicaDeNegocio
             {
                 return null;
             }
-            
+
         }
 
         //a partir de las ventas de ese dependiente (este mes), y de la comision que se 
         //lleva por cada una, calcula la comision total
-        public float calcularComision(Dependiente d , DateTime date)
+        public float calcularComision(Dependiente d, DateTime date)
         {
-            float comisionTotal = 0; 
+            float comisionTotal = 0;
             List<Venta> ventas = Persistencia<Dependiente>.getVentasDeDependiente(d, date);
-            foreach(Venta x in ventas)
+            foreach (Venta x in ventas)
             {
                 comisionTotal += d.ComisionPorVenta;
             }
@@ -104,7 +132,7 @@ namespace LogicaDeNegocio
             return comisionTotal;
         }
 
-        public List<Venta> obtenerVentasMes(Dependiente d , DateTime fecha)
+        public List<Venta> obtenerVentasMes(Dependiente d, DateTime fecha)
         {
             return Persistencia<Dependiente>.getVentasDeDependiente(d, fecha);
         }

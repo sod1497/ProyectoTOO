@@ -20,6 +20,7 @@ namespace LogicaDeNegocio
             return false;
             
         }
+
         public Venta getVenta(Venta v)
         {
             if (Persistencia<Venta>.existe(v))
@@ -27,6 +28,11 @@ namespace LogicaDeNegocio
                 return Persistencia<Venta>.get(v);
             }
             return null;
+        }
+
+        public Venta getVenta(String v)
+        {
+            return getVenta(new VentaSinTarjeta(v, DateTime.Now, null));
         }
 
         public List<Venta> getVentasDeArticulo(Articulo a)
@@ -38,6 +44,11 @@ namespace LogicaDeNegocio
             return null;
         }
 
+        public List<Venta> getVentasDeArticulo(String a)
+        {
+            return getVentasDeArticulo(new Articulo(a, "", 0, 0));
+        }
+
         public Dependiente getDependienteDeVenta(Venta v)
         {
             if (Persistencia<Venta>.existe(v))
@@ -46,6 +57,11 @@ namespace LogicaDeNegocio
             }
             return null;
             
+        }
+
+        public Dependiente getDependienteDeVenta(String a)
+        {
+            return getDependienteDeVenta(new VentaSinTarjeta(a, DateTime.Now,null));
         }
 
         //devuelve true si borra la venta correctamente
@@ -60,6 +76,11 @@ namespace LogicaDeNegocio
             {
                 return false;
             }
+        }
+
+        public bool borrarVenta(String v)
+        {
+            return borrarVenta(new VentaSinTarjeta(v, DateTime.Now, null));
         }
 
         public bool existeVenta(Venta v)

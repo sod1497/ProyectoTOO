@@ -35,6 +35,11 @@ namespace LogicaDeNegocio
             
         }
 
+        public bool borrarArticulo(String s)
+        {
+            return borrarArticulo(new Articulo(s, "", 0, 0));
+        }
+
 
         public Articulo getArticulo(Articulo a)
         {
@@ -47,6 +52,11 @@ namespace LogicaDeNegocio
                 return null;
             }
            
+        }
+
+        public Articulo getArticulo(String a)
+        {
+            return getArticulo(new Articulo(a, "", 0, 0));
         }
 
         public List<Articulo> getTodosArticulos()

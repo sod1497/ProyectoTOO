@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Articulo.cs" />
+    <Compile Include="Comparers\ComparerDependiente.cs" />
     <Compile Include="Dependiente.cs" />
     <Compile Include="LineaDeVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

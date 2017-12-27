@@ -21,6 +21,7 @@ namespace CapaDePresentacion
         {
             InitializeComponent();
 
+            this.AcceptButton = btAceptar;
             errorProvider = new ErrorProvider();
             this.Text = "Alta dependiente";
             tbNSS.Text = clave;
@@ -30,10 +31,12 @@ namespace CapaDePresentacion
 
         //Este constructor crea una baja de dependiente o una visualizacion de datos de dependiente.
         //Si se quiere una baja de dependiente, poner darDeBaja a true.
-        public formDependiente(String clave, String nombre, String apellidos, Boolean darDeBaja)
+        public formDependiente(String clave, String nombre, String apellidos, float comision, bool darDeBaja)
         {
             InitializeComponent();
 
+            errorProvider = new ErrorProvider();
+            this.AcceptButton = btAceptar;
             if (darDeBaja)
             {
                 this.Text = "Dar de baja dependiente";
@@ -51,19 +54,26 @@ namespace CapaDePresentacion
             tbNombre.ReadOnly = true;
             tbApellidos.Text = apellidos;
             tbApellidos.ReadOnly = true;
+            tbComision.Text = comision.ToString();
+            tbComision.ReadOnly = true;
         }
 
-        
-        public String Nombre { get
+        //  PROPS
+
+        public String Nombre {
+            get
             {
                 return tbNombre.Text;
             }
         }
-        public String Apellidos { get
+
+        public String Apellidos {
+            get
             {
                 return tbApellidos.Text;
             }
         }
+
         public float Comision
         {
             get{
@@ -74,28 +84,18 @@ namespace CapaDePresentacion
 
         }
 
+        //  MANEJADORES
+
         private void btAceptar_ClickDarAlta(object sender, EventArgs e)
         {
-            if (tbNombre.Text.Equals(""))
-            {
-                MessageBox.Show(this, "Introduzca el Nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (tbApellidos.Text.Equals(""))
-            {
-                MessageBox.Show(this, "Introduzca los Apellidos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                this.Hide();
-            }
-
-
-            this.ValidateChildren();
+            this.DialogResult = DialogResult.OK;
             this.Hide();
+
         }
+
         private void btAceptar_ClickDarBaja(object sender, EventArgs e)
         {
-            if (DialogResult.OK.Equals(MessageBox.Show(this, "¿Esta seguro de que desea dar de baja al dependiente?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)))
+            if (DialogResult.OK == MessageBox.Show(this, "¿Esta seguro de que desea dar de baja al dependiente?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
             {
                 this.DialogResult = DialogResult.OK;
                 this.Hide();
@@ -104,17 +104,19 @@ namespace CapaDePresentacion
                 this.DialogResult = DialogResult.Cancel;
         }
 
-
         private void btCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Hide();
         }
+
         private void btAceptar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             this.Hide();
         }
+
+        //  VALIDADORES
 
         private void tbNombre_Validating(object sender, CancelEventArgs e)
         {
@@ -144,7 +146,7 @@ namespace CapaDePresentacion
 
         private void tbComision_Validating(object sender, CancelEventArgs e)
         {
-            if (isComisionValid(tbComision.Text))
+            if (!isComisionValid(tbComision.Text))
             {
                 e.Cancel = true;
                 errorProvider.SetError((Control)sender, "La comisión es un porcentaje entero");
@@ -154,6 +156,8 @@ namespace CapaDePresentacion
                 errorProvider.Clear();
             }
         }
+
+        //   MÉTODOS AUXILIARES
 
         private bool isComisionValid(String comision)
         {
