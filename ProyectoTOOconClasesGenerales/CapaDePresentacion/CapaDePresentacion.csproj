@@ -51,6 +51,12 @@
     <Compile Include="FBuscarDependiente.Designer.cs">
       <DependentUpon>FBuscarDependiente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FListadoArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FListadoArticulos.Designer.cs">
+      <DependentUpon>FListadoArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FListadoDependientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <EmbeddedResource Include="FIntroducir.resx">
       <DependentUpon>FIntroducir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FListadoArticulos.resx">
+      <DependentUpon>FListadoArticulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FListadoDependientes.resx">
       <DependentUpon>FListadoDependientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +134,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDePersistencia\CapaDePersistencia.csproj">
+      <Project>{38AE36FE-EB42-43E3-B7CC-516A3E38C18B}</Project>
+      <Name>CapaDePersistencia</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogicaDeNegocio\LogicaDeNegocio.csproj">
       <Project>{cf8495fd-0d43-4922-aa4d-60120a6e5b82}</Project>
       <Name>LogicaDeNegocio</Name>

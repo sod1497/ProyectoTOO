@@ -43,7 +43,7 @@
             this.bindingAdd = new System.Windows.Forms.ToolStripButton();
             this.bindingRemove = new System.Windows.Forms.ToolStripButton();
             this.tbComision = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelComision = new System.Windows.Forms.Label();
             this.tbApellidos = new System.Windows.Forms.TextBox();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.labelApellidos = new System.Windows.Forms.Label();
@@ -52,6 +52,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.bAplicar = new System.Windows.Forms.Button();
+            this.labelImporte = new System.Windows.Forms.Label();
+            this.tbImporte = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
@@ -182,16 +184,16 @@
             this.tbComision.Validating += new System.ComponentModel.CancelEventHandler(this.tbComision_Validating);
             this.tbComision.Validated += new System.EventHandler(this.tb_Validated);
             // 
-            // label1
+            // labelComision
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.No;
-            this.label1.Location = new System.Drawing.Point(26, 179);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Comisión (%)";
+            this.labelComision.AutoSize = true;
+            this.labelComision.Cursor = System.Windows.Forms.Cursors.No;
+            this.labelComision.Location = new System.Drawing.Point(26, 179);
+            this.labelComision.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelComision.Name = "labelComision";
+            this.labelComision.Size = new System.Drawing.Size(95, 17);
+            this.labelComision.TabIndex = 16;
+            this.labelComision.Text = "labelComision";
             // 
             // tbApellidos
             // 
@@ -220,9 +222,9 @@
             this.labelApellidos.Location = new System.Drawing.Point(26, 138);
             this.labelApellidos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelApellidos.Name = "labelApellidos";
-            this.labelApellidos.Size = new System.Drawing.Size(65, 17);
+            this.labelApellidos.Size = new System.Drawing.Size(95, 17);
             this.labelApellidos.TabIndex = 15;
-            this.labelApellidos.Text = "Apellidos";
+            this.labelApellidos.Text = "labelApellidos";
             // 
             // labelNombre
             // 
@@ -231,9 +233,9 @@
             this.labelNombre.Location = new System.Drawing.Point(26, 97);
             this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(58, 17);
+            this.labelNombre.Size = new System.Drawing.Size(88, 17);
             this.labelNombre.TabIndex = 14;
-            this.labelNombre.Text = "Nombre";
+            this.labelNombre.Text = "labelNombre";
             // 
             // labelNSS
             // 
@@ -242,9 +244,9 @@
             this.labelNSS.Location = new System.Drawing.Point(26, 56);
             this.labelNSS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNSS.Name = "labelNSS";
-            this.labelNSS.Size = new System.Drawing.Size(49, 17);
+            this.labelNSS.Size = new System.Drawing.Size(66, 17);
             this.labelNSS.TabIndex = 13;
-            this.labelNSS.Text = "Nº SS:";
+            this.labelNSS.Text = "labelNSS";
             // 
             // comboBox1
             // 
@@ -260,7 +262,7 @@
             this.checkBox1.CausesValidation = false;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(29, 221);
+            this.checkBox1.Location = new System.Drawing.Point(29, 275);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(233, 21);
             this.checkBox1.TabIndex = 18;
@@ -271,7 +273,7 @@
             // bAplicar
             // 
             this.bAplicar.Enabled = false;
-            this.bAplicar.Location = new System.Drawing.Point(337, 214);
+            this.bAplicar.Location = new System.Drawing.Point(337, 275);
             this.bAplicar.Name = "bAplicar";
             this.bAplicar.Size = new System.Drawing.Size(145, 32);
             this.bAplicar.TabIndex = 19;
@@ -279,22 +281,42 @@
             this.bAplicar.UseVisualStyleBackColor = true;
             this.bAplicar.Click += new System.EventHandler(this.bAplicar_Click);
             // 
+            // labelImporte
+            // 
+            this.labelImporte.AutoSize = true;
+            this.labelImporte.Location = new System.Drawing.Point(29, 218);
+            this.labelImporte.Name = "labelImporte";
+            this.labelImporte.Size = new System.Drawing.Size(85, 17);
+            this.labelImporte.TabIndex = 20;
+            this.labelImporte.Text = "labelImporte";
+            // 
+            // tbImporte
+            // 
+            this.tbImporte.Location = new System.Drawing.Point(188, 215);
+            this.tbImporte.Name = "tbImporte";
+            this.tbImporte.Size = new System.Drawing.Size(294, 22);
+            this.tbImporte.TabIndex = 21;
+            this.tbImporte.Validating += new System.ComponentModel.CancelEventHandler(this.tbImporte_Validating);
+            // 
             // FBuscarDependiente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 274);
+            this.ClientSize = new System.Drawing.Size(516, 319);
+            this.Controls.Add(this.tbImporte);
+            this.Controls.Add(this.labelImporte);
             this.Controls.Add(this.bAplicar);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tbComision);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelComision);
             this.Controls.Add(this.tbApellidos);
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.labelApellidos);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelNSS);
             this.Controls.Add(this.bindingNavigator1);
+            this.MinimumSize = new System.Drawing.Size(534, 366);
             this.Name = "FBuscarDependiente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FBuscarDependiente";
@@ -318,7 +340,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.TextBox tbComision;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelComision;
         private System.Windows.Forms.TextBox tbApellidos;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label labelApellidos;
@@ -330,5 +352,7 @@
         private System.Windows.Forms.ToolStripButton bindingRemove;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button bAplicar;
+        private System.Windows.Forms.Label labelImporte;
+        private System.Windows.Forms.TextBox tbImporte;
     }
 }

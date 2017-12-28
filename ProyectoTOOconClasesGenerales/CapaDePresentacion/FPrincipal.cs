@@ -21,6 +21,9 @@ namespace CapaDePresentacion
         private FPrincipal()
         {
             InitializeComponent();
+            lnd = new ServiciosDependiente();
+            lna = new ServiciosArticulos();
+            lnv = new ServiciosVenta();
         }
 
         public FPrincipal(ServiciosDependiente lnd, ServiciosArticulos lna, ServiciosVenta lnv)
@@ -45,7 +48,7 @@ namespace CapaDePresentacion
                 {
                     formDependiente ad = new formDependiente(clave);
                     ad.ShowDialog();
-                    if (ad.DialogResult==DialogResult.OK)
+                    if (ad.DialogResult == DialogResult.OK)
                     {
                         lnd.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, ad.Comision));
                     }
@@ -72,7 +75,7 @@ namespace CapaDePresentacion
                 if (lnd.existeDependiente(clave))
                 {
                     Dependiente d = lnd.getDependiente(clave);
-                    formDependiente ad = new formDependiente(clave,d.Nombre,d.Apellidos,d.ComisionPorVenta,true);
+                    formDependiente ad = new formDependiente(clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, true);
                     ad.ShowDialog();
                     if (DialogResult.OK.Equals(ad.DialogResult))
                     {
@@ -82,16 +85,16 @@ namespace CapaDePresentacion
                 else
                 {
                     MessageBox.Show(this, "No existe un dependiente con ese NSS", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                   
+
                 }
             }
         }
 
         private void búsquedaDependiente_Click(object sender, EventArgs e)
         {
-            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente();
+            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente(TipoDeClase.Dependiente,lnv,lnd,lna);
             fBuscarDependiente.ShowDialog();
-            
+
             /*
             FIntroducir f = new FIntroducir(TipoDeClase.Dependiente);
             f.ShowDialog();
@@ -123,13 +126,29 @@ namespace CapaDePresentacion
 
         private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FListadoDependientes fListadoDependientes = new FListadoDependientes();
+            FListadoDependientes fListadoDependientes = new FListadoDependientes(lnd, lna, lnv);
             fListadoDependientes.ShowDialog();
         }
 
         //  ARTICULOS
 
+        /*
+        * Añade un artículo. No pide el id al usuario, se genera automaticamente por la
+        * capa de Lógica de Negocio
+        */
         private void altaArticulo_Click(object sender, EventArgs e)
+        {
+            formArticulo ad = new formArticulo("Asignado automaticamente");
+            ad.ShowDialog();
+            if (DialogResult.OK.Equals(ad.DialogResult))
+            {
+                lna.anadirArticulo(new Articulo("0", ad.Descripcion, ad.Precio, ad.TipoIVA));
+            }
+
+
+        }
+
+        private void bajaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FIntroducir f = new FIntroducir(TipoDeClase.Articulo);
             f.ShowDialog();
@@ -137,25 +156,40 @@ namespace CapaDePresentacion
             {
                 String clave = f.Clave;
                 f.Dispose();
-                if (!lna.existeArticulo(clave))
+                if (lna.existeArticulo(clave))
                 {
-                    formArticulo ad = new formArticulo(clave);
+                    Articulo a = lna.getArticulo(clave);
+                    formArticulo ad = new formArticulo(clave, a.Descripcion, a.CosteFabrica.ToString(), true);
                     ad.ShowDialog();
                     if (DialogResult.OK.Equals(ad.DialogResult))
                     {
-                        lna.anadirArticulo(new Articulo(clave, ad.Descripcion, ad.Precio, ad.TipoIVA));
+                        lna.borrarArticulo(clave);
                     }
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show(this, "¿Quieres introducir otro?", "Ya existe un dependiente con ese nºSS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (DialogResult.Yes.Equals(dr))
-                    {
-                        altaDependiente.PerformClick();
-                    }
+                    DialogResult dr = MessageBox.Show(this, "Error", "No existe un artículo con ese ID", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
             }
         }
+
+        //https://stackoverflow.com/questions/142003/cross-thread-operation-not-valid-control-accessed-from-a-thread-other-than-the/19023209#19023209
+        private void listadoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FListadoArticulos fListadoArticulos = new FListadoArticulos();
+            fListadoArticulos.ShowDialog();
+
+
+        }
+
+        private void búsquedaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente(TipoDeClase.Articulo, lnv, lnd, lna);
+            fBuscarDependiente.ShowDialog();
+        }
+
+
 
         //  VENTAS
 

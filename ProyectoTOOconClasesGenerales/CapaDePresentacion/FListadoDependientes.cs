@@ -15,16 +15,24 @@ namespace CapaDePresentacion
 {
     public partial class FListadoDependientes : Form
     {
-        List<Dependiente> dependientes;
+        //Usar para poder actualizar la lista
+        BindingList<Dependiente> dependientes;
+
         ServiciosDependiente serviciosDependiente;
+        ServiciosArticulos serviciosArticulos;
+        ServiciosVenta serviciosVenta;
+
         BindingSource bs;
 
-        public FListadoDependientes()
+        public FListadoDependientes(ServiciosDependiente serviciosDependiente, ServiciosArticulos serviciosArticulos, ServiciosVenta serviciosVenta)
         {
             InitializeComponent();
 
-            serviciosDependiente = new ServiciosDependiente();
-            dependientes = serviciosDependiente.getDependientesTienda();
+            this.serviciosDependiente = serviciosDependiente;
+            this.serviciosArticulos = serviciosArticulos;
+            this.serviciosVenta = serviciosVenta;
+
+            dependientes = new BindingList<Dependiente>(serviciosDependiente.getDependientesTienda());
             if (dependientes.Count > 0) bModificar.Enabled = true;
 
             bs = new BindingSource();
@@ -38,42 +46,41 @@ namespace CapaDePresentacion
 
             lbComision.DataSource = bs;
             lbComision.DisplayMember = "ComisionPorVenta";
-
-
+            
         }
-
-        
 
         //  MANEJADORES
 
         private void bNSS_Click(object sender, EventArgs e)
         {
-            dependientes.Sort(new ComparerDependienteNSS());
-
-
-
+            List<Dependiente> aux = dependientes.ToList<Dependiente>();
+            aux.Sort(new ComparerDependienteNSS());
+            dependientes = new BindingList<Dependiente>(aux);
+            bs.DataSource = dependientes;
         }
 
         private void bNombre_Click(object sender, EventArgs e)
         {
-            dependientes.Sort(new ComparerDependienteNombre());
-
-
+            List<Dependiente> aux = dependientes.ToList<Dependiente>();
+            aux.Sort(new ComparerDependienteNombre());
+            dependientes = new BindingList<Dependiente>(aux);
+            bs.DataSource = dependientes;
 
         }
 
         private void bComisión_Click(object sender, EventArgs e)
         {
-            dependientes.Sort(new ComparerDependienteComision());
-
-
+            List<Dependiente> aux = dependientes.ToList<Dependiente>();
+            aux.Sort(new ComparerDependienteComision());
+            dependientes = new BindingList<Dependiente>(aux);
+            bs.DataSource = dependientes;
 
         }
 
         private void bAdd_Click(object sender, EventArgs e)
         {
             FIntroducir f = new FIntroducir(TipoDeClase.Dependiente);
-            
+
             f.ShowDialog();
             if (f.DialogResult == DialogResult.OK)
             {
@@ -94,7 +101,7 @@ namespace CapaDePresentacion
                 }
             }
             focoCambiado();
-            
+
         }
 
         private void bCerrar_Click(object sender, EventArgs e)
@@ -106,19 +113,27 @@ namespace CapaDePresentacion
         {
             //Si hay algo seleccionado, abre FBuscarDependiente para ese dependiente
             Dependiente d = (Dependiente)lbNSS.SelectedItem;
-            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente(d);
+            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente(d, TipoDeClase.Dependiente, serviciosVenta, serviciosDependiente, serviciosArticulos);
             fBuscarDependiente.ShowDialog();
             focoCambiado();
+        }
+
+        private void bVentas_Click(object sender, EventArgs e)
+        {
+
         }
 
         //  MÉTODOS AUXILIARES
 
         private void focoCambiado()
         {
+            //Cargo los nuevos valores generados
             bs.Clear();
-            bs.DataSource = serviciosDependiente.getDependientesTienda();
+            dependientes = new BindingList<Dependiente>(serviciosDependiente.getDependientesTienda());
+            bs.DataSource = dependientes;
             bModificar.Enabled = bs.Count > 0;
         }
+
 
     }
 }

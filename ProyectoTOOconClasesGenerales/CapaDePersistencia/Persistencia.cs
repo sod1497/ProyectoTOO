@@ -10,8 +10,6 @@ namespace CapaDePersistencia
 {
     public class Persistencia<T> where T : TipoBasico
     {
-        
-        
 
         //Todo debe devolver copias. Las clases básicas tienen un método copiar()
 
@@ -24,14 +22,10 @@ namespace CapaDePersistencia
          * Postcondición: se devuelve la colección si el tipo coincide con alguno de los definidos, sino
          *      devuelve null
          */
-        
+
         public static Coleccion<T> obtenerColeccion()
         {
-            Coleccion<T> aux = null;
-
-            aux = Singleton<T>.getColeccion() as Coleccion<T>;
-
-            return aux;
+            return Singleton<T>.getColeccion() as Coleccion<T>;
         }
 
         /*
@@ -138,8 +132,7 @@ namespace CapaDePersistencia
          * Precondición: nada
          * Postcondición: devuelve la colección si los tipos coinciden, sino devuelve null;
          */
-
-            //  REVISAR - DEBE DEVOLVER UNA COPIA, NO EL ORIGINAL
+         
 
         public static List<T> getTodos(T t)
         {
@@ -152,10 +145,7 @@ namespace CapaDePersistencia
 
             return aux;
         }
-
         
-
-
 
         /*
          * Devuelve una Lista con las ventas de un mes/año concretos de un dependiente
@@ -194,7 +184,7 @@ namespace CapaDePersistencia
         }
 
 
-    /*
+        /*
         * Devuelve una lista con las ventas de un artículo
         * Precondición ninguna
         * Postcondición: lista con los elementos que cumplen la condición
@@ -224,6 +214,7 @@ namespace CapaDePersistencia
 
             return aux;
         }
+        
 
     }
 

@@ -141,5 +141,22 @@ namespace LogicaDeNegocio
         {
             return Persistencia<Dependiente>.getTodos(new Dependiente());
         }
+
+        public void cargarDependientesEjemplo()
+        {
+            Dependiente aux;
+            Random random = new Random();
+            String[] nombres = { "Paco", "Juan", "Francisca", "Juana", "Michael", "Donald" };
+            String[] apellidos = { "Jimenez", "Larrea", "De Arco", "Martínez", "Jackson", "Duck" };
+            for (int i = 0; i < nombres.Length; i++)
+            {
+                long l;
+                long.TryParse(random.Next(100000000, 999999999).ToString(), out l);
+                aux = new Dependiente((l * 100).ToString(), nombres[i], apellidos[i], i);
+                anadirDependiente(aux);
+            }
+        }
+
+
     }
 }

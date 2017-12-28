@@ -15,37 +15,97 @@ namespace CapaDePresentacion
     public partial class FBuscarDependiente : Form
     {
         bool validar = true;
+        TipoDeClase tipoDeClase;
+        float coste;
+        int iva;
+
         List<Dependiente> dependientes;
+        List<Articulo> articulos;
+        List<Venta> ventas;
+
         ServiciosDependiente serviciosDependiente;
+        ServiciosArticulos serviciosArticulos;
+        ServiciosVenta serviciosVenta;
+
         BindingSource bindingSource;
         ErrorProvider errorProvider;
 
-        public FBuscarDependiente()
+        public FBuscarDependiente(TipoDeClase tipoDeClase, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa)
         {
             InitializeComponent();
 
             errorProvider = new ErrorProvider();
-            serviciosDependiente = new ServiciosDependiente();
-            dependientes = serviciosDependiente.getDependientesTienda();
             bindingSource = new BindingSource();
-            bindingSource.DataSource = dependientes;
-            bindingNavigator1.BindingSource = bindingSource;
 
-            comboBox1.DataSource = bindingSource;
-            comboBox1.DisplayMember = "NSS";
+            serviciosDependiente = sd;
+            serviciosArticulos = sa;
+            serviciosVenta = sv;
 
-            tbNombre.DataBindings.Add(new Binding("Text", bindingSource, "Nombre"));
-            tbApellidos.DataBindings.Add(new Binding("Text", bindingSource, "Apellidos"));
-            tbComision.DataBindings.Add(new Binding("Text", bindingSource, "ComisionPorVenta"));
+            this.tipoDeClase = tipoDeClase;
+
+            switch (tipoDeClase)
+            {
+                case TipoDeClase.Dependiente:
+                    {
+                        dependientes = serviciosDependiente.getDependientesTienda();
+                        bindingSource.DataSource = dependientes;
+                        bindingNavigator1.BindingSource = bindingSource;
+
+                        comboBox1.DataSource = bindingSource;
+                        comboBox1.DisplayMember = "NSS";
+
+                        this.Text = "Buscar dependiente";
+                        labelNSS.Text = "Nº SS";
+                        labelNombre.Text = "Nombre";
+                        labelApellidos.Text = "Apellidos";
+                        labelComision.Text = "Comisión (%)";
+
+                        labelImporte.Visible = false;
+                        tbImporte.Visible = false;
+
+                        tbNombre.DataBindings.Add(new Binding("Text", bindingSource, "Nombre"));
+                        tbApellidos.DataBindings.Add(new Binding("Text", bindingSource, "Apellidos"));
+                        tbComision.DataBindings.Add(new Binding("Text", bindingSource, "ComisionPorVenta"));
+
+
+                        break;
+                    }
+                case TipoDeClase.Articulo:
+                    {
+                        articulos = serviciosArticulos.getTodosArticulos();
+                        bindingSource.DataSource = articulos;
+                        bindingNavigator1.BindingSource = bindingSource;
+
+                        comboBox1.DataSource = bindingSource;
+                        comboBox1.DisplayMember = "ID";
+
+                        this.Text = "Buscar articulo";
+                        labelNSS.Text = "ID";
+                        labelNombre.Text = "Descripción";
+                        labelApellidos.Text = "IVA";
+                        labelComision.Text = "Coste";
+                        labelImporte.Text = "Importe";
+                        tbImporte.ReadOnly = true;
+
+                        tbNombre.DataBindings.Add(new Binding("Text", bindingSource, "Descripcion"));
+                        tbApellidos.DataBindings.Add(new Binding("Text", bindingSource, "IVA"));
+                        tbComision.DataBindings.Add(new Binding("Text", bindingSource, "CosteFabrica"));
+                        tbImporte.DataBindings.Add(new Binding("Text", bindingSource, "Importe"));
+
+                        break;
+                    }
+            }
+
+            
 
         }
 
-        public FBuscarDependiente(Dependiente d):this()
+        public FBuscarDependiente(TipoBasico d, TipoDeClase tipoDeClase, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa) : this(tipoDeClase, sv, sd, sa)
         {
             //Se mueve directamente al dependiente de clave "clave"
 
             int i = bindingSource.IndexOf(d);
-            if(i>=0)
+            if (i >= 0)
             {
                 bindingSource.Position = i;
             }
@@ -55,7 +115,7 @@ namespace CapaDePresentacion
 
         private void bindingAdd_Click(object sender, EventArgs e)
         {
-            
+
             FIntroducir f = new FIntroducir(TipoDeClase.Dependiente);
             f.ShowDialog();
             if (f.DialogResult == DialogResult.OK)
@@ -83,7 +143,7 @@ namespace CapaDePresentacion
 
         private void bindingRemove_Click(object sender, EventArgs e)
         {
-            Dependiente d = (Dependiente) bindingSource.Current;
+            Dependiente d = (Dependiente)bindingSource.Current;
             if (d != null)
             {
                 formDependiente ad = new formDependiente(d.Clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, true);
@@ -103,23 +163,28 @@ namespace CapaDePresentacion
             bAplicar.Enabled = !checkBox1.Checked;
             //quitar evento de actualización o lo que sea
 
-            if(checkBox1.Checked)
+
+            if (checkBox1.Checked)
             {
                 tbApellidos.CausesValidation = true;
                 tbComision.CausesValidation = true;
                 tbNombre.CausesValidation = true;
+                tbImporte.CausesValidation = true;
                 validar = true;
-                
+
             }
             else
             {
                 tbApellidos.CausesValidation = false;
                 tbComision.CausesValidation = false;
                 tbNombre.CausesValidation = false;
+                tbImporte.CausesValidation = false;
                 bindingNavigator1.CausesValidation = false;
                 validar = false;
             }
-            
+
+
+
         }
 
         private void bAplicar_Click(object sender, EventArgs e)
@@ -127,9 +192,10 @@ namespace CapaDePresentacion
             //actualizar manualmente
             if (comboBox1.SelectedItem != null)
             {
-                this.ValidateChildren();
+                this.ValidateChildren();//no va a desencadenar el evento tb_Validated así que lo añado a continuación
+                tb_Validated(sender, e);
             }
-           
+
         }
 
         private void FBuscarDependiente_FormClosing(object sender, FormClosingEventArgs e)
@@ -144,52 +210,122 @@ namespace CapaDePresentacion
 
         private void tbNombre_Validating(object sender, CancelEventArgs e)
         {
-            if (comboBox1.SelectedItem != null && tbNombre.Text.Length == 0)
+            if (tipoDeClase == TipoDeClase.Dependiente)
             {
-                e.Cancel = true;
-                errorProvider.SetError((Control)sender, "No puede estar vacío");
+                if (comboBox1.SelectedItem != null && tbNombre.Text.Length == 0)
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError((Control)sender, "No puede estar vacío");
+                }
+                else
+                {
+                    errorProvider.Clear();
+                }
             }
-            else
+
+            else if (tipoDeClase == TipoDeClase.Articulo)
             {
-                errorProvider.Clear();
+                if (comboBox1.SelectedItem != null && tbNombre.Text.Length == 0)
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError((Control)sender, "No puede estar vacío");
+                }
+                else
+                {
+                    errorProvider.Clear();
+                }
             }
+
         }
 
         private void tbApellidos_Validating(object sender, CancelEventArgs e)
         {
-            if (comboBox1.SelectedItem != null && tbApellidos.Text.Length == 0)
+            if (tipoDeClase == TipoDeClase.Dependiente)
             {
-                e.Cancel = true;
-                errorProvider.SetError((Control)sender, "No puede estar vacío");
+                if (comboBox1.SelectedItem != null && tbApellidos.Text.Length == 0)
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError((Control)sender, "No puede estar vacío");
+                }
+                else
+                {
+                    errorProvider.Clear();
+                }
             }
-            else
+            else if (tipoDeClase == TipoDeClase.Articulo)
             {
-                errorProvider.Clear();
+                if (comboBox1.SelectedItem != null && tbApellidos.Text.ToString() != "21" && tbApellidos.Text.ToString() != "10" && tbApellidos.Text.ToString() != "4")
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError((Control)sender, "El IVA ha de ser 21, 10 o 4");
+                }
+                else
+                {
+                    int.TryParse(tbApellidos.Text.ToString(), out iva);
+                    errorProvider.Clear();
+                }
             }
+
         }
 
         private void tbComision_Validating(object sender, CancelEventArgs e)
         {
-            if (comboBox1.SelectedItem != null && !isComisionValid(tbComision.Text))
+            if (tipoDeClase == TipoDeClase.Dependiente)
             {
-                e.Cancel = true;
-                errorProvider.SetError((Control)sender, "La comisión es un porcentaje entero");
+                if (comboBox1.SelectedItem != null && !isComisionValid(tbComision.Text))
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError((Control)sender, "El coste de fábrica ha de ser un ");
+                }
+                else
+                {
+                    errorProvider.Clear();
+                }
             }
-            else
+            else if (tipoDeClase == TipoDeClase.Articulo)
             {
-                errorProvider.Clear();
+                if (comboBox1.SelectedItem != null && !isPrecioValid(tbComision.Text))
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError((Control)sender, "El coste de fábrica ha de ser un real positivo");
+                }
+                else
+                {
+                    errorProvider.Clear();
+                }
             }
+
+        }
+
+        private void tbImporte_Validating(object sender, CancelEventArgs e)
+        {
+            //Para dependiente y artículo no hace nada
+
+
         }
 
         private void tb_Validated(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedItem != null)
+            if (tipoDeClase == TipoDeClase.Dependiente)
             {
-                float a;
-                float.TryParse(tbComision.Text, out a);
-                serviciosDependiente.modificarDependiente(((Dependiente)comboBox1.SelectedItem).Clave, tbNombre.Text, tbApellidos.Text, a);
+                if (comboBox1.SelectedItem != null)
+                {
+                    float a;
+                    float.TryParse(tbComision.Text, out a);
+                    serviciosDependiente.modificarDependiente(((Dependiente)comboBox1.SelectedItem).Clave, tbNombre.Text, tbApellidos.Text, a);
+                }
             }
-            
+            if (tipoDeClase == TipoDeClase.Articulo)
+            {
+                if (comboBox1.SelectedItem != null)
+                {
+                    float.TryParse(tbComision.Text, out coste);
+                    int.TryParse(tbApellidos.Text, out iva);
+                    serviciosArticulos.modificarArticulo(((Articulo)comboBox1.SelectedItem).Clave, tbNombre.Text, coste, iva);
+                }
+            }
+
+
         }
 
         //   MÉTODOS AUXILIARES
@@ -204,6 +340,16 @@ namespace CapaDePresentacion
             return result;
         }
 
-        
+        private bool isPrecioValid(string text)
+        {
+            bool result;
+            float a;
+
+            result = float.TryParse(text, out a) && a >= 0;
+            if (result) this.coste = a;
+
+            return result;
+        }
+
     }
 }

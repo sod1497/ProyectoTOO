@@ -35,3 +35,4 @@ D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerale
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FPrincipal.resources
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FBuscarDependiente.resources
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FListadoDependientes.resources
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FListadoArticulos.resources

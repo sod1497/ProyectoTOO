@@ -1,4 +1,6 @@
-﻿using LogicaDeNegocio;
+﻿using CapaDePersistencia;
+using LogicaDeNegocio;
+using ModeloDeDominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,9 @@ namespace CapaDePresentacion
             ServiciosDependiente serviciosDependiente=new ServiciosDependiente();
             ServiciosVenta serviciosVenta = new ServiciosVenta();
 
+            //Elementos de ejemplo para pruebas
+            serviciosDependiente.cargarDependientesEjemplo();
+            serviciosArticulo.cargarArticulosEjemplo(25);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

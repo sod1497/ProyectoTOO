@@ -14,6 +14,28 @@ namespace CapaDePresentacionConsola
 
         static void Main(string[] args)
         {
+            //Para probar gestor de claves
+            GestorDeClaves g = new GestorDeClaves();
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+            Console.WriteLine("Clave: " + g.NuevaClave());
+
+
+
+
+
+
             //Para probar dependientes
             Console.WriteLine("Inicio");
             addDepend();
