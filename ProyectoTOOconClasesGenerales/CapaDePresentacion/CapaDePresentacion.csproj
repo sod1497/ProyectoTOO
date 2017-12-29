@@ -45,11 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FBuscarDependiente.cs">
+    <Compile Include="FArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FBuscarDependiente.Designer.cs">
-      <DependentUpon>FBuscarDependiente.cs</DependentUpon>
+    <Compile Include="FArticulo.Designer.cs">
+      <DependentUpon>FArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBuscar.Designer.cs">
+      <DependentUpon>FBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDependiente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDependiente.Designer.cs">
+      <DependentUpon>FDependiente.cs</DependentUpon>
     </Compile>
     <Compile Include="FListadoArticulos.cs">
       <SubType>Form</SubType>
@@ -70,18 +82,6 @@
     <Compile Include="FIntroducir.Designer.cs">
       <DependentUpon>FIntroducir.cs</DependentUpon>
     </Compile>
-    <Compile Include="formArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formArticulo.Designer.cs">
-      <DependentUpon>formArticulo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formDependiente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formDependiente.Designer.cs">
-      <DependentUpon>formDependiente.cs</DependentUpon>
-    </Compile>
     <Compile Include="FPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,8 +90,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FBuscarDependiente.resx">
-      <DependentUpon>FBuscarDependiente.cs</DependentUpon>
+    <EmbeddedResource Include="FBuscar.resx">
+      <DependentUpon>FBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FIntroducir.resx">
       <DependentUpon>FIntroducir.cs</DependentUpon>
@@ -101,12 +101,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FListadoDependientes.resx">
       <DependentUpon>FListadoDependientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formArticulo.resx">
-      <DependentUpon>formArticulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formDependiente.resx">
-      <DependentUpon>formDependiente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>

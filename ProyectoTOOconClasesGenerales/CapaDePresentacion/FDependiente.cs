@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CapaDePresentacion
 {
-    public partial class formDependiente : Form
+    public partial class FDependiente : Form
     {
         ErrorProvider errorProvider;
 
-        private formDependiente() { }
+        private FDependiente() { }
 
         //Este constructor crea una entrada de datos para el alta de dependiente
-        public formDependiente(String clave)
+        public FDependiente(String clave)
         {
             InitializeComponent();
 
@@ -31,7 +31,7 @@ namespace CapaDePresentacion
 
         //Este constructor crea una baja de dependiente o una visualizacion de datos de dependiente.
         //Si se quiere una baja de dependiente, poner darDeBaja a true.
-        public formDependiente(String clave, String nombre, String apellidos, float comision, bool darDeBaja)
+        public FDependiente(String clave, String nombre, String apellidos, float comision, bool darDeBaja)
         {
             InitializeComponent();
 
@@ -60,25 +60,28 @@ namespace CapaDePresentacion
 
         //  PROPS
 
-        public String Nombre {
+        public String Nombre
+        {
             get
             {
                 return tbNombre.Text;
             }
         }
 
-        public String Apellidos {
+        public String Apellidos
+        {
             get
             {
                 return tbApellidos.Text;
             }
         }
 
-        public float Comision
+        public int Comision
         {
-            get{
-                float result;
-                bool b= float.TryParse(tbComision.Text,out result);
+            get
+            {
+                int result;
+                bool b = int.TryParse(tbComision.Text, out result);
                 return result;
             }
 
@@ -120,7 +123,7 @@ namespace CapaDePresentacion
 
         private void tbNombre_Validating(object sender, CancelEventArgs e)
         {
-            if (tbNombre.Text.Length==0)
+            if (tbNombre.Text.Length == 0)
             {
                 e.Cancel = true;
                 errorProvider.SetError((Control)sender, "No puede estar vacío");
@@ -133,7 +136,7 @@ namespace CapaDePresentacion
 
         private void tbApellidos_Validating(object sender, CancelEventArgs e)
         {
-            if (tbApellidos.Text.Length==0)
+            if (tbApellidos.Text.Length == 0)
             {
                 e.Cancel = true;
                 errorProvider.SetError((Control)sender, "No puede estar vacío");
@@ -164,7 +167,7 @@ namespace CapaDePresentacion
             bool result;
             int a;
 
-            result = int.TryParse(comision,out a);
+            result = int.TryParse(comision, out a);
 
             return result;
         }

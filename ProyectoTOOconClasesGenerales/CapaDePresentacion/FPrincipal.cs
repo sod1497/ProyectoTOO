@@ -46,7 +46,7 @@ namespace CapaDePresentacion
                 f.Dispose();
                 if (!lnd.existeDependiente(clave))
                 {
-                    formDependiente ad = new formDependiente(clave);
+                    FDependiente ad = new FDependiente(clave);
                     ad.ShowDialog();
                     if (ad.DialogResult == DialogResult.OK)
                     {
@@ -75,7 +75,7 @@ namespace CapaDePresentacion
                 if (lnd.existeDependiente(clave))
                 {
                     Dependiente d = lnd.getDependiente(clave);
-                    formDependiente ad = new formDependiente(clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, true);
+                    FDependiente ad = new FDependiente(clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, true);
                     ad.ShowDialog();
                     if (DialogResult.OK.Equals(ad.DialogResult))
                     {
@@ -92,7 +92,7 @@ namespace CapaDePresentacion
 
         private void búsquedaDependiente_Click(object sender, EventArgs e)
         {
-            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente(TipoDeClase.Dependiente,lnv,lnd,lna);
+            FBuscar fBuscarDependiente = new FBuscar(TipoDeClase.Dependiente,lnv,lnd,lna);
             fBuscarDependiente.ShowDialog();
 
             /*
@@ -105,7 +105,7 @@ namespace CapaDePresentacion
                 if (lnd.existeDependiente(clave))
                 {
                     Dependiente d = lnd.getDependiente(clave);
-                    formDependiente ad = new formDependiente(clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, false);
+                    FDependiente ad = new FDependiente(clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, false);
                     ad.ShowDialog();
                 }
                 else
@@ -113,7 +113,7 @@ namespace CapaDePresentacion
                     DialogResult dr = MessageBox.Show(this, "¿Quieres introducirlo?", "No existe un dependiente con ese nºSS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (DialogResult.Yes.Equals(dr))
                     {
-                        formDependiente ad = new formDependiente(clave);
+                        FDependiente ad = new FDependiente(clave);
                         ad.ShowDialog();
                         if (DialogResult.OK.Equals(ad.DialogResult))
                         {
@@ -138,7 +138,7 @@ namespace CapaDePresentacion
         */
         private void altaArticulo_Click(object sender, EventArgs e)
         {
-            formArticulo ad = new formArticulo("Asignado automaticamente");
+            FArticulo ad = new FArticulo("Asignado automaticamente");
             ad.ShowDialog();
             if (DialogResult.OK.Equals(ad.DialogResult))
             {
@@ -159,7 +159,7 @@ namespace CapaDePresentacion
                 if (lna.existeArticulo(clave))
                 {
                     Articulo a = lna.getArticulo(clave);
-                    formArticulo ad = new formArticulo(clave, a.Descripcion, a.CosteFabrica.ToString(), true);
+                    FArticulo ad = new FArticulo(clave, a.Descripcion, a.CosteFabrica.ToString(), true);
                     ad.ShowDialog();
                     if (DialogResult.OK.Equals(ad.DialogResult))
                     {
@@ -185,7 +185,7 @@ namespace CapaDePresentacion
 
         private void búsquedaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente(TipoDeClase.Articulo, lnv, lnd, lna);
+            FBuscar fBuscarDependiente = new FBuscar(TipoDeClase.Articulo, lnv, lnd, lna);
             fBuscarDependiente.ShowDialog();
         }
 

@@ -38,7 +38,7 @@ namespace LogicaDeNegocio
             }
         }
 
-        public bool modificarDependiente(String clave, String nombre, String apellidos, float comision)
+        public bool modificarDependiente(String clave, String nombre, String apellidos, int comision)
         {
             return modificarDependiente(new Dependiente(clave, "", "", 0), new Dependiente(clave, nombre, apellidos, comision));
         }
@@ -120,13 +120,13 @@ namespace LogicaDeNegocio
 
         //a partir de las ventas de ese dependiente (este mes), y de la comision que se 
         //lleva por cada una, calcula la comision total
-        public float calcularComision(Dependiente d, DateTime date)
+        public double calcularComision(Dependiente d, DateTime date)
         {
-            float comisionTotal = 0;
-            List<Venta> ventas = Persistencia<Dependiente>.getVentasDeDependiente(d, date);
-            foreach (Venta x in ventas)
+            double comisionTotal = 0;
+            List<Venta> ventas = Persistencia<Venta>.getVentasDeDependiente(d, date);
+            foreach (Venta v in ventas)
             {
-                comisionTotal += d.ComisionPorVenta;
+                comisionTotal += v.ImporteTotal * d.ComisionPorVenta / 100;
             }
 
             return comisionTotal;

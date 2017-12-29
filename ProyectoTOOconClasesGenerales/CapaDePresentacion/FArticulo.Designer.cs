@@ -1,6 +1,6 @@
 ﻿namespace CapaDePresentacion
 {
-    partial class formArticulo
+    partial class FArticulo
     {
         /// <summary>
         /// Required designer variable.
@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -56,7 +55,7 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDescripcion.Location = new System.Drawing.Point(44, 180);
             this.tbDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -187,7 +186,7 @@
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
-            // formArticulo
+            // FArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -206,7 +205,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(458, 374);
             this.MinimumSize = new System.Drawing.Size(458, 374);
-            this.Name = "formArticulo";
+            this.Name = "FArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Introducir Articulo";
             this.flowLayoutPanel1.ResumeLayout(false);

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CapaDePresentacion
 {
-    public partial class FBuscarDependiente : Form
+    public partial class FBuscar : Form
     {
         bool validar = true;
         TipoDeClase tipoDeClase;
@@ -30,7 +30,7 @@ namespace CapaDePresentacion
         BindingSource bindingSource;
         ErrorProvider errorProvider;
 
-        public FBuscarDependiente(TipoDeClase tipoDeClase, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa)
+        public FBuscar(TipoDeClase tipoDeClase, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa)
         {
             InitializeComponent();
 
@@ -96,11 +96,11 @@ namespace CapaDePresentacion
                     }
             }
 
-            
+
 
         }
 
-        public FBuscarDependiente(TipoBasico d, TipoDeClase tipoDeClase, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa) : this(tipoDeClase, sv, sd, sa)
+        public FBuscar(TipoBasico d, TipoDeClase tipoDeClase, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa) : this(tipoDeClase, sv, sd, sa)
         {
             //Se mueve directamente al dependiente de clave "clave"
 
@@ -115,47 +115,82 @@ namespace CapaDePresentacion
 
         private void bindingAdd_Click(object sender, EventArgs e)
         {
-
-            FIntroducir f = new FIntroducir(TipoDeClase.Dependiente);
-            f.ShowDialog();
-            if (f.DialogResult == DialogResult.OK)
+            if (tipoDeClase == TipoDeClase.Articulo)
             {
-                String clave = f.Clave;
-                f.Dispose();
-                if (!serviciosDependiente.existeDependiente(clave))
-                {
-                    formDependiente ad = new formDependiente(clave);
-                    ad.ShowDialog();
-                    if (ad.DialogResult == DialogResult.OK)
-                    {
-                        serviciosDependiente.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, ad.Comision));
-                    }
-                }
-                else
-                {
-                    DialogResult dr = MessageBox.Show(this, "Error", "Ya existe un dependiente con ese nºSS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-
-            bindingSource.Clear();
-            bindingSource.DataSource = serviciosDependiente.getDependientesTienda();
-        }
-
-        private void bindingRemove_Click(object sender, EventArgs e)
-        {
-            Dependiente d = (Dependiente)bindingSource.Current;
-            if (d != null)
-            {
-                formDependiente ad = new formDependiente(d.Clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, true);
+                FArticulo ad = new FArticulo("Asignado automaticamente");
                 ad.ShowDialog();
                 if (DialogResult.OK.Equals(ad.DialogResult))
                 {
-                    serviciosDependiente.borrarDependiente(d);
+                    serviciosArticulos.anadirArticulo(new Articulo("0", ad.Descripcion, ad.Precio, ad.TipoIVA));
+                }
+
+                bindingSource.Clear();
+                bindingSource.DataSource = serviciosArticulos.getTodosArticulos();
+            }
+            else if (tipoDeClase == TipoDeClase.Dependiente)
+            {
+                FIntroducir f = new FIntroducir(TipoDeClase.Dependiente);
+                f.ShowDialog();
+                if (f.DialogResult == DialogResult.OK)
+                {
+                    String clave = f.Clave;
+                    f.Dispose();
+                    if (!serviciosDependiente.existeDependiente(clave))
+                    {
+                        FDependiente ad = new FDependiente(clave);
+                        ad.ShowDialog();
+                        if (ad.DialogResult == DialogResult.OK)
+                        {
+                            serviciosDependiente.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, ad.Comision));
+                        }
+                    }
+                    else
+                    {
+                        DialogResult dr = MessageBox.Show(this, "Error", "Ya existe un dependiente con ese nºSS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
 
                 bindingSource.Clear();
                 bindingSource.DataSource = serviciosDependiente.getDependientesTienda();
             }
+
+        }
+
+        private void bindingRemove_Click(object sender, EventArgs e)
+        {
+            if (tipoDeClase == TipoDeClase.Dependiente)
+            {
+                Dependiente d = (Dependiente)bindingSource.Current;
+                if (d != null)
+                {
+                    FDependiente ad = new FDependiente(d.Clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, true);
+                    ad.ShowDialog();
+                    if (DialogResult.OK.Equals(ad.DialogResult))
+                    {
+                        serviciosDependiente.borrarDependiente(d);
+                    }
+
+                    bindingSource.Clear();
+                    bindingSource.DataSource = serviciosDependiente.getDependientesTienda();
+                }
+            }
+            else if (tipoDeClase == TipoDeClase.Articulo)
+            {
+                Articulo d = (Articulo)bindingSource.Current;
+                if (d != null)
+                {
+                    FArticulo ad = new FArticulo(d.Clave, d.Descripcion, d.CosteFabrica.ToString(), true);
+                    ad.ShowDialog();
+                    if (DialogResult.OK.Equals(ad.DialogResult))
+                    {
+                        serviciosArticulos.borrarArticulo(d);
+                    }
+
+                    bindingSource.Clear();
+                    bindingSource.DataSource = serviciosArticulos.getTodosArticulos();
+                }
+            }
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -310,8 +345,8 @@ namespace CapaDePresentacion
             {
                 if (comboBox1.SelectedItem != null)
                 {
-                    float a;
-                    float.TryParse(tbComision.Text, out a);
+                    int a;
+                    int.TryParse(tbComision.Text, out a);
                     serviciosDependiente.modificarDependiente(((Dependiente)comboBox1.SelectedItem).Clave, tbNombre.Text, tbApellidos.Text, a);
                 }
             }

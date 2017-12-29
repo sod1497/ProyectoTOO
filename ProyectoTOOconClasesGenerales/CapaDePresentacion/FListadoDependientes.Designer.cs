@@ -144,7 +144,7 @@
             // bAdd
             // 
             this.bAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bAdd.Location = new System.Drawing.Point(172, 367);
+            this.bAdd.Location = new System.Drawing.Point(158, 367);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(116, 30);
             this.bAdd.TabIndex = 8;
@@ -178,9 +178,9 @@
             // bVentas
             // 
             this.bVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bVentas.Location = new System.Drawing.Point(294, 368);
+            this.bVentas.Location = new System.Drawing.Point(280, 367);
             this.bVentas.Name = "bVentas";
-            this.bVentas.Size = new System.Drawing.Size(86, 29);
+            this.bVentas.Size = new System.Drawing.Size(100, 30);
             this.bVentas.TabIndex = 11;
             this.bVentas.Text = "Ver ventas";
             this.bVentas.UseVisualStyleBackColor = true;

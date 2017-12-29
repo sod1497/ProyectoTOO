@@ -19,14 +19,24 @@ namespace CapaDePersistencia
          * para facilitar el extraer elementos
          */
 
-        public T item(String clave)
+        public T Item(String clave)
         {
-            T t;
-            base.Dictionary.TryGetValue(clave,out t);
+            base.Dictionary.TryGetValue(clave, out T t);
             return t;
         }
 
-        public Coleccion<TipoBasico> copiar()
+        
+        public new void SetItem(int i, T t)
+        {
+            base.SetItem(i, t);
+        }
+
+        public new int IndexOf(T t)
+        {
+            return base.IndexOf(t);
+        }
+
+        public Coleccion<TipoBasico> Copiar()
         {
             Coleccion<TipoBasico> aux = new Coleccion<TipoBasico>();
             foreach(TipoBasico i in this)

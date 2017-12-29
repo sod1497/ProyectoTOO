@@ -80,9 +80,9 @@ namespace CapaDePresentacion
 
         //  VALIDADORES
 
-        //https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/how-to-validate-data-in-the-windows-forms-datagridview-control
         private void cell_Validating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
+        {        
+            //Basado en https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/how-to-validate-data-in-the-windows-forms-datagridview-control
             string headerText = dataGridView1.Columns[e.ColumnIndex].HeaderText;
             if (headerText.Equals("Descripción"))
             {
@@ -135,7 +135,6 @@ namespace CapaDePresentacion
         }
 
         
-
         //  MÉTODOS AUXILIARES
 
         private bool isPrecioValid(string text)

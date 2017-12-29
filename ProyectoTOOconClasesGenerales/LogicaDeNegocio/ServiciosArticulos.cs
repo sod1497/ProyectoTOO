@@ -104,7 +104,7 @@ namespace LogicaDeNegocio
         {
             Articulo aux;
             Random random = new Random();
-            String[] descripcion = { "Caja", "Cubo", "Frasco", "Botella", "Jarra", "Chuches" };
+            String[] descripcion = { "Caja", "Cubo", "Frasco", "Botella", "Jarra", "Chuches" ,"Dulce", "Dispositivo", "Mueble", "Mobiliario","Menaje","Bebida", "Herramienta"};
             if (count < 1) count = 10;
             for (int i = 0; i < count; i++)
             {

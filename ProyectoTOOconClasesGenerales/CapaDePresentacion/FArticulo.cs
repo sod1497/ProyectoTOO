@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace CapaDePresentacion
 {
-    public partial class formArticulo : Form
+    public partial class FArticulo : Form
     {
         //Guardará el valor validado
         float coste;
+        private Button button1;
         ErrorProvider errorProvider;
 
-        private formArticulo() { }
+        private FArticulo() { }
 
         //Este constructor crea una entrada de datos para el alta de dependiente
-        public formArticulo(String clave)
+        public FArticulo(String clave)
         {
             InitializeComponent();
 
@@ -32,9 +33,11 @@ namespace CapaDePresentacion
 
         //Este constructor crea una baja de dependiente o una visualizacion de datos de dependiente.
         //Si se quiere una baja de dependiente, poner darDeBaja a true.
-        public formArticulo(String clave, String descripcion, String precioCoste, Boolean darDeBaja)
+        public FArticulo(String clave, String descripcion, String precioCoste, Boolean darDeBaja)
         {
             InitializeComponent();
+
+            errorProvider = new ErrorProvider();
 
             if (darDeBaja)
             {
@@ -60,18 +63,18 @@ namespace CapaDePresentacion
         {
             get { return tbDescripcion.Text; }
         }
+
         public float Precio
         {
-            get{
+            get
+            {
                 return coste;
             }
         }
 
-
         /*
         * Devuelve 21, 10 o 4 dependiendo del dato seleccionado. 
         */
-
         public int TipoIVA
         {
             get
@@ -85,6 +88,7 @@ namespace CapaDePresentacion
             }
         }
 
+        //   MANEJADORES
 
         private void btAceptar_ClickDarAlta(object sender, EventArgs e)
         {
@@ -113,7 +117,7 @@ namespace CapaDePresentacion
 
         private void tbDescripcion_Validating(object sender, CancelEventArgs e)
         {
-            if (tbDescripcion.Text.Length==0)
+            if (tbDescripcion.Text.Length == 0)
             {
                 e.Cancel = true;
                 errorProvider.SetError((Control)sender, "No puede estar vacío");
@@ -144,10 +148,11 @@ namespace CapaDePresentacion
             bool result;
             float a;
 
-            result = float.TryParse(text, out a) && a>=0;
+            result = float.TryParse(text, out a) && a >= 0;
             if (result) this.coste = a;
 
             return result;
         }
+
     }
 }

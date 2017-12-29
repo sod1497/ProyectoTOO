@@ -88,7 +88,7 @@ namespace CapaDePresentacion
                 f.Dispose();
                 if (!serviciosDependiente.existeDependiente(clave))
                 {
-                    formDependiente ad = new formDependiente(clave);
+                    FDependiente ad = new FDependiente(clave);
                     ad.ShowDialog();
                     if (ad.DialogResult == DialogResult.OK)
                     {
@@ -111,9 +111,9 @@ namespace CapaDePresentacion
 
         private void bModificar_Click(object sender, EventArgs e)
         {
-            //Si hay algo seleccionado, abre FBuscarDependiente para ese dependiente
+            //Si hay algo seleccionado, abre FBuscar para ese dependiente
             Dependiente d = (Dependiente)lbNSS.SelectedItem;
-            FBuscarDependiente fBuscarDependiente = new FBuscarDependiente(d, TipoDeClase.Dependiente, serviciosVenta, serviciosDependiente, serviciosArticulos);
+            FBuscar fBuscarDependiente = new FBuscar(d, TipoDeClase.Dependiente, serviciosVenta, serviciosDependiente, serviciosArticulos);
             fBuscarDependiente.ShowDialog();
             focoCambiado();
         }

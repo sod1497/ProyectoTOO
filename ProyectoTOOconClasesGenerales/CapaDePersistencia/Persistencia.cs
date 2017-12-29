@@ -62,20 +62,21 @@ namespace CapaDePersistencia
 
         /*
          * Reemplaza la instancia vieja por la nueva
-         * No debería devolver nunca false pero porsiaca se contempla este caso
          */
+
         public static bool modificar(T t)
         {
-            bool a = borrar(t);
-            if (a)
-            {
-                anadir(t);
-                return true;
-            }
+            Coleccion<T> aux = Persistencia<T>.obtenerColeccion();
+            if (aux == null)
+                return false;
+
             else
             {
-                return false;
+                int i = aux.IndexOf(t);
+                aux.SetItem(i,t);
+                return true;
             }
+
         }
 
         /*
@@ -124,7 +125,7 @@ namespace CapaDePersistencia
         public static T get(T t)
         {
             Coleccion<T> aux = Persistencia<T>.obtenerColeccion();
-            return (T) aux.item(t.Clave).copiar();
+            return (T) aux.Item(t.Clave).copiar();
         }
 
         /*

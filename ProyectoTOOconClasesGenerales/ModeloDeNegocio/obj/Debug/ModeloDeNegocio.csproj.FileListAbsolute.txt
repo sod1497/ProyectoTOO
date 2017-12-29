@@ -2,12 +2,6 @@ C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTienda\M
 C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTienda\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csproj.CoreCompileInputs.cache
 C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTiendaPruevas\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csprojResolveAssemblyReference.cache
 C:\Users\Dani\Desktop\PendriveCopiaSeguridad\Universidad\TOO\ProyectoTOOTiendaPruevas\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csproj.CoreCompileInputs.cache
-D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\bin\Debug\ProyectoToo.dll
-D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\bin\Debug\ProyectoToo.pdb
-D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csprojResolveAssemblyReference.cache
-D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csproj.CoreCompileInputs.cache
-D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.dll
-D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.pdb
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\ModeloDeNegocio\bin\Debug\ProyectoToo.dll
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\ModeloDeNegocio\bin\Debug\ProyectoToo.pdb
 C:\Users\dagomeo\Downloads\ProyectoTOO-master\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csprojResolveAssemblyReference.cache
@@ -18,3 +12,8 @@ C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\Mode
 C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csprojResolveAssemblyReference.cache
 C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.dll
 C:\Users\saojeda\Documents\GitHub\ProyectoTOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.pdb
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\bin\Debug\ProyectoToo.dll
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\bin\Debug\ProyectoToo.pdb
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csproj.CoreCompileInputs.cache
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.dll
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.pdb

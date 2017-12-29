@@ -70,9 +70,7 @@ namespace CapaDePresentacion
             Hide();
         }
 
-
-
-
+        
 
         // VALIDADORES
 
@@ -95,10 +93,6 @@ namespace CapaDePresentacion
         }
 
 
-
-
-
-
         //  METODOS AUXILIARES
 
         /*
@@ -114,5 +108,7 @@ namespace CapaDePresentacion
 
             return result;
         }
+
+
     }
 }

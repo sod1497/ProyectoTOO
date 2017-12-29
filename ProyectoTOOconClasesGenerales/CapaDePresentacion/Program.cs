@@ -23,11 +23,11 @@ namespace CapaDePresentacion
 
             //Elementos de ejemplo para pruebas
             serviciosDependiente.cargarDependientesEjemplo();
-            serviciosArticulo.cargarArticulosEjemplo(25);
+            serviciosArticulo.cargarArticulosEjemplo(250);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new formArticulo("3245","fs","df",false));
+            //Application.Run(new FArticulo("3245","fs","df",false));
             Application.Run(new FPrincipal(serviciosDependiente,serviciosArticulo,serviciosVenta));
         }
     }

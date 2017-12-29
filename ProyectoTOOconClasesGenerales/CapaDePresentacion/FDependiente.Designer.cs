@@ -1,6 +1,6 @@
 ﻿namespace CapaDePresentacion
 {
-    partial class formDependiente
+    partial class FDependiente
     {
         /// <summary>
         /// Required designer variable.
@@ -144,7 +144,7 @@
             this.tbComision.TabIndex = 2;
             this.tbComision.Validating += new System.ComponentModel.CancelEventHandler(this.tbComision_Validating);
             // 
-            // formDependiente
+            // FDependiente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +163,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(393, 313);
             this.MinimumSize = new System.Drawing.Size(393, 313);
-            this.Name = "formDependiente";
+            this.Name = "FDependiente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Alta de un dependiente";
             this.ResumeLayout(false);

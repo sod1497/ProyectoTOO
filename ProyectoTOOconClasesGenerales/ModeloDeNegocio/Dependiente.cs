@@ -8,10 +8,10 @@ namespace ModeloDeDominio
         private string nss;
         private string nombre;
         private string apellidos;
-        private float comisionPorVenta;
+        private int comisionPorVenta;
         //private bool estaActivo;
 
-        public Dependiente(string nss, string nombre, string apellidos, float comision)
+        public Dependiente(string nss, string nombre, string apellidos, int comision)
         {
             this.nss = nss;
             this.nombre = nombre;
@@ -75,7 +75,7 @@ namespace ModeloDeDominio
             }
         }
 
-        public float ComisionPorVenta
+        public int ComisionPorVenta
         {
             get
             {
