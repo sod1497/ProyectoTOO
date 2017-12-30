@@ -101,7 +101,7 @@ namespace LogicaDeNegocio
             if (Persistencia<Dependiente>.existe(d))
             {
                 List<string> NSSs = new List<string>();
-                List<Dependiente> dependientes = Persistencia<Dependiente>.getTodos(d);
+                List<Dependiente> dependientes = Persistencia<Dependiente>.getTodos();
                 foreach (Dependiente x in dependientes)
                 {
                     if (x.Nombre.Equals(d.Nombre))
@@ -139,7 +139,7 @@ namespace LogicaDeNegocio
 
         public List<Dependiente> getDependientesTienda()
         {
-            return Persistencia<Dependiente>.getTodos(new Dependiente());
+            return Persistencia<Dependiente>.getTodos();
         }
 
         public void cargarDependientesEjemplo()

@@ -24,6 +24,7 @@ namespace CapaDePresentacion
             //Elementos de ejemplo para pruebas
             serviciosDependiente.cargarDependientesEjemplo();
             serviciosArticulo.cargarArticulosEjemplo(250);
+            serviciosVenta.cargarVentasEjemplo(100);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

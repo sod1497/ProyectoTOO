@@ -30,6 +30,7 @@ namespace CapaDePresentacion
         Venta venta;
         Dependiente dependiente;
         bool conTarjeta;
+        bool tarjetaValidada;
 
 
         public FVenta(ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa)
@@ -66,7 +67,8 @@ namespace CapaDePresentacion
             {
                 tbDescripcionArticulo.Text = articulo.Descripcion;
                 tbPrecioUD.Text = articulo.Importe.ToString();
-                int.TryParse(tbPrecioUD.Text, out cantidad);
+                int cantidad;
+                int.TryParse(tbCantidad.Text, out cantidad);
                 tbImporte.Text = (articulo.Importe * cantidad).ToString();
             }
 
@@ -81,6 +83,7 @@ namespace CapaDePresentacion
             if (dependiente != null) tbDependiente.Text = dependiente.NombreCompleto;
 
             conTarjeta = true;
+            tarjetaValidada = false;
         }
 
         public FVenta(Venta venta, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa)
@@ -131,6 +134,13 @@ namespace CapaDePresentacion
             conTarjeta = true;
         }
 
+        public Venta Venta
+        {
+            get
+            {
+                return this.venta;
+            }
+        }
 
         /*
         * Se muestran los articulos con 0 en la cantidad. Cuando se pulse + o se cambie
@@ -143,13 +153,17 @@ namespace CapaDePresentacion
         private void cbIDArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
             Articulo articulo = articulos.Find(x => x.Id == (String)cbIDArticulo.SelectedItem);
-            int aux;
 
             if (articulosDeVenta.Contains(articulo))
             {
                 foreach (LineaDeVenta l in lineas)
                 {
-                    if (l.Articulo == articulo) lbLineasArticulo.SelectedIndex = lineas.IndexOf(l);
+                    if (l.Articulo == articulo)
+                    {
+                        lbLineasArticulo.SelectedIndex = lineas.IndexOf(l);
+                        cantidad = ((LineaDeVenta)lbLineasArticulo.SelectedItem).Cantidad;
+                        break;
+                    }
                 }
             }
             else
@@ -160,7 +174,6 @@ namespace CapaDePresentacion
 
             tbDescripcionArticulo.Text = articulo.Descripcion;
             tbPrecioUD.Text = articulo.Importe.ToString();
-            int.TryParse(tbPrecioUD.Text, out cantidad);
             tbImporte.Text = (articulo.Importe * cantidad).ToString();
         }
 
@@ -168,14 +181,17 @@ namespace CapaDePresentacion
         {
             int aux;
             int.TryParse(tbCantidad.Text, out aux);
+            Articulo articulo = articulos.Find(x => x.Id == (String)cbIDArticulo.SelectedItem);
 
             aux++;
             tbCantidad.Text = aux.ToString();
 
             if (aux == 1)
             {
-                LineaDeVenta nueva = new LineaDeVenta(articulos.Find(x => x.Id == (String)cbIDArticulo.SelectedItem), 1);
+                Articulo a = articulos.Find(x => x.Id == (String)cbIDArticulo.SelectedItem);
+                LineaDeVenta nueva = new LineaDeVenta(a, 1);
                 lineas.Add(nueva);
+                articulosDeVenta.Add(a);
                 lbLineasArticulo.SelectedIndex = lineas.IndexOf(nueva);
             }
             else
@@ -183,15 +199,17 @@ namespace CapaDePresentacion
                 ((LineaDeVenta)bindingLineas.Current).Cantidad = aux;
             }
 
-            int a = lineas.Count;
             bindingLineas.ResetBindings(true);
             actualizarTotal();
+            tbImporte.Text = (articulo.Importe * aux).ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             int aux;
             int.TryParse(tbCantidad.Text, out aux);
+            Articulo articulo = articulos.Find(x => x.Id == (String)cbIDArticulo.SelectedItem);
+
             aux--;
             if (aux >= 0)
             {
@@ -200,15 +218,18 @@ namespace CapaDePresentacion
                 if (aux == 0)
                 {
                     lineas.Remove((LineaDeVenta)bindingLineas.Current);
+                    articulosDeVenta.Remove(articulo);
                 }
                 else
                 {
                     ((LineaDeVenta)bindingLineas.Current).Cantidad = aux;
+                    tbImporte.Text = (articulo.Importe * aux).ToString();
                 }
 
             }
             bindingLineas.ResetBindings(true);
             actualizarTotal();
+
         }
 
         private void lbLineas_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,17 +239,9 @@ namespace CapaDePresentacion
             {
                 if (a == articulo.Id) cbIDArticulo.SelectedItem = a;
             }
-            tbCantidad.Text = ((LineaDeVenta)lbLineasArticulo.SelectedItem).Cantidad.ToString();
-
-
-        }
-
-        public Venta Venta
-        {
-            get
-            {
-                return this.venta;
-            }
+            cantidad = ((LineaDeVenta)lbLineasArticulo.SelectedItem).Cantidad;
+            tbCantidad.Text = cantidad.ToString();
+            tbPrecioUD.Text = articulo.Importe.ToString();
         }
 
         private void rbTarjeta_CheckedChanged(object sender, EventArgs e)
@@ -241,30 +254,6 @@ namespace CapaDePresentacion
         {
             dependiente = dependientes.Find(x => x.NSS == (String)cbDependientes.SelectedItem);
             tbDependiente.Text = dependiente.NombreCompleto;
-        }
-
-
-        //   VALIDADORES
-
-        private void tbCantidad_Validating(object sender, CancelEventArgs e)
-        {
-            int aux;
-            bool exito = int.TryParse(tbCantidad.Text, out aux);
-            if (!exito || aux < 0)
-            {
-                e.Cancel = true;
-                errorProvider.SetError((Control)sender, "Entrada no válida");
-            }
-            bindingLineas.ResetBindings(true);
-        }
-
-        private void tbTarjeta_Validating(object sender, CancelEventArgs e)
-        {
-            if (conTarjeta && !isTarjetaValida(tbTarjeta.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError((Control)sender, "Entrada no válida");
-            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -280,8 +269,11 @@ namespace CapaDePresentacion
         private void button3_Click(object sender, EventArgs e)
         {
             this.ValidateChildren();
-
-            if (lineas.Count > 0)
+            if(conTarjeta&&!tarjetaValidada)
+            {
+                MessageBox.Show("Revisa la tarjeta introducida");
+            }
+            else if (lineas.Count > 0)
             {
                 if (conTarjeta)
                 {
@@ -305,6 +297,34 @@ namespace CapaDePresentacion
 
         }
 
+        //   VALIDADORES
+
+        private void tbCantidad_Validating(object sender, CancelEventArgs e)
+        {
+            int aux;
+            bool exito = int.TryParse(tbCantidad.Text, out aux);
+            if (!exito || aux < 0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError((Control)sender, "Entrada no válida");
+            }
+            bindingLineas.ResetBindings(true);
+        }
+
+        private void tbTarjeta_Validating(object sender, CancelEventArgs e)
+        {
+            if (conTarjeta && !isTarjetaValida(tbTarjeta.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError((Control)sender, "Entrada no válida");
+                tarjetaValidada = false;
+            }
+            else
+            {
+                errorProvider.SetError((Control)sender, String.Empty);
+                tarjetaValidada = true;
+            }
+        }
 
         //  MÉTODOS AUXILIARES
 

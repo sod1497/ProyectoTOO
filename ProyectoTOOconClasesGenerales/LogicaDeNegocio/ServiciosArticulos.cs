@@ -87,7 +87,7 @@ namespace LogicaDeNegocio
 
         public List<Articulo> getTodosArticulos()
         {
-            return Persistencia<Articulo>.getTodos(new Articulo());
+            return Persistencia<Articulo>.getTodos();
         }
 
         public bool existeArticulo(Articulo v)

@@ -135,7 +135,7 @@ namespace CapaDePersistencia
          */
          
 
-        public static List<T> getTodos(T t)
+        public static List<T> getTodos()
         {
             List<T> aux = new List<T>();
             Coleccion<T> original = Persistencia<T>.obtenerColeccion();

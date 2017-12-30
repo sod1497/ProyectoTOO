@@ -173,10 +173,18 @@ namespace CapaDePresentacion
             ad.Dispose();
         }
 
+        private void listadoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FListadoVentas fListadoVentas = new FListadoVentas(lnv, lnd, lna);
+            fListadoVentas.ShowDialog();
+        }
+
         #endregion
 
         #region OTROS
 
         #endregion
+
+
     }
 }

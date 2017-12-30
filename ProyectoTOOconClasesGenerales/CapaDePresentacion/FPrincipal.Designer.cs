@@ -195,6 +195,7 @@
             this.listadoToolStripMenuItem2.Name = "listadoToolStripMenuItem2";
             this.listadoToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
             this.listadoToolStripMenuItem2.Text = "Listado";
+            this.listadoToolStripMenuItem2.Click += new System.EventHandler(this.listadoToolStripMenuItem2_Click);
             // 
             // FPrincipal
             // 

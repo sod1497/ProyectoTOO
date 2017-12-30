@@ -10,12 +10,26 @@ namespace LogicaDeNegocio
 {
     public class ServiciosVenta
     {
+        private static GestorDeClaves gestorDeClaves = new GestorDeClaves();
 
         public bool anadirVenta(Venta v)
         {
-            if (Persistencia<Venta>.existe(v))
+            if (!Persistencia<Venta>.existe(v))
             {
-                return Persistencia<Venta>.anadir(v);
+                Venta nueva;
+                if(v is VentaConTarjeta)
+                {
+                    nueva = new VentaConTarjeta(gestorDeClaves.NuevaClave(), v.Fecha, v.Dependiente, ((VentaConTarjeta)v).Tarjeta);
+                                   }
+                else
+                {
+                    nueva = new VentaSinTarjeta(gestorDeClaves.NuevaClave(), v.Fecha, v.Dependiente);
+                                    }
+                foreach (LineaDeVenta l in v.LineasDeVenta)
+                {
+                    nueva.anadirLineaVenta(l);
+                }
+                return Persistencia<Venta>.anadir(nueva);
             }
             return false;
             
@@ -91,6 +105,39 @@ namespace LogicaDeNegocio
         public bool existeVenta(String id)
         {
             return Persistencia<Venta>.existe(new VentaSinTarjeta(id,DateTime.Now,null));
+        }
+
+        public List<Venta> getVentas()
+        {
+            return Persistencia<Venta>.getTodos();
+        }
+
+        public void cargarVentasEjemplo(int numero)
+        {
+            Venta venta;
+            Random random = new Random();
+            List<Dependiente> dependientes = Persistencia<Dependiente>.getTodos();
+            List<Articulo> articulos = Persistencia<Articulo>.getTodos();
+
+            for (int j = 0; j < numero; j++)
+            {
+                if (random.Next(0, 1) == 1)
+                {
+                    venta = new VentaConTarjeta("0", DateTime.Now, dependientes[random.Next(0, dependientes.Count - 1)], (random.Next(1000000000, 999999999)).ToString());
+                }
+                else
+                {
+                    venta = new VentaSinTarjeta("0", DateTime.Now, dependientes[random.Next(0, dependientes.Count - 1)]);
+                }
+                List<LineaDeVenta> lineas = new List<LineaDeVenta>();
+                LineaDeVenta linea;
+                for (int i = 0, n = random.Next(1, 20); i < n; i++)
+                {
+                    linea = new LineaDeVenta(articulos[random.Next(0, articulos.Count - 1)], random.Next(1, 10));
+                    venta.anadirLineaVenta(linea);
+                }
+                anadirVenta(venta);
+            }
         }
 
     }
