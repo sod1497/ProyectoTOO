@@ -38,13 +38,19 @@ namespace ModeloDeDominio
             get
             {
                 return this.lineasDeVenta;
-                
-                /*List<LineaDeVenta> aux = new List<LineaDeVenta>();
-                foreach(LineaDeVenta l in this.lineasDeVenta)
+            }
+        }
+
+        public List<Articulo> Articulos
+        {
+            get
+            {
+                List<Articulo> articulos = new List<Articulo>();
+                foreach (LineaDeVenta l in LineasDeVenta)
                 {
-                    aux.Add(l.copiar());
+                    articulos.Add(l.Articulo);
                 }
-                return aux;*/
+                return articulos;
             }
         }
 
@@ -121,7 +127,6 @@ namespace ModeloDeDominio
             }
         }
         
-
         public string Clave
         {
             get

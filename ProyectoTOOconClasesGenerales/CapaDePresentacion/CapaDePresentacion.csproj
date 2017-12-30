@@ -75,6 +75,12 @@
     <Compile Include="FListadoDependientes.Designer.cs">
       <DependentUpon>FListadoDependientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FVenta.Designer.cs">
+      <DependentUpon>FVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="TipoDeClase.cs" />
     <Compile Include="FIntroducir.cs">
       <SubType>Form</SubType>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FVenta.resx">
+      <DependentUpon>FVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -134,6 +134,9 @@ namespace CapaDePresentacion
             bModificar.Enabled = bs.Count > 0;
         }
 
+        private void FListadoDependientes_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

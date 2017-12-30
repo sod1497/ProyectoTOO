@@ -1,5 +1,7 @@
 ﻿
 
+using System.Collections.Generic;
+
 namespace ModeloDeDominio
 {
     public class LineaDeVenta
@@ -23,6 +25,14 @@ namespace ModeloDeDominio
             }
         }
 
+        public string IdArticulo
+        {
+            get
+            {
+                return this.articulo.Id;
+            }
+        }
+
         public int Cantidad
         {
             get
@@ -42,8 +52,6 @@ namespace ModeloDeDominio
                 return this.Cantidad * this.Articulo.Importe;
             }
         }
-
-        
 
         public LineaDeVenta copiar()
         {

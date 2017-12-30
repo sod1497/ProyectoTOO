@@ -34,3 +34,4 @@ D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerale
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.exe
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.pdb
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FBuscar.resources
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FVenta.resources
