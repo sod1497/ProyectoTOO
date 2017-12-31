@@ -58,7 +58,7 @@ namespace CapaDePresentacion
             tbComision.ReadOnly = true;
         }
 
-        //  PROPS
+        #region PROPIEDADES
 
         public String Nombre
         {
@@ -87,7 +87,9 @@ namespace CapaDePresentacion
 
         }
 
-        //  MANEJADORES
+        #endregion
+
+        #region MANEJADORES
 
         private void btAceptar_ClickDarAlta(object sender, EventArgs e)
         {
@@ -118,8 +120,9 @@ namespace CapaDePresentacion
             this.DialogResult = DialogResult.OK;
             this.Hide();
         }
+        #endregion
 
-        //  VALIDADORES
+        #region VALIDADORES
 
         private void tbNombre_Validating(object sender, CancelEventArgs e)
         {
@@ -159,9 +162,11 @@ namespace CapaDePresentacion
                 errorProvider.Clear();
             }
         }
+        #endregion
 
-        //   MÉTODOS AUXILIARES
+        #region MÉTODOS AUXILIARES
 
+        //Devuelve true si es un valor entero positivo o cero
         private bool isComisionValid(String comision)
         {
             bool result;
@@ -169,7 +174,9 @@ namespace CapaDePresentacion
 
             result = int.TryParse(comision, out a);
 
-            return result;
+            return result && a>=0;
         }
+
+        #endregion
     }
 }

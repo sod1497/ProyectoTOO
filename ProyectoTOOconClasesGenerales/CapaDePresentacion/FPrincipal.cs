@@ -164,9 +164,9 @@ namespace CapaDePresentacion
 
         private void altaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            FVenta ad = new FVenta(lnv,lnd,lna);
+            FVenta ad = new FVenta(lnv, lnd, lna);
             ad.ShowDialog();
-            if (DialogResult.OK==ad.DialogResult)
+            if (DialogResult.OK == ad.DialogResult)
             {
                 lnv.anadirVenta(ad.Venta);
             }
@@ -179,11 +179,41 @@ namespace CapaDePresentacion
             fListadoVentas.ShowDialog();
         }
 
+        private void ventasRecientesDeDependienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FIntroducir fIntroducir = new FIntroducir(TipoDeClase.Dependiente);
+            DialogResult dr = fIntroducir.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Dependiente dependiente = lnd.getDependiente(fIntroducir.Clave);
+                if (dependiente != null)
+                {
+                    FListadoVentas fListadoVentas = new FListadoVentas(dependiente, lnv, lnd, lna);
+                    fListadoVentas.ShowDialog();
+                }
+
+            }
+
+        }
+
+        private void ventasDeArtículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FIntroducir fIntroducir = new FIntroducir(TipoDeClase.Articulo);
+            DialogResult dr = fIntroducir.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Articulo articulo = lna.getArticulo(fIntroducir.Clave);
+                if (articulo != null)
+                {
+                    FListadoVentas fListadoVentas = new FListadoVentas(articulo, lnv, lnd, lna);
+                    fListadoVentas.ShowDialog();
+                }
+
+            }
+        }
         #endregion
 
-        #region OTROS
 
-        #endregion
 
 
     }

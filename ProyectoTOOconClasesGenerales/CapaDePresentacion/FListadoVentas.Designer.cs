@@ -46,9 +46,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lbLineasImporte = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.lbLineasCantidad = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lbLineasArticulo = new System.Windows.Forms.ListBox();
+            this.lbLineasCantidad = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -303,19 +303,6 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Cantidad";
             // 
-            // lbLineasCantidad
-            // 
-            this.lbLineasCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbLineasCantidad.FormattingEnabled = true;
-            this.lbLineasCantidad.ItemHeight = 16;
-            this.lbLineasCantidad.Location = new System.Drawing.Point(118, 20);
-            this.lbLineasCantidad.Name = "lbLineasCantidad";
-            this.lbLineasCantidad.Size = new System.Drawing.Size(109, 452);
-            this.lbLineasCantidad.TabIndex = 19;
-            this.lbLineasCantidad.SelectedIndexChanged += new System.EventHandler(this.lbLineasCantidad_SelectedIndexChanged);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -337,6 +324,19 @@
             this.lbLineasArticulo.Size = new System.Drawing.Size(109, 452);
             this.lbLineasArticulo.TabIndex = 11;
             this.lbLineasArticulo.SelectedIndexChanged += new System.EventHandler(this.lbLineasArticulo_SelectedIndexChanged);
+            // 
+            // lbLineasCantidad
+            // 
+            this.lbLineasCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbLineasCantidad.FormattingEnabled = true;
+            this.lbLineasCantidad.ItemHeight = 16;
+            this.lbLineasCantidad.Location = new System.Drawing.Point(118, 20);
+            this.lbLineasCantidad.Name = "lbLineasCantidad";
+            this.lbLineasCantidad.Size = new System.Drawing.Size(109, 452);
+            this.lbLineasCantidad.TabIndex = 19;
+            this.lbLineasCantidad.SelectedIndexChanged += new System.EventHandler(this.lbLineasCantidad_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -392,13 +392,13 @@
             this.tbNombreDependiente.Location = new System.Drawing.Point(3, 65);
             this.tbNombreDependiente.Name = "tbNombreDependiente";
             this.tbNombreDependiente.ReadOnly = true;
-            this.tbNombreDependiente.Size = new System.Drawing.Size(329, 22);
+            this.tbNombreDependiente.Size = new System.Drawing.Size(169, 22);
             this.tbNombreDependiente.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(338, 0);
+            this.label7.Location = new System.Drawing.Point(178, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 17);
             this.label7.TabIndex = 5;
@@ -409,10 +409,10 @@
             this.tbNssDependiente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNssDependiente.Location = new System.Drawing.Point(338, 65);
+            this.tbNssDependiente.Location = new System.Drawing.Point(178, 65);
             this.tbNssDependiente.Name = "tbNssDependiente";
             this.tbNssDependiente.ReadOnly = true;
-            this.tbNssDependiente.Size = new System.Drawing.Size(138, 22);
+            this.tbNssDependiente.Size = new System.Drawing.Size(169, 22);
             this.tbNssDependiente.TabIndex = 3;
             // 
             // tbFecha
@@ -420,10 +420,10 @@
             this.tbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbFecha.Location = new System.Drawing.Point(338, 20);
+            this.tbFecha.Location = new System.Drawing.Point(178, 20);
             this.tbFecha.Name = "tbFecha";
             this.tbFecha.ReadOnly = true;
-            this.tbFecha.Size = new System.Drawing.Size(138, 22);
+            this.tbFecha.Size = new System.Drawing.Size(169, 22);
             this.tbFecha.TabIndex = 6;
             // 
             // label6
@@ -443,7 +443,7 @@
             this.tbTarjeta.Location = new System.Drawing.Point(3, 20);
             this.tbTarjeta.Name = "tbTarjeta";
             this.tbTarjeta.ReadOnly = true;
-            this.tbTarjeta.Size = new System.Drawing.Size(329, 22);
+            this.tbTarjeta.Size = new System.Drawing.Size(169, 22);
             this.tbTarjeta.TabIndex = 1;
             // 
             // FListadoVentas

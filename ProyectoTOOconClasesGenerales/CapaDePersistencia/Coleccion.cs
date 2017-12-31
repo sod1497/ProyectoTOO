@@ -14,28 +14,27 @@ namespace CapaDePersistencia
         {
             return item.Clave;
         }
-
-        /*
-         * para facilitar el extraer elementos
-         */
-
+        
+        //Para facilitar extraer elementos permito extraer elementos por clave de la KeyedCollection
         public T Item(String clave)
         {
             base.Dictionary.TryGetValue(clave, out T t);
             return t;
         }
-
         
+        //Para permitir reemplazar elementos
         public new void SetItem(int i, T t)
         {
             base.SetItem(i, t);
         }
 
+        //Para obtener el índice de un elemento
         public new int IndexOf(T t)
         {
             return base.IndexOf(t);
         }
 
+        //Para devolver una copia y que no sea afectada la capa de persistencia
         public Coleccion<TipoBasico> Copiar()
         {
             Coleccion<TipoBasico> aux = new Coleccion<TipoBasico>();

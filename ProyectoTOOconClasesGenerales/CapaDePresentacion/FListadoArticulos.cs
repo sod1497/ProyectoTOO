@@ -37,7 +37,6 @@ namespace CapaDePresentacion
 
             //basado en https://stackoverflow.com/questions/1180004/binding-to-bindinglistt-choose-what-to-bind
 
-
             DataGridViewColumn dgvc = new DataGridViewColumn();
             dgvc.Name = "Identificador";
             dgvc.HeaderText = "Identificador";
@@ -74,11 +73,7 @@ namespace CapaDePresentacion
             dataGridView1.Columns.Add(dgvc);
         }
 
-        //  MANEJADORES
-
-
-
-        //  VALIDADORES
+        #region VALIDADORES
 
         private void cell_Validating(object sender, DataGridViewCellValidatingEventArgs e)
         {        
@@ -133,21 +128,22 @@ namespace CapaDePresentacion
             // Clear the row error in case the user presses ESC.   
             dataGridView1.Rows[e.RowIndex].ErrorText = String.Empty;
         }
+        #endregion
 
-        
-        //  MÉTODOS AUXILIARES
+        #region MÉTODOS AUXILIARES
 
+        //Devuelve true si el precio es un real positivo o 0
         private bool isPrecioValid(string text)
         {
             bool result;
             float a;
 
             result = float.TryParse(text, out a) && a >= 0;
-            if (result) this.coste = a;
 
             return result;
         }
 
+        //Devuelve true si el iva cumple uno de los valores
         private bool isIvaValid(string text)
         {
             return text == "21" || text == "10" || text == "4";
@@ -204,7 +200,7 @@ namespace CapaDePresentacion
             }
             
         }
+        #endregion
 
-        
     }
 }

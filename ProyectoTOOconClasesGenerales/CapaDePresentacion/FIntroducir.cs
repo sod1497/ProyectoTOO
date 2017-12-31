@@ -47,11 +47,7 @@ namespace CapaDePresentacion
             }
         }
 
-
-
-
-
-        //  MANEJADORES
+        #region MANEJADORES
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
@@ -61,18 +57,16 @@ namespace CapaDePresentacion
 
         }
 
-        /*
-         * Para que no valide el botón cancelar, pongo su propiedad "CausesValidation" a false
-         */
+        //Para que no valide el botón cancelar, pongo su propiedad "CausesValidation" a false
         private void bCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             Hide();
         }
 
-        
+        #endregion
 
-        // VALIDADORES
+        #region VALIDADORES
 
         private void tbNSS_Validating(object sender, CancelEventArgs e)
         {
@@ -91,13 +85,12 @@ namespace CapaDePresentacion
                 errorProvider.SetError((Control)sender, "El ID no puede ser vacío");
             }
         }
+        #endregion
 
+        #region METODOS AUXILIARES
 
-        //  METODOS AUXILIARES
-
-        /*
-         * Revisa si un nss cumple el formato indicado
-         */
+        //Revisa si un nss cumple el formato indicado. Devuelve true si tiene 11 dígitos y es positivo
+         
         private bool isNSSvalid(String nss)
         {
             //se ha de cumplir que es un entero de máximo 11 dígitos (requisitos mínimos)
@@ -109,6 +102,7 @@ namespace CapaDePresentacion
             return result;
         }
 
+        #endregion
 
     }
 }

@@ -59,6 +59,8 @@ namespace CapaDePresentacion
             tbPrecioCoste.ReadOnly = true;
         }
 
+        #region PROPIEDADES
+
         public String Descripcion
         {
             get { return tbDescripcion.Text; }
@@ -88,7 +90,9 @@ namespace CapaDePresentacion
             }
         }
 
-        //   MANEJADORES
+        #endregion
+
+        #region MANEJADORES
 
         private void btAceptar_ClickDarAlta(object sender, EventArgs e)
         {
@@ -112,9 +116,10 @@ namespace CapaDePresentacion
             this.DialogResult = DialogResult.Cancel;
             this.Hide();
         }
+        #endregion
 
-        // VALIDADORES
-
+        #region VALIDADORES
+        
         private void tbDescripcion_Validating(object sender, CancelEventArgs e)
         {
             if (tbDescripcion.Text.Length == 0)
@@ -141,8 +146,13 @@ namespace CapaDePresentacion
             }
         }
 
-        //  MÉTODOS AUXILIARES 
+        #endregion
 
+        #region MÉTODOS AUXILIARES 
+
+        /*
+         * Devuelve true si el valor del precio es un real positivo o 0
+         */
         private bool isPrecioValid(string text)
         {
             bool result;
@@ -154,5 +164,6 @@ namespace CapaDePresentacion
             return result;
         }
 
+        #endregion
     }
 }

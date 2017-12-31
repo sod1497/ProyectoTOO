@@ -31,6 +31,8 @@ namespace CapaDePresentacion
         {
             InitializeComponent();
 
+            this.Text = "Listado de ventas";
+
             serviciosDependiente = sd;
             serviciosArticulos = sa;
             serviciosVenta = sv;
@@ -91,7 +93,139 @@ namespace CapaDePresentacion
             }
         }
 
-        //  MANEJADORES
+        public FListadoVentas(Articulo a, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa)
+        {
+            InitializeComponent();
+
+            this.Text = "Listado de ventas de articulo";
+
+            serviciosDependiente = sd;
+            serviciosArticulos = sa;
+            serviciosVenta = sv;
+
+            errorProvider = new ErrorProvider();
+
+            bindingLineas = new BindingSource();
+            bindingVentas = new BindingSource();
+            ventas = new BindingList<Venta>(serviciosVenta.getVentasDeArticulo(a));
+            bindingVentas.DataSource = ventas;
+
+            if (ventas.Count > 0)
+            {
+                lineas = new BindingList<LineaDeVenta>(((Venta)bindingVentas.Current).LineasDeVenta);
+                lbIdVentas.DataSource = bindingVentas;
+                lbIdVentas.DisplayMember = "Id";
+
+                dependientes = new List<Dependiente>();
+                foreach (Venta v in ventas)
+                {
+                    dependientes.Add(v.Dependiente);
+                }
+                lbDependientes.DataSource = dependientes;
+                lbDependientes.DisplayMember = "NombreCompleto";
+                lbImportes.DataSource = bindingVentas;
+                lbImportes.DisplayMember = "ImporteTotal";
+                lbFechas.DataSource = bindingVentas;
+                lbFechas.DisplayMember = "Fecha";
+            }
+            else
+            {
+                lineas = new BindingList<LineaDeVenta>();
+            }
+            bindingLineas.DataSource = lineas;
+
+            if (lineas.Count > 0) //Hay una venta seleccionada
+            {
+                if (bindingVentas.Current is VentaConTarjeta)
+                {
+                    tbTarjeta.Text = ((VentaConTarjeta)bindingVentas.Current).Tarjeta;
+                }
+                else
+                {
+                    tbTarjeta.Text = "En efectivo";
+                }
+
+                tbFecha.Text = ((Venta)bindingVentas.Current).Fecha.ToString();
+                tbNssDependiente.Text = ((Venta)bindingVentas.Current).Dependiente.NSS;
+                tbNombreDependiente.Text = ((Venta)bindingVentas.Current).Dependiente.NombreCompleto;
+
+                articulos = ((Venta)bindingVentas.Current).Articulos;
+                lbLineasArticulo.DataSource = articulos;
+                lbLineasArticulo.DisplayMember = "Id";
+                lbLineasCantidad.DataSource = bindingLineas;
+                lbLineasCantidad.DisplayMember = "Cantidad";
+                lbLineasImporte.DataSource = bindingLineas;
+                lbLineasImporte.DisplayMember = "Importe";
+            }
+        }
+
+        public FListadoVentas(Dependiente d, ServiciosVenta sv, ServiciosDependiente sd, ServiciosArticulos sa)
+        {
+            InitializeComponent();
+
+            this.Text = "Listado de ventas de dependiente";
+
+            serviciosDependiente = sd;
+            serviciosArticulos = sa;
+            serviciosVenta = sv;
+
+            errorProvider = new ErrorProvider();
+
+            bindingLineas = new BindingSource();
+            bindingVentas = new BindingSource();
+            ventas = new BindingList<Venta>(serviciosDependiente.obtenerVentasMes(d,DateTime.Now));
+            bindingVentas.DataSource = ventas;
+
+            if (ventas.Count > 0)
+            {
+                lineas = new BindingList<LineaDeVenta>(((Venta)bindingVentas.Current).LineasDeVenta);
+                lbIdVentas.DataSource = bindingVentas;
+                lbIdVentas.DisplayMember = "Id";
+
+                dependientes = new List<Dependiente>();
+                foreach (Venta v in ventas)
+                {
+                    dependientes.Add(v.Dependiente);
+                }
+                lbDependientes.DataSource = dependientes;
+                lbDependientes.DisplayMember = "NombreCompleto";
+                lbImportes.DataSource = bindingVentas;
+                lbImportes.DisplayMember = "ImporteTotal";
+                lbFechas.DataSource = bindingVentas;
+                lbFechas.DisplayMember = "Fecha";
+            }
+            else
+            {
+                lineas = new BindingList<LineaDeVenta>();
+            }
+            bindingLineas.DataSource = lineas;
+
+            if (lineas.Count > 0) //Hay una venta seleccionada
+            {
+                if (bindingVentas.Current is VentaConTarjeta)
+                {
+                    tbTarjeta.Text = ((VentaConTarjeta)bindingVentas.Current).Tarjeta;
+                }
+                else
+                {
+                    tbTarjeta.Text = "En efectivo";
+                }
+
+                tbFecha.Text = ((Venta)bindingVentas.Current).Fecha.ToString();
+                tbNssDependiente.Text = ((Venta)bindingVentas.Current).Dependiente.NSS;
+                tbNombreDependiente.Text = ((Venta)bindingVentas.Current).Dependiente.NombreCompleto;
+
+                articulos = ((Venta)bindingVentas.Current).Articulos;
+                lbLineasArticulo.DataSource = articulos;
+                lbLineasArticulo.DisplayMember = "Id";
+                lbLineasCantidad.DataSource = bindingLineas;
+                lbLineasCantidad.DisplayMember = "Cantidad";
+                lbLineasImporte.DataSource = bindingLineas;
+                lbLineasImporte.DisplayMember = "Importe";
+            }
+        }
+
+        #region MANEJADORES
 
         private void lbIdVentas_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -165,13 +299,8 @@ namespace CapaDePresentacion
             fBuscar.ShowDialog();
         }
 
-
-
-        //  VALIDADORES
-
-
-
-        //  METODOS AUXILIARES
+        #endregion
+        
 
 
     }

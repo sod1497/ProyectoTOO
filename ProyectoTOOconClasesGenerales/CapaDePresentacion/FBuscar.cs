@@ -67,6 +67,8 @@ namespace CapaDePresentacion
                         tbApellidos.DataBindings.Add(new Binding("Text", bindingSource, "Apellidos"));
                         tbComision.DataBindings.Add(new Binding("Text", bindingSource, "ComisionPorVenta"));
 
+                        bExtra.Text = "Ver ventas de este mes";
+                        
 
                         break;
                     }
@@ -92,6 +94,8 @@ namespace CapaDePresentacion
                         tbComision.DataBindings.Add(new Binding("Text", bindingSource, "CosteFabrica"));
                         tbImporte.DataBindings.Add(new Binding("Text", bindingSource, "Importe"));
 
+                        bExtra.Text = "Ver ventas";
+
                         break;
                     }
             }
@@ -111,7 +115,7 @@ namespace CapaDePresentacion
             }
         }
 
-        //  MANEJADORES
+        #region MANEJADORES
 
         private void bindingAdd_Click(object sender, EventArgs e)
         {
@@ -241,7 +245,23 @@ namespace CapaDePresentacion
             }
         }
 
-        //  VALIDADORES
+
+        private void bExtra_Click(object sender, EventArgs e)
+        {
+            if(tipoDeClase==TipoDeClase.Dependiente)
+            {
+                FListadoVentas fListadoVentas = new FListadoVentas((Dependiente)bindingSource.Current, serviciosVenta, serviciosDependiente, serviciosArticulos);
+                fListadoVentas.ShowDialog();
+            }else if(tipoDeClase==TipoDeClase.Articulo)
+            {
+                FListadoVentas fListadoVentas = new FListadoVentas((Articulo)bindingSource.Current, serviciosVenta, serviciosDependiente, serviciosArticulos);
+                fListadoVentas.ShowDialog();
+            }
+        }
+
+        #endregion
+
+        #region VALIDADORES
 
         private void tbNombre_Validating(object sender, CancelEventArgs e)
         {
@@ -362,9 +382,11 @@ namespace CapaDePresentacion
 
 
         }
+        #endregion
 
-        //   MÉTODOS AUXILIARES
+        #region MÉTODOS AUXILIARES
 
+        //Devuelve true si la comisión es un entero positivo o 0
         private bool isComisionValid(String comision)
         {
             bool result;
@@ -372,9 +394,11 @@ namespace CapaDePresentacion
 
             result = int.TryParse(comision, out a);
 
-            return result;
+            return result && a>=0;
         }
 
+        
+        //Devuelve true si el precio es un real positivo o 0
         private bool isPrecioValid(string text)
         {
             bool result;
@@ -385,6 +409,6 @@ namespace CapaDePresentacion
 
             return result;
         }
-
+        #endregion
     }
 }

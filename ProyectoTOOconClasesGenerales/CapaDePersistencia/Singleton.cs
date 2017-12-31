@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CapaDePersistencia
 {
+    /*
+     * Permite tener una única colección de cada tipo de datos
+     */
     public class Singleton<T> where T:TipoBasico
     {
         private static Coleccion<T> coleccion;

@@ -49,7 +49,7 @@ namespace CapaDePresentacion
             
         }
 
-        //  MANEJADORES
+        #region MANEJADORES
 
         private void bNSS_Click(object sender, EventArgs e)
         {
@@ -120,11 +120,15 @@ namespace CapaDePresentacion
 
         private void bVentas_Click(object sender, EventArgs e)
         {
-
+            FListadoVentas fListadoVentas = new FListadoVentas((Dependiente)bs.Current, serviciosVenta, serviciosDependiente, serviciosArticulos);
+            fListadoVentas.ShowDialog();
         }
 
-        //  MÉTODOS AUXILIARES
+        #endregion
 
+        #region MÉTODOS AUXILIARES
+
+        //Se actualizan los datos cuando se regresa a esta ventana desde otra creada encima
         private void focoCambiado()
         {
             //Cargo los nuevos valores generados
@@ -134,9 +138,6 @@ namespace CapaDePresentacion
             bModificar.Enabled = bs.Count > 0;
         }
 
-        private void FListadoDependientes_Load(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

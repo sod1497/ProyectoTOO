@@ -16,6 +16,7 @@ namespace LogicaDeNegocio
 
         public GestorDeClaves(){ }
 
+        //Devuelve una clave distinta a las dadas anteriormente de forma incremental
         public string NuevaClave()
         {
             string aux = id;
@@ -23,6 +24,7 @@ namespace LogicaDeNegocio
             return aux;
         }
 
+        //Incrementa la clave en una unidad. Permite que el formato mantenga la forma XXXXXXXX aunque sean ceros
         private void incrementarClave()
         {
             double a;

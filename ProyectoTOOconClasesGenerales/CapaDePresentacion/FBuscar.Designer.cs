@@ -43,23 +43,26 @@
             this.labelImporte = new System.Windows.Forms.Label();
             this.tbImporte = new System.Windows.Forms.TextBox();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem1 = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingAdd = new System.Windows.Forms.ToolStripButton();
             this.bindingRemove = new System.Windows.Forms.ToolStripButton();
+            this.bExtra = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbComision
             // 
+            this.tbComision.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbComision.Location = new System.Drawing.Point(188, 176);
             this.tbComision.Margin = new System.Windows.Forms.Padding(4);
             this.tbComision.Name = "tbComision";
@@ -81,6 +84,8 @@
             // 
             // tbApellidos
             // 
+            this.tbApellidos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbApellidos.Location = new System.Drawing.Point(188, 135);
             this.tbApellidos.Margin = new System.Windows.Forms.Padding(4);
             this.tbApellidos.Name = "tbApellidos";
@@ -91,6 +96,8 @@
             // 
             // tbNombre
             // 
+            this.tbNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNombre.Location = new System.Drawing.Point(188, 94);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(4);
             this.tbNombre.Name = "tbNombre";
@@ -134,6 +141,8 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(188, 47);
             this.comboBox1.Name = "comboBox1";
@@ -142,11 +151,12 @@
             // 
             // checkBox1
             // 
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.CausesValidation = false;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(29, 275);
+            this.checkBox1.Location = new System.Drawing.Point(29, 316);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(233, 21);
             this.checkBox1.TabIndex = 18;
@@ -156,8 +166,9 @@
             // 
             // bAplicar
             // 
+            this.bAplicar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bAplicar.Enabled = false;
-            this.bAplicar.Location = new System.Drawing.Point(337, 275);
+            this.bAplicar.Location = new System.Drawing.Point(337, 316);
             this.bAplicar.Name = "bAplicar";
             this.bAplicar.Size = new System.Drawing.Size(145, 32);
             this.bAplicar.TabIndex = 19;
@@ -176,6 +187,8 @@
             // 
             // tbImporte
             // 
+            this.tbImporte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbImporte.Location = new System.Drawing.Point(188, 215);
             this.tbImporte.Name = "tbImporte";
             this.tbImporte.Size = new System.Drawing.Size(294, 22);
@@ -212,11 +225,18 @@
             this.bindingNavigator1.TabIndex = 22;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorCountItem1
+            // 
+            this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
+            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(48, 24);
+            this.bindingNavigatorCountItem1.Text = "de {0}";
+            this.bindingNavigatorCountItem1.ToolTipText = "Número total de elementos";
+            // 
             // bindingNavigatorMoveFirstItem1
             // 
             this.bindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
-            this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
             this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveFirstItem1.Text = "Mover primero";
@@ -225,42 +245,35 @@
             // 
             this.bindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
-            this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
             this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMovePreviousItem1.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem1
             // 
             this.bindingNavigatorPositionItem1.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem1.AutoSize = false;
-            this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
             this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem1.Text = "0";
             this.bindingNavigatorPositionItem1.ToolTipText = "Posición actual";
             // 
-            // bindingNavigatorCountItem1
-            // 
-            this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(48, 24);
-            this.bindingNavigatorCountItem1.Text = "de {0}";
-            this.bindingNavigatorCountItem1.ToolTipText = "Número total de elementos";
-            // 
             // bindingNavigatorSeparator3
             // 
-            this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
             this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem1
             // 
             this.bindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
-            this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
             this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveNextItem1.Text = "Mover siguiente";
@@ -269,14 +282,14 @@
             // 
             this.bindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
-            this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
             this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveLastItem1.Text = "Mover último";
             // 
             // bindingNavigatorSeparator4
             // 
-            this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
             this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingAdd
@@ -297,11 +310,24 @@
             this.bindingRemove.Text = "Dar de baja";
             this.bindingRemove.Click += new System.EventHandler(this.bindingRemove_Click);
             // 
+            // bExtra
+            // 
+            this.bExtra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bExtra.Location = new System.Drawing.Point(156, 266);
+            this.bExtra.Name = "bExtra";
+            this.bExtra.Size = new System.Drawing.Size(205, 32);
+            this.bExtra.TabIndex = 23;
+            this.bExtra.Text = "Acción extra";
+            this.bExtra.UseVisualStyleBackColor = true;
+            this.bExtra.Click += new System.EventHandler(this.bExtra_Click);
+            // 
             // FBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 319);
+            this.ClientSize = new System.Drawing.Size(516, 360);
+            this.Controls.Add(this.bExtra);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.tbImporte);
             this.Controls.Add(this.labelImporte);
@@ -315,7 +341,7 @@
             this.Controls.Add(this.labelApellidos);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelNSS);
-            this.MinimumSize = new System.Drawing.Size(534, 366);
+            this.MinimumSize = new System.Drawing.Size(534, 407);
             this.Name = "FBuscar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FBuscar";
@@ -353,5 +379,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator4;
         private System.Windows.Forms.ToolStripButton bindingAdd;
         private System.Windows.Forms.ToolStripButton bindingRemove;
+        private System.Windows.Forms.Button bExtra;
     }
 }

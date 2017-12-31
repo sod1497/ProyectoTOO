@@ -200,7 +200,6 @@
             this.Name = "FListadoDependientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Listado de dependientes";
-            this.Load += new System.EventHandler(this.FListadoDependientes_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

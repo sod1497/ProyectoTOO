@@ -62,6 +62,8 @@ namespace CapaDePersistencia
 
         /*
          * Reemplaza la instancia vieja por la nueva
+         * Precondición: el elemento t es no nulo y tiene la misma clave que el elemento a modificar
+         * Postcondición: t se emplaza en el elemento que tenía la misma clave que él
          */
 
         public static bool modificar(T t)
@@ -81,9 +83,8 @@ namespace CapaDePersistencia
 
         /*
          * Elimina un elemento de una colección
-         * Precondición: ninguna
+         * Precondición: t es no nulo y tiene la misma clave que el elemento a borrar
          * Postcondición: devuelve true si existía y se ha eliminado y false en cualquier otro caso
-         * 
          */
 
         public static bool borrar(T t)
@@ -103,7 +104,7 @@ namespace CapaDePersistencia
 
         /*
          * Indica si un elemento está en la colección
-         * Precondición: ninguna
+         * Precondición: t es no nulo y tiene la clave del elemento a buscar
          * Postcondición: devuelve true si coincide, y false en caso contrario
          */
 
@@ -118,7 +119,7 @@ namespace CapaDePersistencia
 
         /*
          * Devuelve un elemento concreto identificado por su clave
-         * Precondición: el elemento está en la base de datos
+         * Precondición: t es no nulo y tiene la clave del elemento a buscar
          * Postcondición: devuelve el elemento o exepción
          */
 
@@ -150,7 +151,7 @@ namespace CapaDePersistencia
 
         /*
          * Devuelve una Lista con las ventas de un mes/año concretos de un dependiente
-         * Precondicion: ninguna
+         * Precondicion: d es no nulo y tiene la clave del dependiente a buscar
          * Postcondición: devuelve una lista con los valores que cumplan las condiciones. sino saldrá vacía
          */
 
@@ -187,7 +188,7 @@ namespace CapaDePersistencia
 
         /*
         * Devuelve una lista con las ventas de un artículo
-        * Precondición ninguna
+        * Precondición a es no nulo y tiene la clave del elemento a buscar
         * Postcondición: lista con los elementos que cumplen la condición
         */
 

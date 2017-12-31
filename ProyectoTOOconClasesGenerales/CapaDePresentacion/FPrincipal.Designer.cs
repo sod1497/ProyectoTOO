@@ -46,6 +46,8 @@
             this.bajaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.búsquedaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasRecientesDeDependienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasDeArtículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -186,9 +188,26 @@
             // 
             // búsquedaToolStripMenuItem2
             // 
+            this.búsquedaToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ventasRecientesDeDependienteToolStripMenuItem,
+            this.ventasDeArtículoToolStripMenuItem});
             this.búsquedaToolStripMenuItem2.Name = "búsquedaToolStripMenuItem2";
             this.búsquedaToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
             this.búsquedaToolStripMenuItem2.Text = "Búsqueda";
+            // 
+            // ventasRecientesDeDependienteToolStripMenuItem
+            // 
+            this.ventasRecientesDeDependienteToolStripMenuItem.Name = "ventasRecientesDeDependienteToolStripMenuItem";
+            this.ventasRecientesDeDependienteToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
+            this.ventasRecientesDeDependienteToolStripMenuItem.Text = "Ventas recientes de dependiente";
+            this.ventasRecientesDeDependienteToolStripMenuItem.Click += new System.EventHandler(this.ventasRecientesDeDependienteToolStripMenuItem_Click);
+            // 
+            // ventasDeArtículoToolStripMenuItem
+            // 
+            this.ventasDeArtículoToolStripMenuItem.Name = "ventasDeArtículoToolStripMenuItem";
+            this.ventasDeArtículoToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
+            this.ventasDeArtículoToolStripMenuItem.Text = "Ventas de artículo";
+            this.ventasDeArtículoToolStripMenuItem.Click += new System.EventHandler(this.ventasDeArtículoToolStripMenuItem_Click);
             // 
             // listadoToolStripMenuItem2
             // 
@@ -236,5 +255,7 @@
         private System.Windows.Forms.ToolStripMenuItem listadoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem listadoToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem ventasRecientesDeDependienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventasDeArtículoToolStripMenuItem;
     }
 }
