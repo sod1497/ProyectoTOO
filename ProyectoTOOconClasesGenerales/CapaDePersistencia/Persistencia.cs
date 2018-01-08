@@ -171,7 +171,7 @@ namespace CapaDePersistencia
 
             foreach (Venta venta in Singleton<Venta>.getColeccion())
             {
-                if (venta.Dependiente.NSS.Equals(d.NSS))
+                if (venta.Dependiente.Clave.Equals(d.Clave))    //hay que buscar al dependiente por la clave, no por el NSS(pues podria cambiar a identificacion por nombre, por ej)
                 {
                     DateTime auxF = venta.Fecha;
 
@@ -205,7 +205,7 @@ namespace CapaDePersistencia
 
                 foreach (LineaDeVenta linea in venta.LineasDeVenta)
                 {
-                    if (linea.Articulo.Id.Equals(a.Id))
+                    if (linea.Articulo.Clave.Equals(a.Clave))   //hay que buscar al articulo por la clave, no por el ID(pues podria cambiar a identificacion por nombre, por ej)
                     {
                         aux.Add(venta);
                         break;
