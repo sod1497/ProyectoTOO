@@ -10,8 +10,6 @@ namespace LogicaDeNegocio
 {
     public class ServiciosArticulos
     {
-        //Gestiona las claves de los articulos
-        private static GestorDeClaves gestorDeClaves = new GestorDeClaves();
 
         /*
          * Recibe un articulo con una clave cualquiera y lo inserta con una nueva clave en el sistema
@@ -21,7 +19,7 @@ namespace LogicaDeNegocio
          */
         public bool anadirArticulo(Articulo a)
         {
-            a = new Articulo(gestorDeClaves.NuevaClave(), a.Descripcion, a.CosteFabrica, a.IVA);
+            a = new Articulo(GestorDeClaves.NuevaClave(), a.Descripcion, a.CosteFabrica, a.IVA);
             return Persistencia<Articulo>.anadir(a);
         }
 

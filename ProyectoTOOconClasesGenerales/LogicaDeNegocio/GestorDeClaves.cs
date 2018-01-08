@@ -9,15 +9,18 @@ namespace LogicaDeNegocio
     /*
      * Clase que permite tener un generador de claves independiente del usuario
      * Se usará para generar claves para ventas y artículos
+     * 
+     * Conceptualmente, parece más adecuado hacer una clase estatica, pues no
+     * estamos usando un objeto de esta clase, sino los métodos que esta proporciona.
+     * 
      */
-    public class GestorDeClaves
+    public static class GestorDeClaves
     {
-        private string id = "00000000";
-
-        public GestorDeClaves(){ }
+        private static string id = "00000000";
+        
 
         //Devuelve una clave distinta a las dadas anteriormente de forma incremental
-        public string NuevaClave()
+        public static string NuevaClave()
         {
             string aux = id;
             incrementarClave();
@@ -25,7 +28,7 @@ namespace LogicaDeNegocio
         }
 
         //Incrementa la clave en una unidad. Permite que el formato mantenga la forma XXXXXXXX aunque sean ceros
-        private void incrementarClave()
+        private static void incrementarClave()
         {
             double a;
             double.TryParse(id,out a);
