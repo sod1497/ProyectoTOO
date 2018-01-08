@@ -29,7 +29,7 @@ namespace CapaDePresentacion
                 label1.Text = "NºSS";
                 textBox1.Validating += new CancelEventHandler(tbNSS_Validating);
             }
-            if (this.clase.Equals(TipoDeClase.Articulo) || this.clase.Equals("Venta"))
+            if (this.clase.Equals(TipoDeClase.Articulo) || this.clase.Equals(TipoDeClase.Venta))
             {
                 this.Text = "Introducir ID";
                 label1.Text = "ID";
