@@ -22,6 +22,23 @@ namespace LogicaDeNegocio
             a = new Articulo(GestorDeClaves.NuevaClave(), a.Descripcion, a.CosteFabrica, a.IVA);
             return Persistencia<Articulo>.anadir(a);
         }
+        /*  ****Sugerencia en el cambio de concepto en los añadir*****
+         *  Se supone que es el sistema el que asigna los ID, entonces habrá de darselos a conocer
+         *  al usuario, si no no podrá referenciar a los articulos mas adelante.
+         *  Esto es lo que propongo:
+           
+            public String anadirArticulo(Articulo a)
+            {
+                String clave = GestorDeClaves.NuevaClave();
+                a = new Articulo(clave, a.Descripcion, a.CosteFabrica, a.IVA);
+                if (Persistencia<Articulo>.anadir(a))
+                    return clave;
+                else
+                    return null;
+            }
+
+         */
+
 
         /*
          * Utiliza la clave del original y los datos del elemento nuevo para modificar los datos del 

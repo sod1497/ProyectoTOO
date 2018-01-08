@@ -27,3 +27,13 @@ D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerale
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\LogicaDeNegocio\obj\Debug\LogicaDeNegocio.csproj.CoreCompileInputs.cache
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\LogicaDeNegocio\obj\Debug\LogicaDeNegocio.dll
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\LogicaDeNegocio\obj\Debug\LogicaDeNegocio.pdb
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\bin\Debug\LogicaDeNegocio.dll
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\bin\Debug\LogicaDeNegocio.pdb
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\bin\Debug\CapaDePersistencia.dll
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\bin\Debug\ProyectoToo.dll
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\bin\Debug\CapaDePersistencia.pdb
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\bin\Debug\ProyectoToo.pdb
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\obj\Debug\LogicaDeNegocio.csprojResolveAssemblyReference.cache
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\obj\Debug\LogicaDeNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\obj\Debug\LogicaDeNegocio.dll
+C:\Users\Dani\Desktop\Universidad\3-¦ Curso\1-¦ Cuatri\Tecnologia orientada a objetos\ProyectoTOO-master\ProyectoTOOconClasesGenerales\LogicaDeNegocio\obj\Debug\LogicaDeNegocio.pdb
