@@ -1,4 +1,4 @@
-﻿using LogicaDeNegocio;
+using LogicaDeNegocio;
 using ModeloDeDominio;
 using System;
 using ProyectoToo.Comparers;
@@ -54,7 +54,8 @@ namespace CapaDePresentacion
         private void bNSS_Click(object sender, EventArgs e)
         {
             List<Dependiente> aux = dependientes.ToList<Dependiente>();
-            aux.Sort(new ComparerDependienteNSS());
+            //aux.Sort(new ComparerDependienteNSS());
+            aux.Sort(new Comparison<Dependiente>( (x,y)=>string.Compare(x.Clave,y.Clave)) );
             dependientes = new BindingList<Dependiente>(aux);
             bs.DataSource = dependientes;
         }
@@ -62,7 +63,8 @@ namespace CapaDePresentacion
         private void bNombre_Click(object sender, EventArgs e)
         {
             List<Dependiente> aux = dependientes.ToList<Dependiente>();
-            aux.Sort(new ComparerDependienteNombre());
+            //aux.Sort(new ComparerDependienteNombre());
+            aux.Sort(new Comparison<Dependiente>((x, y) => string.Compare(x.Nombre, y.Nombre)));
             dependientes = new BindingList<Dependiente>(aux);
             bs.DataSource = dependientes;
 
@@ -71,7 +73,8 @@ namespace CapaDePresentacion
         private void bComisión_Click(object sender, EventArgs e)
         {
             List<Dependiente> aux = dependientes.ToList<Dependiente>();
-            aux.Sort(new ComparerDependienteComision());
+            //aux.Sort(new ComparerDependienteComision());
+            aux.Sort(new Comparison<Dependiente>((x, y) => x.ComisionPorVenta - y.ComisionPorVenta));
             dependientes = new BindingList<Dependiente>(aux);
             bs.DataSource = dependientes;
 
@@ -141,3 +144,4 @@ namespace CapaDePresentacion
         #endregion
     }
 }
+
