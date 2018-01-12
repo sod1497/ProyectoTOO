@@ -18,7 +18,7 @@ namespace CapaDePersistencia
         //Para facilitar extraer elementos permito extraer elementos por clave de la KeyedCollection
         public T Item(String clave)
         {
-            T t
+            T t;
             base.Dictionary.TryGetValue(clave, out t);
             return t;
         }
