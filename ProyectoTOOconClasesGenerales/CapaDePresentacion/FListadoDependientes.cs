@@ -88,7 +88,6 @@ namespace CapaDePresentacion
             if (f.DialogResult == DialogResult.OK)
             {
                 String clave = f.Clave;
-                f.Dispose();
                 if (!serviciosDependiente.existeDependiente(clave))
                 {
                     FDependiente ad = new FDependiente(clave);
@@ -97,12 +96,14 @@ namespace CapaDePresentacion
                     {
                         serviciosDependiente.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, ad.Comision));
                     }
+                    ad.Dispose();
                 }
                 else
                 {
                     MessageBox.Show(this, "Error", "Ya existe un dependiente con ese NSS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+            f.Dispose();
             focoCambiado();
 
         }
@@ -118,6 +119,7 @@ namespace CapaDePresentacion
             Dependiente d = (Dependiente)lbNSS.SelectedItem;
             FBuscar fBuscarDependiente = new FBuscar(d, TipoDeClase.Dependiente, serviciosVenta, serviciosDependiente, serviciosArticulos);
             fBuscarDependiente.ShowDialog();
+            fBuscarDependiente.Dispose();
             focoCambiado();
         }
 
@@ -125,6 +127,7 @@ namespace CapaDePresentacion
         {
             FListadoVentas fListadoVentas = new FListadoVentas((Dependiente)bs.Current, serviciosVenta, serviciosDependiente, serviciosArticulos);
             fListadoVentas.ShowDialog();
+            fListadoVentas.Dispose();
         }
 
         private void bComision_Click(object sender, EventArgs e)

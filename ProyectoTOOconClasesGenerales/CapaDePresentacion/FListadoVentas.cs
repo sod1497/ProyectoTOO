@@ -290,6 +290,7 @@ namespace CapaDePresentacion
             Dependiente d = dependientes[lbDependientes.SelectedIndex];
             FBuscar fBuscar = new FBuscar(d, TipoDeClase.Dependiente, serviciosVenta, serviciosDependiente, serviciosArticulos);
             fBuscar.ShowDialog();
+            fBuscar.Dispose();
         }
 
         private void bArticulo_Click(object sender, EventArgs e)
@@ -297,11 +298,10 @@ namespace CapaDePresentacion
             Articulo d = articulos[lbLineasArticulo.SelectedIndex];
             FBuscar fBuscar = new FBuscar(d, TipoDeClase.Articulo, serviciosVenta, serviciosDependiente, serviciosArticulos);
             fBuscar.ShowDialog();
+            fBuscar.Dispose();
         }
 
         #endregion
         
-
-
     }
 }

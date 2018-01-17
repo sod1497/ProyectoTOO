@@ -123,11 +123,11 @@ namespace CapaDePresentacion
             {
                 FArticulo ad = new FArticulo("Asignado automaticamente");
                 ad.ShowDialog();
-                if (DialogResult.OK.Equals(ad.DialogResult))
+                if (ad.DialogResult==DialogResult.OK)
                 {
                     serviciosArticulos.anadirArticulo(new Articulo("0", ad.Descripcion, ad.Precio, ad.TipoIVA));
                 }
-
+                ad.Dispose();
                 bindingSource.Clear();
                 bindingSource.DataSource = serviciosArticulos.getTodosArticulos();
             }
@@ -138,7 +138,6 @@ namespace CapaDePresentacion
                 if (f.DialogResult == DialogResult.OK)
                 {
                     String clave = f.Clave;
-                    f.Dispose();
                     if (!serviciosDependiente.existeDependiente(clave))
                     {
                         FDependiente ad = new FDependiente(clave);
@@ -147,13 +146,15 @@ namespace CapaDePresentacion
                         {
                             serviciosDependiente.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, ad.Comision));
                         }
+                        ad.Dispose();
                     }
                     else
                     {
                         DialogResult dr = MessageBox.Show(this, "Error", "Ya existe un dependiente con ese nºSS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
+                    
                 }
-
+                f.Dispose();
                 bindingSource.Clear();
                 bindingSource.DataSource = serviciosDependiente.getDependientesTienda();
             }
@@ -173,7 +174,7 @@ namespace CapaDePresentacion
                     {
                         serviciosDependiente.borrarDependiente(d);
                     }
-
+                    ad.Dispose();
                     bindingSource.Clear();
                     bindingSource.DataSource = serviciosDependiente.getDependientesTienda();
                 }
@@ -189,7 +190,7 @@ namespace CapaDePresentacion
                     {
                         serviciosArticulos.borrarArticulo(d);
                     }
-
+                    ad.Dispose();
                     bindingSource.Clear();
                     bindingSource.DataSource = serviciosArticulos.getTodosArticulos();
                 }
@@ -245,17 +246,18 @@ namespace CapaDePresentacion
             }
         }
 
-
         private void bExtra_Click(object sender, EventArgs e)
         {
             if(tipoDeClase==TipoDeClase.Dependiente)
             {
                 FListadoVentas fListadoVentas = new FListadoVentas((Dependiente)bindingSource.Current, serviciosVenta, serviciosDependiente, serviciosArticulos);
                 fListadoVentas.ShowDialog();
+                fListadoVentas.Dispose();
             }else if(tipoDeClase==TipoDeClase.Articulo)
             {
                 FListadoVentas fListadoVentas = new FListadoVentas((Articulo)bindingSource.Current, serviciosVenta, serviciosDependiente, serviciosArticulos);
                 fListadoVentas.ShowDialog();
+                fListadoVentas.Dispose();
             }
         }
 

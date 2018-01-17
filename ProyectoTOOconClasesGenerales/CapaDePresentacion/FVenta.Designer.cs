@@ -465,7 +465,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(732, 440);
+            this.MinimumSize = new System.Drawing.Size(746, 587);
             this.Name = "FVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FVenta";

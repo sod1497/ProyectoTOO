@@ -87,7 +87,7 @@ namespace LogicaDeNegocio
             {
                 return false;
             }
-            
+
         }
 
         /*
@@ -115,7 +115,7 @@ namespace LogicaDeNegocio
             {
                 return null;
             }
-           
+
         }
 
         /*
@@ -155,7 +155,7 @@ namespace LogicaDeNegocio
          */
         public bool existeArticulo(String v)
         {
-            return Persistencia<Articulo>.existe(new Articulo(v,"",0,0));
+            return Persistencia<Articulo>.existe(new Articulo(v, "", 0, 0));
         }
 
         /*
@@ -165,7 +165,7 @@ namespace LogicaDeNegocio
         public List<Articulo> getArticulosConIva(int iva)
         {
             List<Articulo> l = Persistencia<Articulo>.getTodos();
-            l.RemoveAll(x=>x.IVA!=iva);
+            l.RemoveAll(x => x.IVA != iva);
             return l;
         }
 
@@ -176,17 +176,36 @@ namespace LogicaDeNegocio
         {
             Articulo aux;
             Random random = new Random();
-            String[] descripcion = { "Caja", "Cubo", "Frasco", "Botella", "Jarra", "Chuches" ,"Dulce", "Dispositivo", "Mueble", "Mobiliario","Menaje","Bebida", "Herramienta"};
+            String[] descripcion = { "Caja", "Cubo", "Frasco", "Botella", "Jarra", "Chuches", "Dulce", "Dispositivo", "Mueble", "Mobiliario", "Menaje", "Bebida", "Herramienta" };
             if (count < 1) count = 10;
             for (int i = 0; i < count; i++)
             {
                 long l;
                 long.TryParse(random.Next(100000000, 999999999).ToString(), out l);
-                aux = new Articulo("0", descripcion[random.Next(0, descripcion.Length - 1)], random.Next(1, 200), 21);
+                int iva = random.Next(1, 3);
+                switch (iva)
+                {
+                    case 1:
+                        {
+                            iva = 21;
+                            break;
+                        }
+                    case 2:
+                        {
+                            iva = 10;
+                            break;
+                        }
+                    case 3:
+                        {
+                            iva = 4;
+                            break;
+                        }
+                }
+                aux = new Articulo("0", descripcion[random.Next(0, descripcion.Length - 1)], random.Next(1, 200), iva);
                 anadirArticulo(aux);
             }
         }
 
-        
+
     }
 }

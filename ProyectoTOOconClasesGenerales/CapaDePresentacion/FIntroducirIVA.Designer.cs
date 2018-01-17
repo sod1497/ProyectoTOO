@@ -114,8 +114,9 @@
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bAceptar);
-            this.MinimumSize = new System.Drawing.Size(208, 246);
+            this.MinimumSize = new System.Drawing.Size(208, 254);
             this.Name = "FIntroducirIVA";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Buscar por IVA";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

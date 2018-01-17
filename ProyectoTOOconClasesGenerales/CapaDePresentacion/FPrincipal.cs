@@ -43,7 +43,6 @@ namespace CapaDePresentacion
             if (f.DialogResult == DialogResult.OK)
             {
                 String clave = f.Clave;
-                f.Dispose();
                 if (!lnd.existeDependiente(clave))
                 {
                     FDependiente ad = new FDependiente(clave);
@@ -52,6 +51,7 @@ namespace CapaDePresentacion
                     {
                         lnd.anadirDependiente(new Dependiente(clave, ad.Nombre, ad.Apellidos, ad.Comision));
                     }
+                    ad.Dispose();
                 }
                 else
                 {
@@ -62,6 +62,7 @@ namespace CapaDePresentacion
                     }
                 }
             }
+            f.Dispose();
         }
 
         private void bajaDependiente_Click(object sender, EventArgs e)
@@ -71,16 +72,16 @@ namespace CapaDePresentacion
             if (f.DialogResult == DialogResult.OK)
             {
                 String clave = f.Clave;
-                f.Dispose();
                 if (lnd.existeDependiente(clave))
                 {
                     Dependiente d = lnd.getDependiente(clave);
                     FDependiente ad = new FDependiente(clave, d.Nombre, d.Apellidos, d.ComisionPorVenta, true);
                     ad.ShowDialog();
-                    if (DialogResult.OK.Equals(ad.DialogResult))
+                    if (DialogResult.OK==ad.DialogResult)
                     {
                         lnd.borrarDependiente(d);
                     }
+                    ad.Dispose();
                 }
                 else
                 {
@@ -88,18 +89,21 @@ namespace CapaDePresentacion
 
                 }
             }
+            f.Dispose();
         }
 
         private void búsquedaDependiente_Click(object sender, EventArgs e)
         {
             FBuscar fBuscarDependiente = new FBuscar(TipoDeClase.Dependiente, lnv, lnd, lna);
             fBuscarDependiente.ShowDialog();
+            fBuscarDependiente.Dispose();
         }
 
         private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FListadoDependientes fListadoDependientes = new FListadoDependientes(lnd, lna, lnv);
             fListadoDependientes.ShowDialog();
+            fListadoDependientes.Dispose();
         }
 
         #endregion
@@ -114,10 +118,11 @@ namespace CapaDePresentacion
         {
             FArticulo ad = new FArticulo("Asignado automaticamente");
             ad.ShowDialog();
-            if (DialogResult.OK.Equals(ad.DialogResult))
+            if (DialogResult.OK==ad.DialogResult)
             {
                 lna.anadirArticulo(new Articulo("0", ad.Descripcion, ad.Precio, ad.TipoIVA));
             }
+            ad.Dispose();
         }
 
         private void bajaToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -127,7 +132,6 @@ namespace CapaDePresentacion
             if (f.DialogResult == DialogResult.OK)
             {
                 String clave = f.Clave;
-                f.Dispose();
                 if (lna.existeArticulo(clave))
                 {
                     Articulo a = lna.getArticulo(clave);
@@ -137,6 +141,7 @@ namespace CapaDePresentacion
                     {
                         lna.borrarArticulo(clave);
                     }
+                    ad.Dispose();
                 }
                 else
                 {
@@ -144,18 +149,21 @@ namespace CapaDePresentacion
 
                 }
             }
+            f.Dispose();
         }
 
         private void listadoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FListadoArticulos fListadoArticulos = new FListadoArticulos();
             fListadoArticulos.ShowDialog();
+            fListadoArticulos.Dispose();
         }
 
         private void búsquedaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FBuscar fBuscarDependiente = new FBuscar(TipoDeClase.Articulo, lnv, lnd, lna);
             fBuscarDependiente.ShowDialog();
+            fBuscarDependiente.Dispose();
         }
 
         private void búsquedaPorIVAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -166,10 +174,9 @@ namespace CapaDePresentacion
             {
                 FListadoArticulos fListadoArticulos = new FListadoArticulos(fIntroducirIVA.IVA);
                 fListadoArticulos.ShowDialog();
+                fListadoArticulos.Dispose();
             }
             fIntroducirIVA.Dispose();
-            
-            
         }
 
         #endregion
@@ -191,6 +198,7 @@ namespace CapaDePresentacion
         {
             FListadoVentas fListadoVentas = new FListadoVentas(lnv, lnd, lna);
             fListadoVentas.ShowDialog();
+            fListadoVentas.Dispose();
         }
 
         private void ventasRecientesDeDependienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,9 +212,10 @@ namespace CapaDePresentacion
                 {
                     FListadoVentas fListadoVentas = new FListadoVentas(dependiente, lnv, lnd, lna);
                     fListadoVentas.ShowDialog();
+                    fListadoVentas.Dispose();
                 }
-
             }
+            fIntroducir.Dispose();
 
         }
 
@@ -221,9 +230,11 @@ namespace CapaDePresentacion
                 {
                     FListadoVentas fListadoVentas = new FListadoVentas(articulo, lnv, lnd, lna);
                     fListadoVentas.ShowDialog();
+                    fListadoVentas.Dispose();
                 }
 
             }
+            fIntroducir.Dispose();
         }
 
         private void bajaToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -241,6 +252,7 @@ namespace CapaDePresentacion
                     MessageBox.Show("No se ha encontrado la venta especificada", "Venta no encontrada");
                 }
             }
+            fIntroducir.Dispose();
         }
 
         #endregion

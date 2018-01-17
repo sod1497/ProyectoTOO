@@ -84,7 +84,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(999, 709);
+            this.splitContainer1.Size = new System.Drawing.Size(999, 710);
             this.splitContainer1.SplitterDistance = 615;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -96,7 +96,7 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 694);
+            this.groupBox1.Size = new System.Drawing.Size(600, 695);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ventas";
@@ -124,7 +124,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(588, 667);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(588, 668);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // lbIdVentas
@@ -223,7 +223,7 @@
             this.groupBox3.Controls.Add(this.tableLayoutPanel2);
             this.groupBox3.Location = new System.Drawing.Point(3, 148);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(365, 552);
+            this.groupBox3.Size = new System.Drawing.Size(365, 553);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Líneas de venta";
@@ -231,7 +231,7 @@
             // bDependiente
             // 
             this.bDependiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDependiente.Location = new System.Drawing.Point(95, 513);
+            this.bDependiente.Location = new System.Drawing.Point(95, 514);
             this.bDependiente.Name = "bDependiente";
             this.bDependiente.Size = new System.Drawing.Size(139, 33);
             this.bDependiente.TabIndex = 24;
@@ -242,7 +242,7 @@
             // bArticulo
             // 
             this.bArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bArticulo.Location = new System.Drawing.Point(240, 513);
+            this.bArticulo.Location = new System.Drawing.Point(240, 514);
             this.bArticulo.Name = "bArticulo";
             this.bArticulo.Size = new System.Drawing.Size(119, 33);
             this.bArticulo.TabIndex = 23;
@@ -270,7 +270,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(350, 483);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(350, 484);
             this.tableLayoutPanel2.TabIndex = 22;
             // 
             // label8
@@ -450,9 +450,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 709);
+            this.ClientSize = new System.Drawing.Size(999, 710);
             this.Controls.Add(this.splitContainer1);
-            this.MinimumSize = new System.Drawing.Size(919, 387);
+            this.MinimumSize = new System.Drawing.Size(1017, 757);
             this.Name = "FListadoVentas";
             this.Text = "FListadoVentas";
             this.splitContainer1.Panel1.ResumeLayout(false);

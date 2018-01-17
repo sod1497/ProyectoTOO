@@ -28,6 +28,8 @@ namespace CapaDePresentacion
             this.AcceptButton = bAceptar;
         }
 
+        #region MANEJADORES
+
         private void bAceptar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -39,5 +41,7 @@ namespace CapaDePresentacion
             this.DialogResult = DialogResult.Cancel;
             this.Hide();
         }
+
+        #endregion
     }
 }

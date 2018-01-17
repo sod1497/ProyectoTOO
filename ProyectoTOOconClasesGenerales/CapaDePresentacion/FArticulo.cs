@@ -14,7 +14,6 @@ namespace CapaDePresentacion
     {
         //Guardará el valor validado
         float coste;
-        private Button button1;
         ErrorProvider errorProvider;
 
         private FArticulo() { }

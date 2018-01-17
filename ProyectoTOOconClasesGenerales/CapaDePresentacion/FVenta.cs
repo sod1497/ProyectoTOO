@@ -148,7 +148,7 @@ namespace CapaDePresentacion
         * de la lista, el artículo ha de cambiar a esa y la cantidad tb
         */
 
-        //  MANEJADORES
+        #region MANEJADORES
 
         private void cbIDArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -297,7 +297,9 @@ namespace CapaDePresentacion
 
         }
 
-        //   VALIDADORES
+        #endregion
+
+        #region VALIDADORES
 
         private void tbCantidad_Validating(object sender, CancelEventArgs e)
         {
@@ -326,7 +328,9 @@ namespace CapaDePresentacion
             }
         }
 
-        //  MÉTODOS AUXILIARES
+        #endregion
+
+        #region MÉTODOS AUXILIARES
 
         private void actualizarTotal()
         {
@@ -353,6 +357,6 @@ namespace CapaDePresentacion
             return valid;
         }
 
-
+        #endregion
     }
 }
