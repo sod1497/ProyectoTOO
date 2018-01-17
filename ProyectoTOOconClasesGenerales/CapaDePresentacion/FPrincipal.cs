@@ -226,10 +226,25 @@ namespace CapaDePresentacion
             }
         }
 
-
+        private void bajaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FIntroducir fIntroducir = new FIntroducir(TipoDeClase.Venta);
+            DialogResult dr = fIntroducir.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                if (lnv.existeVenta(fIntroducir.Clave)) {
+                    DialogResult r = MessageBox.Show("¿Seguro que queres borrar la venta?", "Borrar venta", MessageBoxButtons.OKCancel);
+                    if (r == DialogResult.OK) lnv.borrarVenta(fIntroducir.Clave);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha encontrado la venta especificada", "Venta no encontrada");
+                }
+            }
+        }
 
         #endregion
 
-       
+        
     }
 }
