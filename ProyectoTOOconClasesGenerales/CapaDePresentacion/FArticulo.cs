@@ -33,7 +33,7 @@ namespace CapaDePresentacion
 
         //Este constructor crea una baja de dependiente o una visualizacion de datos de dependiente.
         //Si se quiere una baja de dependiente, poner darDeBaja a true.
-        public FArticulo(String clave, String descripcion, String precioCoste, Boolean darDeBaja)
+        public FArticulo(String clave, String descripcion, String precioCoste, Boolean darDeBaja, int iva)
         {
             InitializeComponent();
 
@@ -44,6 +44,9 @@ namespace CapaDePresentacion
                 this.Text = "Dar de baja artículo";
                 this.btAceptar.Text = "Dar baja";
                 this.btAceptar.Click += new System.EventHandler(this.btAceptar_ClickDarBaja);
+                this.btNormal.Enabled = false;
+                this.btReducido.Enabled = false;
+                this.btSuperRed.Enabled = false;
             }
             else
             {
@@ -57,6 +60,25 @@ namespace CapaDePresentacion
             tbDescripcion.ReadOnly = true;
             tbPrecioCoste.Text = precioCoste;
             tbPrecioCoste.ReadOnly = true;
+
+            switch(iva)
+            {
+                case 21:
+                    {
+                        btNormal.Checked = true;
+                        break;
+                    }
+                case 10:
+                    {
+                        btReducido.Checked = true;
+                        break;
+                    }
+                case 4:
+                    {
+                        btSuperRed.Checked = true;
+                        break;
+                    }
+            }
         }
 
         #region PROPIEDADES

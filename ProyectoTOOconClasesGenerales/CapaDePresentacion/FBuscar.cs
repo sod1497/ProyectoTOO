@@ -183,7 +183,7 @@ namespace CapaDePresentacion
                 Articulo d = (Articulo)bindingSource.Current;
                 if (d != null)
                 {
-                    FArticulo ad = new FArticulo(d.Clave, d.Descripcion, d.CosteFabrica.ToString(), true);
+                    FArticulo ad = new FArticulo(d.Clave, d.Descripcion, d.CosteFabrica.ToString(), true,d.IVA);
                     ad.ShowDialog();
                     if (DialogResult.OK.Equals(ad.DialogResult))
                     {

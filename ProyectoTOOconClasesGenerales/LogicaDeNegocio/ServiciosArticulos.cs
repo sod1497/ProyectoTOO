@@ -10,6 +10,7 @@ namespace LogicaDeNegocio
 {
     public class ServiciosArticulos
     {
+        GestorDeClaves gestorDeClaves = new GestorDeClaves();
 
         /*
          * Recibe un articulo con una clave cualquiera y lo inserta con una nueva clave en el sistema
@@ -19,7 +20,7 @@ namespace LogicaDeNegocio
          */
         public bool anadirArticulo(Articulo a)
         {
-            a = new Articulo(GestorDeClaves.NuevaClave(), a.Descripcion, a.CosteFabrica, a.IVA);
+            a = new Articulo(gestorDeClaves.NuevaClave(), a.Descripcion, a.CosteFabrica, a.IVA);
             return Persistencia<Articulo>.anadir(a);
         }
         /*  ****Sugerencia en el cambio de concepto en los añadir*****
@@ -158,6 +159,17 @@ namespace LogicaDeNegocio
         }
 
         /*
+         * Devuelve los artículos con iva indicado
+         */
+
+        public List<Articulo> getArticulosConIva(int iva)
+        {
+            List<Articulo> l = Persistencia<Articulo>.getTodos();
+            l.RemoveAll(x=>x.IVA!=iva);
+            return l;
+        }
+
+        /*
          * Crea valores aleatorios para pruebas
          */
         public void cargarArticulosEjemplo(int count)
@@ -174,5 +186,7 @@ namespace LogicaDeNegocio
                 anadirArticulo(aux);
             }
         }
+
+        
     }
 }

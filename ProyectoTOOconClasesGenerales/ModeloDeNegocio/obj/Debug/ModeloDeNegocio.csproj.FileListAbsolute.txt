@@ -17,4 +17,3 @@ D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerale
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csproj.CoreCompileInputs.cache
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.dll
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ProyectoToo.pdb
-D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\ModeloDeNegocio\obj\Debug\ModeloDeNegocio.csprojResolveAssemblyReference.cache

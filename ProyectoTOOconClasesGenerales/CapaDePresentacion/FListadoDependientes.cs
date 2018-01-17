@@ -127,6 +127,13 @@ namespace CapaDePresentacion
             fListadoVentas.ShowDialog();
         }
 
+        private void bComision_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "La comisión de este mes es "+ serviciosDependiente.calcularComision((Dependiente)bs.Current,DateTime.Now)+" €", 
+                "Comisión de "+ ((Dependiente)bs.Current).NSS);
+        }
+
         #endregion
 
         #region MÉTODOS AUXILIARES
@@ -142,6 +149,8 @@ namespace CapaDePresentacion
         }
 
         #endregion
+
+        
     }
 }
 

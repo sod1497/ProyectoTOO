@@ -14,13 +14,13 @@ namespace LogicaDeNegocio
      * estamos usando un objeto de esta clase, sino los métodos que esta proporciona.
      * 
      */
-    public static class GestorDeClaves
+    public class GestorDeClaves
     {
-        private static string id = "00000000";
+        private string id = "00000000";
         
 
         //Devuelve una clave distinta a las dadas anteriormente de forma incremental
-        public static string NuevaClave()
+        public string NuevaClave()
         {
             string aux = id;
             incrementarClave();
@@ -28,7 +28,7 @@ namespace LogicaDeNegocio
         }
 
         //Incrementa la clave en una unidad. Permite que el formato mantenga la forma XXXXXXXX aunque sean ceros
-        private static void incrementarClave()
+        private void incrementarClave()
         {
             double a;
             double.TryParse(id,out a);

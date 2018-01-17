@@ -17,6 +17,8 @@ namespace LogicaDeNegocio
          *      Devuelve true.
          * Si existe, no hace nada, y devuelve false.
          */
+        GestorDeClaves gestorDeClaves = new GestorDeClaves();
+
         public bool anadirVenta(Venta v)
         {
             if (!Persistencia<Venta>.existe(v))
@@ -24,11 +26,11 @@ namespace LogicaDeNegocio
                 Venta nueva;
                 if(v is VentaConTarjeta)
                 {
-                    nueva = new VentaConTarjeta(GestorDeClaves.NuevaClave(), v.Fecha, v.Dependiente, ((VentaConTarjeta)v).Tarjeta);
+                    nueva = new VentaConTarjeta(gestorDeClaves.NuevaClave(), v.Fecha, v.Dependiente, ((VentaConTarjeta)v).Tarjeta);
                                    }
                 else
                 {
-                    nueva = new VentaSinTarjeta(GestorDeClaves.NuevaClave(), v.Fecha, v.Dependiente);
+                    nueva = new VentaSinTarjeta(gestorDeClaves.NuevaClave(), v.Fecha, v.Dependiente);
                                     }
                 foreach (LineaDeVenta l in v.LineasDeVenta)
                 {

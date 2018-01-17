@@ -73,6 +73,59 @@ namespace CapaDePresentacion
             dataGridView1.Columns.Add(dgvc);
         }
 
+        public FListadoArticulos(int iva)
+        {
+            InitializeComponent();
+            serviciosArticulos = new ServiciosArticulos();
+            errorProvider = new ErrorProvider();
+            articulos = new BindingList<Articulo>(serviciosArticulos.getArticulosConIva(iva));
+            articulos.AllowNew = true;
+            bindingSource = new BindingSource();
+            bindingSource.DataSource = articulos;
+
+            dataGridView1.AllowUserToAddRows = true;
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = bindingSource;
+            dataGridView1.CausesValidation = true;
+
+            //basado en https://stackoverflow.com/questions/1180004/binding-to-bindinglistt-choose-what-to-bind
+
+            DataGridViewColumn dgvc = new DataGridViewColumn();
+            dgvc.Name = "Identificador";
+            dgvc.HeaderText = "Identificador";
+            dgvc.DataPropertyName = "ID";
+            dgvc.CellTemplate = new DataGridViewTextBoxCell();
+            dataGridView1.Columns.Add(dgvc);
+
+            dgvc = new DataGridViewColumn();
+            dgvc.Name = "Descripción";
+            dgvc.HeaderText = "Descripción";
+            dgvc.DataPropertyName = "Descripcion";
+            dgvc.CellTemplate = new DataGridViewTextBoxCell();
+            dataGridView1.Columns.Add(dgvc);
+
+            dgvc = new DataGridViewColumn();
+            dgvc.Name = "Coste de Fábrica";
+            dgvc.HeaderText = "Coste de Fábrica";
+            dgvc.DataPropertyName = "CosteFabrica";
+            dgvc.CellTemplate = new DataGridViewTextBoxCell();
+            dataGridView1.Columns.Add(dgvc);
+
+            dgvc = new DataGridViewColumn();
+            dgvc.Name = "IVA";
+            dgvc.HeaderText = "IVA";
+            dgvc.DataPropertyName = "IVA";
+            dgvc.CellTemplate = new DataGridViewTextBoxCell();
+            dataGridView1.Columns.Add(dgvc);
+
+            dgvc = new DataGridViewColumn();
+            dgvc.Name = "Importe";
+            dgvc.HeaderText = "Importe";
+            dgvc.DataPropertyName = "Importe";
+            dgvc.CellTemplate = new DataGridViewTextBoxCell();
+            dataGridView1.Columns.Add(dgvc);
+        }
+
         #region VALIDADORES
 
         private void cell_Validating(object sender, DataGridViewCellValidatingEventArgs e)

@@ -36,3 +36,4 @@ D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerale
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FBuscar.resources
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FVenta.resources
 D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FListadoVentas.resources
+D:\Usuarios\sod14\Documentos\GitHubRepositories\TOO\ProyectoTOOconClasesGenerales\CapaDePresentacion\obj\Debug\CapaDePresentacion.FIntroducirIVA.resources

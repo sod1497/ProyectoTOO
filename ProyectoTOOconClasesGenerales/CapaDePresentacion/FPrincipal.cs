@@ -131,7 +131,7 @@ namespace CapaDePresentacion
                 if (lna.existeArticulo(clave))
                 {
                     Articulo a = lna.getArticulo(clave);
-                    FArticulo ad = new FArticulo(clave, a.Descripcion, a.CosteFabrica.ToString(), true);
+                    FArticulo ad = new FArticulo(clave, a.Descripcion, a.CosteFabrica.ToString(), true,a.IVA);
                     ad.ShowDialog();
                     if (DialogResult.OK.Equals(ad.DialogResult))
                     {
@@ -140,7 +140,7 @@ namespace CapaDePresentacion
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show(this, "Error", "No existe un artículo con ese ID", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    DialogResult dr = MessageBox.Show(this,  "No existe un artículo con ese ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
             }
@@ -156,6 +156,20 @@ namespace CapaDePresentacion
         {
             FBuscar fBuscarDependiente = new FBuscar(TipoDeClase.Articulo, lnv, lnd, lna);
             fBuscarDependiente.ShowDialog();
+        }
+
+        private void búsquedaPorIVAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FIntroducirIVA fIntroducirIVA = new FIntroducirIVA();
+            DialogResult r = fIntroducirIVA.ShowDialog();
+            if(r==DialogResult.OK)
+            {
+                FListadoArticulos fListadoArticulos = new FListadoArticulos(fIntroducirIVA.IVA);
+                fListadoArticulos.ShowDialog();
+            }
+            fIntroducirIVA.Dispose();
+            
+            
         }
 
         #endregion
@@ -211,10 +225,11 @@ namespace CapaDePresentacion
 
             }
         }
+
+
+
         #endregion
 
-
-
-
+       
     }
 }

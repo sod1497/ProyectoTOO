@@ -49,6 +49,7 @@
             this.ventasRecientesDeDependienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasDeArtículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.búsquedaPorIVAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +119,7 @@
             this.bajaToolStripMenuItem1,
             this.toolStripSeparator2,
             this.búsquedaToolStripMenuItem1,
+            this.búsquedaPorIVAToolStripMenuItem,
             this.listadoToolStripMenuItem1});
             this.artículosToolStripMenuItem.Name = "artículosToolStripMenuItem";
             this.artículosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
@@ -126,33 +128,33 @@
             // altaToolStripMenuItem1
             // 
             this.altaToolStripMenuItem1.Name = "altaToolStripMenuItem1";
-            this.altaToolStripMenuItem1.Size = new System.Drawing.Size(149, 26);
+            this.altaToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.altaToolStripMenuItem1.Text = "Alta";
             this.altaToolStripMenuItem1.Click += new System.EventHandler(this.altaArticulo_Click);
             // 
             // bajaToolStripMenuItem1
             // 
             this.bajaToolStripMenuItem1.Name = "bajaToolStripMenuItem1";
-            this.bajaToolStripMenuItem1.Size = new System.Drawing.Size(149, 26);
+            this.bajaToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.bajaToolStripMenuItem1.Text = "Baja";
             this.bajaToolStripMenuItem1.Click += new System.EventHandler(this.bajaToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
             // 
             // búsquedaToolStripMenuItem1
             // 
             this.búsquedaToolStripMenuItem1.Name = "búsquedaToolStripMenuItem1";
-            this.búsquedaToolStripMenuItem1.Size = new System.Drawing.Size(149, 26);
+            this.búsquedaToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.búsquedaToolStripMenuItem1.Text = "Búsqueda";
             this.búsquedaToolStripMenuItem1.Click += new System.EventHandler(this.búsquedaToolStripMenuItem1_Click);
             // 
             // listadoToolStripMenuItem1
             // 
             this.listadoToolStripMenuItem1.Name = "listadoToolStripMenuItem1";
-            this.listadoToolStripMenuItem1.Size = new System.Drawing.Size(149, 26);
+            this.listadoToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.listadoToolStripMenuItem1.Text = "Listado";
             this.listadoToolStripMenuItem1.Click += new System.EventHandler(this.listadoToolStripMenuItem1_Click);
             // 
@@ -171,20 +173,20 @@
             // altaToolStripMenuItem2
             // 
             this.altaToolStripMenuItem2.Name = "altaToolStripMenuItem2";
-            this.altaToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.altaToolStripMenuItem2.Size = new System.Drawing.Size(149, 26);
             this.altaToolStripMenuItem2.Text = "Alta";
             this.altaToolStripMenuItem2.Click += new System.EventHandler(this.altaToolStripMenuItem2_Click);
             // 
             // bajaToolStripMenuItem2
             // 
             this.bajaToolStripMenuItem2.Name = "bajaToolStripMenuItem2";
-            this.bajaToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.bajaToolStripMenuItem2.Size = new System.Drawing.Size(149, 26);
             this.bajaToolStripMenuItem2.Text = "Baja";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(146, 6);
             // 
             // búsquedaToolStripMenuItem2
             // 
@@ -192,7 +194,7 @@
             this.ventasRecientesDeDependienteToolStripMenuItem,
             this.ventasDeArtículoToolStripMenuItem});
             this.búsquedaToolStripMenuItem2.Name = "búsquedaToolStripMenuItem2";
-            this.búsquedaToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.búsquedaToolStripMenuItem2.Size = new System.Drawing.Size(149, 26);
             this.búsquedaToolStripMenuItem2.Text = "Búsqueda";
             // 
             // ventasRecientesDeDependienteToolStripMenuItem
@@ -212,9 +214,16 @@
             // listadoToolStripMenuItem2
             // 
             this.listadoToolStripMenuItem2.Name = "listadoToolStripMenuItem2";
-            this.listadoToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.listadoToolStripMenuItem2.Size = new System.Drawing.Size(149, 26);
             this.listadoToolStripMenuItem2.Text = "Listado";
             this.listadoToolStripMenuItem2.Click += new System.EventHandler(this.listadoToolStripMenuItem2_Click);
+            // 
+            // búsquedaPorIVAToolStripMenuItem
+            // 
+            this.búsquedaPorIVAToolStripMenuItem.Name = "búsquedaPorIVAToolStripMenuItem";
+            this.búsquedaPorIVAToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.búsquedaPorIVAToolStripMenuItem.Text = "Búsqueda por IVA";
+            this.búsquedaPorIVAToolStripMenuItem.Click += new System.EventHandler(this.búsquedaPorIVAToolStripMenuItem_Click);
             // 
             // FPrincipal
             // 
@@ -257,5 +266,6 @@
         private System.Windows.Forms.ToolStripMenuItem listadoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem ventasRecientesDeDependienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasDeArtículoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem búsquedaPorIVAToolStripMenuItem;
     }
 }

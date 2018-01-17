@@ -42,6 +42,12 @@
             this.tbPrecioUD = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbLineasImporte = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbLineasCantidad = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tbImporte = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,18 +61,12 @@
             this.rbTarjeta = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbDependiente = new System.Windows.Forms.TextBox();
-            this.lbLineasCantidad = new System.Windows.Forms.ListBox();
-            this.lbLineasImporte = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.lbImporteTotal = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,6 +220,82 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Artículos";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbLineasImporte, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbLineasCantidad, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbLineasArticulo, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 196);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 295);
+            this.tableLayoutPanel1.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "ID Artículo";
+            // 
+            // lbLineasImporte
+            // 
+            this.lbLineasImporte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbLineasImporte.FormattingEnabled = true;
+            this.lbLineasImporte.ItemHeight = 16;
+            this.lbLineasImporte.Location = new System.Drawing.Point(267, 20);
+            this.lbLineasImporte.Name = "lbLineasImporte";
+            this.lbLineasImporte.Size = new System.Drawing.Size(130, 260);
+            this.lbLineasImporte.TabIndex = 20;
+            this.lbLineasImporte.SelectedIndexChanged += new System.EventHandler(this.lbLineas_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(135, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 17);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Cantidad";
+            // 
+            // lbLineasCantidad
+            // 
+            this.lbLineasCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbLineasCantidad.FormattingEnabled = true;
+            this.lbLineasCantidad.ItemHeight = 16;
+            this.lbLineasCantidad.Location = new System.Drawing.Point(135, 20);
+            this.lbLineasCantidad.Name = "lbLineasCantidad";
+            this.lbLineasCantidad.Size = new System.Drawing.Size(126, 260);
+            this.lbLineasCantidad.TabIndex = 19;
+            this.lbLineasCantidad.SelectedIndexChanged += new System.EventHandler(this.lbLineas_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(267, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 17);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Importe";
+            // 
             // tbImporte
             // 
             this.tbImporte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -357,82 +433,6 @@
             this.tbDependiente.Size = new System.Drawing.Size(231, 22);
             this.tbDependiente.TabIndex = 4;
             // 
-            // lbLineasCantidad
-            // 
-            this.lbLineasCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbLineasCantidad.FormattingEnabled = true;
-            this.lbLineasCantidad.ItemHeight = 16;
-            this.lbLineasCantidad.Location = new System.Drawing.Point(135, 20);
-            this.lbLineasCantidad.Name = "lbLineasCantidad";
-            this.lbLineasCantidad.Size = new System.Drawing.Size(126, 260);
-            this.lbLineasCantidad.TabIndex = 19;
-            this.lbLineasCantidad.SelectedIndexChanged += new System.EventHandler(this.lbLineas_SelectedIndexChanged);
-            // 
-            // lbLineasImporte
-            // 
-            this.lbLineasImporte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbLineasImporte.FormattingEnabled = true;
-            this.lbLineasImporte.ItemHeight = 16;
-            this.lbLineasImporte.Location = new System.Drawing.Point(267, 20);
-            this.lbLineasImporte.Name = "lbLineasImporte";
-            this.lbLineasImporte.Size = new System.Drawing.Size(130, 260);
-            this.lbLineasImporte.TabIndex = 20;
-            this.lbLineasImporte.SelectedIndexChanged += new System.EventHandler(this.lbLineas_SelectedIndexChanged);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbLineasImporte, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbLineasCantidad, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbLineasArticulo, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 196);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 295);
-            this.tableLayoutPanel1.TabIndex = 21;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "ID Artículo";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(135, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 17);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Cantidad";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(267, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 17);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Importe";
-            // 
             // lbImporteTotal
             // 
             this.lbImporteTotal.AutoSize = true;
@@ -471,12 +471,12 @@
             this.Text = "FVenta";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);

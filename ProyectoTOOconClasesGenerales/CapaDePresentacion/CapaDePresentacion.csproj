@@ -63,6 +63,12 @@
     <Compile Include="FDependiente.Designer.cs">
       <DependentUpon>FDependiente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FIntroducirIVA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FIntroducirIVA.Designer.cs">
+      <DependentUpon>FIntroducirIVA.cs</DependentUpon>
+    </Compile>
     <Compile Include="FListadoArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FIntroducir.resx">
       <DependentUpon>FIntroducir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FIntroducirIVA.resx">
+      <DependentUpon>FIntroducirIVA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FListadoArticulos.resx">
       <DependentUpon>FListadoArticulos.cs</DependentUpon>

@@ -39,6 +39,7 @@
             this.bCerrar = new System.Windows.Forms.Button();
             this.bModificar = new System.Windows.Forms.Button();
             this.bVentas = new System.Windows.Forms.Button();
+            this.bComision = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,7 +145,7 @@
             // bAdd
             // 
             this.bAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bAdd.Location = new System.Drawing.Point(158, 367);
+            this.bAdd.Location = new System.Drawing.Point(52, 367);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(116, 30);
             this.bAdd.TabIndex = 8;
@@ -178,7 +179,7 @@
             // bVentas
             // 
             this.bVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bVentas.Location = new System.Drawing.Point(280, 367);
+            this.bVentas.Location = new System.Drawing.Point(174, 367);
             this.bVentas.Name = "bVentas";
             this.bVentas.Size = new System.Drawing.Size(100, 30);
             this.bVentas.TabIndex = 11;
@@ -186,11 +187,23 @@
             this.bVentas.UseVisualStyleBackColor = true;
             this.bVentas.Click += new System.EventHandler(this.bVentas_Click);
             // 
+            // bComision
+            // 
+            this.bComision.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bComision.Location = new System.Drawing.Point(280, 367);
+            this.bComision.Name = "bComision";
+            this.bComision.Size = new System.Drawing.Size(100, 30);
+            this.bComision.TabIndex = 12;
+            this.bComision.Text = "Ver comisión";
+            this.bComision.UseVisualStyleBackColor = true;
+            this.bComision.Click += new System.EventHandler(this.bComision_Click);
+            // 
             // FListadoDependientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 406);
+            this.Controls.Add(this.bComision);
             this.Controls.Add(this.bVentas);
             this.Controls.Add(this.bModificar);
             this.Controls.Add(this.bCerrar);
@@ -218,5 +231,6 @@
         private System.Windows.Forms.Button bCerrar;
         private System.Windows.Forms.Button bModificar;
         private System.Windows.Forms.Button bVentas;
+        private System.Windows.Forms.Button bComision;
     }
 }
