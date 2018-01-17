@@ -1,0 +1,27 @@
+Funciones para dependientes:
+ - En buscar dependiente hemos unido la funcionalidad con recorrer dependientes de forma que
+   se puede acceder de forma rápida a cada dependiente desde un comboBox con todos los ids de
+   los dependientes
+ - En el mismo formulario podemos seleccionar si queremos que los cambios se apliquen automáticamente
+   o por el contrario si queremos tener que aceptar para que los cambios se efectuen
+Funciones para artículos:
+ - El formulario de buscar artículo se comporta de forma similar a buscar dependiente según ambas
+   modificaciones indicadas anteriormente
+ - El listado de artículos permite modificar las entradas y añadir nuevas
+Funciones para ventas:
+ - Hemos creado una interfaz unitaria para crear las líneas de venta en una venta y la propia venta:
+    - En la sección artículos seleccionamos el id de artículo y con los botones + o - cambiamos la 
+      cantidad de este. Si es mayor que 0, habrá una línea en la venta, sino no. Los artículos iguales
+      se combinan en la misma venta. Disponemos además de un resumen de las líneas actuales
+    - En la sección datos de venta elegimos el dependiente
+    - En la sección de pago elegimos el método
+    - Dispone de un resumen del total, validadores en los campos requeridos y la interfaz se adapta
+      al tamaño de la pantalla
+ - Hemos creado una interfaz de listado de ventas que permite ver las líneas de venta por cada venta
+   de un solo vistazo. Permite acceder por cada venta al dependiente y al artículo seleccionado
+   además de ver los datos de la venta. Esta interfaz permite ser llamada para mostrar los datos de
+   un único dependiente, para mostrar las ventas de ese dependiente. De la misma manera podemos 
+   llamarla con un artículo.
+Funciones para pruebas:
+ - Hemos añadido unos algoritmos de generación de objetos aleatorios para hacer pruebas del correcto
+   funcionamiento del programa.
